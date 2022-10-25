@@ -1,41 +1,4613 @@
 {
   "categories": [
     {
-      "title": "Bubble Tea"
+      "uuid": "5a49a91f-f751-435f-8ff7-f3f35d487d55",
+      "titleEn": "Bubble Tea",
+      "titleAr": "Bubble Tea",
+      "published": true,
+      "showCategory": true,
+      "products": [
+        {
+          "uuid": "249744d1-333f-4916-8fd4-6daacb6dc41c",
+          "titleEn": "KOHI Boba",
+          "titleAr": "Espresso Boba",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/249744d1-333f-4916-8fd4-6daacb6dc41c/original/C9261B41-8A18-4401-84BC-204E11880E7B.jpeg?1657667314",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "2.000",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 0,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": false,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["5a49a91f-f751-435f-8ff7-f3f35d487d55"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "625322",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 2,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": [
+                {
+                  "maxQuantity": 5,
+                  "minQuantity": 0,
+                  "position": 0,
+                  "uuid": "e4f0472d-6482-476c-8ab7-54b0412f383c",
+                  "multipleAddOnsEnabled": false,
+                  "titleAr": "الاظافات",
+                  "titleEn": "Add ons",
+                  "options": [
+                    {
+                      "titleAr": "تابيوكا",
+                      "titleEn": "Tapioca Pearls",
+                      "uuid": "a8b89a80-c98b-499f-be02-1a01f7d1bf1a",
+                      "price": 0.35
+                    },
+                    {
+                      "titleAr": "صوص",
+                      "titleEn": "Syrup/Sauce",
+                      "uuid": "0324c8ed-c0af-4312-849f-8a4020ae2b49",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "اسبريسو",
+                      "titleEn": "Espresso Shot",
+                      "uuid": "976e9e1e-7f0a-40ab-bf74-97ca5bc9ae4c",
+                      "price": 0.3
+                    },
+                    {
+                      "titleAr": "حليب الصويا",
+                      "titleEn": "Soya Milk",
+                      "uuid": "9fb54a32-c42e-4c3f-9fe1-0a38e342b062",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب اللوز",
+                      "titleEn": "Almond Milk",
+                      "uuid": "e1138082-63f6-43db-b88a-c9cfe62ed85e",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب خالي من اللاكتوز",
+                      "titleEn": "Lactose Free Milk",
+                      "uuid": "462e6149-02b8-4f58-b31d-080cf5852f19",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب خالي الدسم",
+                      "titleEn": "Skimmed milk",
+                      "uuid": "4c77ddba-4fc8-4924-bcdc-af490201dd6c",
+                      "price": 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "uuid": "1dfcfe89-2688-4869-a194-9748141db6bf",
+          "titleEn": "Brown Sugar Boba",
+          "titleAr": "Brown Sugar Boba",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/1dfcfe89-2688-4869-a194-9748141db6bf/original/4E1C3A76-FDF1-45DD-907E-B37ACFDAEFFE.jpeg?1657667121",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "2.000",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 0,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": false,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["5a49a91f-f751-435f-8ff7-f3f35d487d55"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "625320",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 2,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": [
+                {
+                  "maxQuantity": 5,
+                  "minQuantity": 0,
+                  "position": 0,
+                  "uuid": "e4f0472d-6482-476c-8ab7-54b0412f383c",
+                  "multipleAddOnsEnabled": false,
+                  "titleAr": "الاظافات",
+                  "titleEn": "Add ons",
+                  "options": [
+                    {
+                      "titleAr": "تابيوكا",
+                      "titleEn": "Tapioca Pearls",
+                      "uuid": "a8b89a80-c98b-499f-be02-1a01f7d1bf1a",
+                      "price": 0.35
+                    },
+                    {
+                      "titleAr": "صوص",
+                      "titleEn": "Syrup/Sauce",
+                      "uuid": "0324c8ed-c0af-4312-849f-8a4020ae2b49",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "اسبريسو",
+                      "titleEn": "Espresso Shot",
+                      "uuid": "976e9e1e-7f0a-40ab-bf74-97ca5bc9ae4c",
+                      "price": 0.3
+                    },
+                    {
+                      "titleAr": "حليب الصويا",
+                      "titleEn": "Soya Milk",
+                      "uuid": "9fb54a32-c42e-4c3f-9fe1-0a38e342b062",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب اللوز",
+                      "titleEn": "Almond Milk",
+                      "uuid": "e1138082-63f6-43db-b88a-c9cfe62ed85e",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب خالي من اللاكتوز",
+                      "titleEn": "Lactose Free Milk",
+                      "uuid": "462e6149-02b8-4f58-b31d-080cf5852f19",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب خالي الدسم",
+                      "titleEn": "Skimmed milk",
+                      "uuid": "4c77ddba-4fc8-4924-bcdc-af490201dd6c",
+                      "price": 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "uuid": "ad5f5089-fdea-432d-ba57-11dd8acc5d7e",
+          "titleEn": "Espresso Boba",
+          "titleAr": ".",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/ad5f5089-fdea-432d-ba57-11dd8acc5d7e/original/FFF12964-0339-4DB6-81F3-77D9D7B07E4A.jpeg?1657666857",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "2.250",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 0,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": false,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["5a49a91f-f751-435f-8ff7-f3f35d487d55"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "625319",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 2.25,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": [
+                {
+                  "maxQuantity": 5,
+                  "minQuantity": 0,
+                  "position": 0,
+                  "uuid": "e4f0472d-6482-476c-8ab7-54b0412f383c",
+                  "multipleAddOnsEnabled": false,
+                  "titleAr": "الاظافات",
+                  "titleEn": "Add ons",
+                  "options": [
+                    {
+                      "titleAr": "تابيوكا",
+                      "titleEn": "Tapioca Pearls",
+                      "uuid": "a8b89a80-c98b-499f-be02-1a01f7d1bf1a",
+                      "price": 0.35
+                    },
+                    {
+                      "titleAr": "صوص",
+                      "titleEn": "Syrup/Sauce",
+                      "uuid": "0324c8ed-c0af-4312-849f-8a4020ae2b49",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "اسبريسو",
+                      "titleEn": "Espresso Shot",
+                      "uuid": "976e9e1e-7f0a-40ab-bf74-97ca5bc9ae4c",
+                      "price": 0.3
+                    },
+                    {
+                      "titleAr": "حليب الصويا",
+                      "titleEn": "Soya Milk",
+                      "uuid": "9fb54a32-c42e-4c3f-9fe1-0a38e342b062",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب اللوز",
+                      "titleEn": "Almond Milk",
+                      "uuid": "e1138082-63f6-43db-b88a-c9cfe62ed85e",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب خالي من اللاكتوز",
+                      "titleEn": "Lactose Free Milk",
+                      "uuid": "462e6149-02b8-4f58-b31d-080cf5852f19",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب خالي الدسم",
+                      "titleEn": "Skimmed milk",
+                      "uuid": "4c77ddba-4fc8-4924-bcdc-af490201dd6c",
+                      "price": 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
-
     {
-      "title": "Mojito"
+      "uuid": "02f39ed8-db92-44c3-81ca-e6f073352140",
+      "titleEn": "Mojito",
+      "titleAr": "Mojito",
+      "published": true,
+      "showCategory": true,
+      "products": [
+        {
+          "uuid": "026a9cbc-8f92-422c-8c66-94b9dab16034",
+          "titleEn": "Mixed Berries Mojito",
+          "titleAr": "Mixed Berries Mojito",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/026a9cbc-8f92-422c-8c66-94b9dab16034/original/0A713725-C647-4CEE-8038-3DC4964E0222.jpeg?1657669233",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "2.000",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 2,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": true,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["02f39ed8-db92-44c3-81ca-e6f073352140"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597674",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 2,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": []
+            }
+          ]
+        },
+        {
+          "uuid": "5b70b79e-a6f5-4d42-adf2-604a9395a2a5",
+          "titleEn": "Passion Fruit Mojito",
+          "titleAr": "Passion Fruit Mojito",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/5b70b79e-a6f5-4d42-adf2-604a9395a2a5/original/B06EDD1D-B750-418A-96C6-4C301F02BB24.jpeg?1657669268",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "1.750",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 1.75,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": true,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["02f39ed8-db92-44c3-81ca-e6f073352140"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597673",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 1.75,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": []
+            }
+          ]
+        },
+        {
+          "uuid": "9d344f67-8c61-4a09-9ee0-37608959f550",
+          "titleEn": "Lime Mojito",
+          "titleAr": "Lime Mojito",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/9d344f67-8c61-4a09-9ee0-37608959f550/original/1FC07AD9-46E9-44E5-B889-2EE48C62C08B.jpeg?1657669296",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "1.750",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 1.75,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": true,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["02f39ed8-db92-44c3-81ca-e6f073352140"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597672",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 1.75,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": []
+            }
+          ]
+        },
+        {
+          "uuid": "12cef422-307f-45e9-afec-b4de7bddab24",
+          "titleEn": "kohi lagoon Mojito",
+          "titleAr": "kohi lagoon Mojito",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/12cef422-307f-45e9-afec-b4de7bddab24/original/1C66BD65-9ACD-428A-B643-02AEC97B8BDC.jpeg?1657669333",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "1.750",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 1.75,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": true,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["02f39ed8-db92-44c3-81ca-e6f073352140"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597671",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 1.75,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": []
+            }
+          ]
+        },
+        {
+          "uuid": "82751859-7d46-4528-b6c7-3b8230139b14",
+          "titleEn": "Peach Mojito",
+          "titleAr": "Peach Mojito",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/82751859-7d46-4528-b6c7-3b8230139b14/original/76A64F83-96EF-4F2B-BF1D-9AE1F2EB2329.jpeg?1657669362",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "1.750",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 1.75,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": true,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["02f39ed8-db92-44c3-81ca-e6f073352140"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597670",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 1.75,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": []
+            }
+          ]
+        },
+        {
+          "uuid": "e3d3fd28-8f05-418e-89e2-905394a0bb88",
+          "titleEn": "Strawberry Mojito",
+          "titleAr": "Strawberry Mojito",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/e3d3fd28-8f05-418e-89e2-905394a0bb88/original/B3EF8E77-D0EB-470D-8745-61FE537C4DEA.jpeg?1657669388",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "1.750",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 1.75,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": true,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["02f39ed8-db92-44c3-81ca-e6f073352140"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597669",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 1.75,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": []
+            }
+          ]
+        }
+      ]
     },
     {
-      "title": "Desserts"
+      "uuid": "bec43882-00e4-47a3-bd65-5e533f2e2caa",
+      "titleEn": "Desserts",
+      "titleAr": "Desserts",
+      "published": true,
+      "showCategory": true,
+      "products": [
+        {
+          "uuid": "fb1eb386-cb6f-421a-a7ad-badbf4fde129",
+          "titleEn": "Boba Japanese Pancake",
+          "titleAr": "Boba Japanese Pancake",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/fb1eb386-cb6f-421a-a7ad-badbf4fde129/original/8B419540-3D4D-428E-A007-AB60E73D21E0.jpeg?1658142065",
+          "maxPrepTime": 20,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "2.500",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 0,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": false,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["bec43882-00e4-47a3-bd65-5e533f2e2caa"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "626707",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 2.5,
+              "prepTime": 20,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": [
+                {
+                  "maxQuantity": 5,
+                  "minQuantity": 0,
+                  "position": 0,
+                  "uuid": "50166e1a-39ec-49b7-b119-89202262f424",
+                  "multipleAddOnsEnabled": false,
+                  "titleAr": "صوص اظافي",
+                  "titleEn": "Extra Sauce",
+                  "options": [
+                    {
+                      "titleAr": "شوكولاته",
+                      "titleEn": "Milk Chocolate Sauce",
+                      "uuid": "37b802d0-70ee-4e6d-b70a-8c61e255108e",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "شوكولاته بيضاء",
+                      "titleEn": "White chocolate",
+                      "uuid": "c679ae2a-81f1-4fe1-9973-960984fac077",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "صوص الفستق",
+                      "titleEn": "Pistachio Sauce",
+                      "uuid": "e94cab91-0e1a-4452-9ef5-2d461f65931c",
+                      "price": 0.5
+                    },
+                    {
+                      "titleAr": "شوكولاته الكندر",
+                      "titleEn": "Kinder sauce",
+                      "uuid": "ad43eafb-95b3-4b27-8981-7e9d907e1858",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "تابيوكا",
+                      "titleEn": "Tapioca Pearls",
+                      "uuid": "2ae3e087-82a0-4a02-ae22-a683c82fcea6",
+                      "price": 0.35
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "uuid": "74a0f5f0-be8d-4c6a-966c-b8acccc8309f",
+          "titleEn": "Pistachio Japanese pancake",
+          "titleAr": "Pistachio Japanese pancake",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/74a0f5f0-be8d-4c6a-966c-b8acccc8309f/original/BC419AD9-57BF-4D18-AE21-B0793877FA9F.jpeg?1658141989",
+          "maxPrepTime": 20,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "2.500",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 0,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": false,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["bec43882-00e4-47a3-bd65-5e533f2e2caa"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "626704",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 2.5,
+              "prepTime": 20,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": [
+                {
+                  "maxQuantity": 5,
+                  "minQuantity": 0,
+                  "position": 0,
+                  "uuid": "50166e1a-39ec-49b7-b119-89202262f424",
+                  "multipleAddOnsEnabled": false,
+                  "titleAr": "صوص اظافي",
+                  "titleEn": "Extra Sauce",
+                  "options": [
+                    {
+                      "titleAr": "شوكولاته",
+                      "titleEn": "Milk Chocolate Sauce",
+                      "uuid": "37b802d0-70ee-4e6d-b70a-8c61e255108e",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "شوكولاته بيضاء",
+                      "titleEn": "White chocolate",
+                      "uuid": "c679ae2a-81f1-4fe1-9973-960984fac077",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "صوص الفستق",
+                      "titleEn": "Pistachio Sauce",
+                      "uuid": "e94cab91-0e1a-4452-9ef5-2d461f65931c",
+                      "price": 0.5
+                    },
+                    {
+                      "titleAr": "شوكولاته الكندر",
+                      "titleEn": "Kinder sauce",
+                      "uuid": "ad43eafb-95b3-4b27-8981-7e9d907e1858",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "تابيوكا",
+                      "titleEn": "Tapioca Pearls",
+                      "uuid": "2ae3e087-82a0-4a02-ae22-a683c82fcea6",
+                      "price": 0.35
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "uuid": "07686c3f-fdeb-49fc-9153-61bb363c5d2c",
+          "titleEn": "Chocolate Japanese Pancake",
+          "titleAr": "Chocolate Japanese Pancake",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/07686c3f-fdeb-49fc-9153-61bb363c5d2c/original/0B7DF185-8C15-46F0-B65F-1833F690F110.jpeg?1658141872",
+          "maxPrepTime": 20,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "2.500",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 0,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": false,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["bec43882-00e4-47a3-bd65-5e533f2e2caa"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "626702",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 2.5,
+              "prepTime": 20,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": [
+                {
+                  "maxQuantity": 4,
+                  "minQuantity": 0,
+                  "position": 0,
+                  "uuid": "50166e1a-39ec-49b7-b119-89202262f424",
+                  "multipleAddOnsEnabled": false,
+                  "titleAr": "صوص اظافي",
+                  "titleEn": "Extra Sauce",
+                  "options": [
+                    {
+                      "titleAr": "شوكولاته",
+                      "titleEn": "Milk Chocolate Sauce",
+                      "uuid": "37b802d0-70ee-4e6d-b70a-8c61e255108e",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "شوكولاته بيضاء",
+                      "titleEn": "White chocolate",
+                      "uuid": "c679ae2a-81f1-4fe1-9973-960984fac077",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "صوص الفستق",
+                      "titleEn": "Pistachio Sauce",
+                      "uuid": "e94cab91-0e1a-4452-9ef5-2d461f65931c",
+                      "price": 0.5
+                    },
+                    {
+                      "titleAr": "شوكولاته الكندر",
+                      "titleEn": "Kinder sauce",
+                      "uuid": "ad43eafb-95b3-4b27-8981-7e9d907e1858",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "تابيوكا",
+                      "titleEn": "Tapioca Pearls",
+                      "uuid": "2ae3e087-82a0-4a02-ae22-a683c82fcea6",
+                      "price": 0.35
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "uuid": "9fe7e808-ee9e-4c5e-8504-19d56ee124d5",
+          "titleEn": "Japanese Pancake",
+          "titleAr": "Japanese Pancake",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/9fe7e808-ee9e-4c5e-8504-19d56ee124d5/original/15CA5A44-E7D8-42EC-954C-5F27947395E0.jpeg?1658141737",
+          "maxPrepTime": 20,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "2.250",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 2.25,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": false,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["bec43882-00e4-47a3-bd65-5e533f2e2caa"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597685",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 2.25,
+              "prepTime": 20,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": [
+                {
+                  "maxQuantity": 5,
+                  "minQuantity": 0,
+                  "position": 0,
+                  "uuid": "50166e1a-39ec-49b7-b119-89202262f424",
+                  "multipleAddOnsEnabled": false,
+                  "titleAr": "صوص اظافي",
+                  "titleEn": "Extra Sauce",
+                  "options": [
+                    {
+                      "titleAr": "شوكولاته",
+                      "titleEn": "Milk Chocolate Sauce",
+                      "uuid": "37b802d0-70ee-4e6d-b70a-8c61e255108e",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "شوكولاته بيضاء",
+                      "titleEn": "White chocolate",
+                      "uuid": "c679ae2a-81f1-4fe1-9973-960984fac077",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "صوص الفستق",
+                      "titleEn": "Pistachio Sauce",
+                      "uuid": "e94cab91-0e1a-4452-9ef5-2d461f65931c",
+                      "price": 0.5
+                    },
+                    {
+                      "titleAr": "شوكولاته الكندر",
+                      "titleEn": "Kinder sauce",
+                      "uuid": "ad43eafb-95b3-4b27-8981-7e9d907e1858",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "تابيوكا",
+                      "titleEn": "Tapioca Pearls",
+                      "uuid": "2ae3e087-82a0-4a02-ae22-a683c82fcea6",
+                      "price": 0.35
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "uuid": "da54bcb5-bc7c-4c96-9bd7-20d8a1431231",
+          "titleEn": "Japanese Cheesecake",
+          "titleAr": "Japanese Cheesecake",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/da54bcb5-bc7c-4c96-9bd7-20d8a1431231/original/23AAEABD-C55F-4F28-921B-AE0C2724BF6C.jpeg?1657038726",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "2.000",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 2,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": false,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["bec43882-00e4-47a3-bd65-5e533f2e2caa"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597684",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 2,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": [
+                {
+                  "maxQuantity": 5,
+                  "minQuantity": 0,
+                  "position": 0,
+                  "uuid": "50166e1a-39ec-49b7-b119-89202262f424",
+                  "multipleAddOnsEnabled": false,
+                  "titleAr": "صوص اظافي",
+                  "titleEn": "Extra Sauce",
+                  "options": [
+                    {
+                      "titleAr": "شوكولاته",
+                      "titleEn": "Milk Chocolate Sauce",
+                      "uuid": "37b802d0-70ee-4e6d-b70a-8c61e255108e",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "شوكولاته بيضاء",
+                      "titleEn": "White chocolate",
+                      "uuid": "c679ae2a-81f1-4fe1-9973-960984fac077",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "صوص الفستق",
+                      "titleEn": "Pistachio Sauce",
+                      "uuid": "e94cab91-0e1a-4452-9ef5-2d461f65931c",
+                      "price": 0.5
+                    },
+                    {
+                      "titleAr": "شوكولاته الكندر",
+                      "titleEn": "Kinder sauce",
+                      "uuid": "ad43eafb-95b3-4b27-8981-7e9d907e1858",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "تابيوكا",
+                      "titleEn": "Tapioca Pearls",
+                      "uuid": "2ae3e087-82a0-4a02-ae22-a683c82fcea6",
+                      "price": 0.35
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "uuid": "5a3e4090-710f-426c-9536-3a89dd12b76d",
+          "titleEn": "Kinder cookies",
+          "titleAr": "Kinder cookies",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/5a3e4090-710f-426c-9536-3a89dd12b76d/original/54E90CE1-FB29-403E-A8F6-763FE6E5D2CB.jpeg?1657038854",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "1.000",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 1,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": false,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["bec43882-00e4-47a3-bd65-5e533f2e2caa"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597689",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 1,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": [
+                {
+                  "maxQuantity": 5,
+                  "minQuantity": 0,
+                  "position": 0,
+                  "uuid": "50166e1a-39ec-49b7-b119-89202262f424",
+                  "multipleAddOnsEnabled": false,
+                  "titleAr": "صوص اظافي",
+                  "titleEn": "Extra Sauce",
+                  "options": [
+                    {
+                      "titleAr": "شوكولاته",
+                      "titleEn": "Milk Chocolate Sauce",
+                      "uuid": "37b802d0-70ee-4e6d-b70a-8c61e255108e",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "شوكولاته بيضاء",
+                      "titleEn": "White chocolate",
+                      "uuid": "c679ae2a-81f1-4fe1-9973-960984fac077",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "صوص الفستق",
+                      "titleEn": "Pistachio Sauce",
+                      "uuid": "e94cab91-0e1a-4452-9ef5-2d461f65931c",
+                      "price": 0.5
+                    },
+                    {
+                      "titleAr": "شوكولاته الكندر",
+                      "titleEn": "Kinder sauce",
+                      "uuid": "ad43eafb-95b3-4b27-8981-7e9d907e1858",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "تابيوكا",
+                      "titleEn": "Tapioca Pearls",
+                      "uuid": "2ae3e087-82a0-4a02-ae22-a683c82fcea6",
+                      "price": 0.35
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "uuid": "e2e39f53-278d-4628-844d-f8b33027d55e",
+          "titleEn": "Brownie Soft Serve",
+          "titleAr": "Brownie Soft Serve",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/e2e39f53-278d-4628-844d-f8b33027d55e/original/94816097-5D42-4CC6-AADF-ABE073453562.jpeg?1658141634",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "1.500",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 1.5,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": false,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["bec43882-00e4-47a3-bd65-5e533f2e2caa"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597686",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 1.5,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": [
+                {
+                  "maxQuantity": 5,
+                  "minQuantity": 0,
+                  "position": 0,
+                  "uuid": "50166e1a-39ec-49b7-b119-89202262f424",
+                  "multipleAddOnsEnabled": false,
+                  "titleAr": "صوص اظافي",
+                  "titleEn": "Extra Sauce",
+                  "options": [
+                    {
+                      "titleAr": "شوكولاته",
+                      "titleEn": "Milk Chocolate Sauce",
+                      "uuid": "37b802d0-70ee-4e6d-b70a-8c61e255108e",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "شوكولاته بيضاء",
+                      "titleEn": "White chocolate",
+                      "uuid": "c679ae2a-81f1-4fe1-9973-960984fac077",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "صوص الفستق",
+                      "titleEn": "Pistachio Sauce",
+                      "uuid": "e94cab91-0e1a-4452-9ef5-2d461f65931c",
+                      "price": 0.5
+                    },
+                    {
+                      "titleAr": "شوكولاته الكندر",
+                      "titleEn": "Kinder sauce",
+                      "uuid": "ad43eafb-95b3-4b27-8981-7e9d907e1858",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "تابيوكا",
+                      "titleEn": "Tapioca Pearls",
+                      "uuid": "2ae3e087-82a0-4a02-ae22-a683c82fcea6",
+                      "price": 0.35
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "uuid": "f1ff94c4-4342-420b-b485-6f875e5838bf",
+          "titleEn": "San Sebastián",
+          "titleAr": "San Sebastián",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/f1ff94c4-4342-420b-b485-6f875e5838bf/original/AB9C938A-4D12-489E-A216-A9DB4B5C4FB2.jpeg?1658141669",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "1.750",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 1.75,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": false,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["bec43882-00e4-47a3-bd65-5e533f2e2caa"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597688",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 1.75,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": [
+                {
+                  "maxQuantity": 5,
+                  "minQuantity": 0,
+                  "position": 0,
+                  "uuid": "50166e1a-39ec-49b7-b119-89202262f424",
+                  "multipleAddOnsEnabled": false,
+                  "titleAr": "صوص اظافي",
+                  "titleEn": "Extra Sauce",
+                  "options": [
+                    {
+                      "titleAr": "شوكولاته",
+                      "titleEn": "Milk Chocolate Sauce",
+                      "uuid": "37b802d0-70ee-4e6d-b70a-8c61e255108e",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "شوكولاته بيضاء",
+                      "titleEn": "White chocolate",
+                      "uuid": "c679ae2a-81f1-4fe1-9973-960984fac077",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "صوص الفستق",
+                      "titleEn": "Pistachio Sauce",
+                      "uuid": "e94cab91-0e1a-4452-9ef5-2d461f65931c",
+                      "price": 0.5
+                    },
+                    {
+                      "titleAr": "شوكولاته الكندر",
+                      "titleEn": "Kinder sauce",
+                      "uuid": "ad43eafb-95b3-4b27-8981-7e9d907e1858",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "تابيوكا",
+                      "titleEn": "Tapioca Pearls",
+                      "uuid": "2ae3e087-82a0-4a02-ae22-a683c82fcea6",
+                      "price": 0.35
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "uuid": "a70a5b1e-4522-4ad9-a864-72da9cad4190",
+          "titleEn": "Cookies Soft Serve",
+          "titleAr": "Cookies Soft Serve",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/a70a5b1e-4522-4ad9-a864-72da9cad4190/original/IMG_6337.jpg?1653917193",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "2.000",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 2,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": false,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["bec43882-00e4-47a3-bd65-5e533f2e2caa"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597687",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 2,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": [
+                {
+                  "maxQuantity": 5,
+                  "minQuantity": 0,
+                  "position": 0,
+                  "uuid": "50166e1a-39ec-49b7-b119-89202262f424",
+                  "multipleAddOnsEnabled": false,
+                  "titleAr": "صوص اظافي",
+                  "titleEn": "Extra Sauce",
+                  "options": [
+                    {
+                      "titleAr": "شوكولاته",
+                      "titleEn": "Milk Chocolate Sauce",
+                      "uuid": "37b802d0-70ee-4e6d-b70a-8c61e255108e",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "شوكولاته بيضاء",
+                      "titleEn": "White chocolate",
+                      "uuid": "c679ae2a-81f1-4fe1-9973-960984fac077",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "صوص الفستق",
+                      "titleEn": "Pistachio Sauce",
+                      "uuid": "e94cab91-0e1a-4452-9ef5-2d461f65931c",
+                      "price": 0.5
+                    },
+                    {
+                      "titleAr": "شوكولاته الكندر",
+                      "titleEn": "Kinder sauce",
+                      "uuid": "ad43eafb-95b3-4b27-8981-7e9d907e1858",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "تابيوكا",
+                      "titleEn": "Tapioca Pearls",
+                      "uuid": "2ae3e087-82a0-4a02-ae22-a683c82fcea6",
+                      "price": 0.35
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "uuid": "8820710d-40b0-40ec-9b08-40870ed13862",
+          "titleEn": "Brownie",
+          "titleAr": "Brownie",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/8820710d-40b0-40ec-9b08-40870ed13862/original/5DBA4D7A-4B48-441E-BAE4-3B2F89BEA8E2.jpeg?1658141703",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "1.000",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 1,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": false,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["bec43882-00e4-47a3-bd65-5e533f2e2caa"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597690",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 1,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": 0,
+              "images": [],
+              "stockData": null,
+              "optionGroups": [
+                {
+                  "maxQuantity": 5,
+                  "minQuantity": 0,
+                  "position": 0,
+                  "uuid": "50166e1a-39ec-49b7-b119-89202262f424",
+                  "multipleAddOnsEnabled": false,
+                  "titleAr": "صوص اظافي",
+                  "titleEn": "Extra Sauce",
+                  "options": [
+                    {
+                      "titleAr": "شوكولاته",
+                      "titleEn": "Milk Chocolate Sauce",
+                      "uuid": "37b802d0-70ee-4e6d-b70a-8c61e255108e",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "شوكولاته بيضاء",
+                      "titleEn": "White chocolate",
+                      "uuid": "c679ae2a-81f1-4fe1-9973-960984fac077",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "صوص الفستق",
+                      "titleEn": "Pistachio Sauce",
+                      "uuid": "e94cab91-0e1a-4452-9ef5-2d461f65931c",
+                      "price": 0.5
+                    },
+                    {
+                      "titleAr": "شوكولاته الكندر",
+                      "titleEn": "Kinder sauce",
+                      "uuid": "ad43eafb-95b3-4b27-8981-7e9d907e1858",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "تابيوكا",
+                      "titleEn": "Tapioca Pearls",
+                      "uuid": "2ae3e087-82a0-4a02-ae22-a683c82fcea6",
+                      "price": 0.35
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
-      "title": "Hot Drinks"
+      "uuid": "7637d943-062d-47bf-9990-6d147284adf1",
+      "titleEn": "Hot Drinks",
+      "titleAr": "Hot Drinks",
+      "published": true,
+      "showCategory": true,
+      "products": [
+        {
+          "uuid": "b0c4cffb-f754-4758-81fc-5fc2c74640e3",
+          "titleEn": "Espresso",
+          "titleAr": "Espresso",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/b0c4cffb-f754-4758-81fc-5fc2c74640e3/original/CEFDA984-58D4-403F-A02D-B71488C649BB.jpeg?1658142095",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "1.250",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 1.25,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": false,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["7637d943-062d-47bf-9990-6d147284adf1"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597635",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 1.25,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": [
+                {
+                  "maxQuantity": 1,
+                  "minQuantity": 0,
+                  "position": 0,
+                  "uuid": "d2886880-12b0-4b45-a7bf-df6c4a81a83c",
+                  "multipleAddOnsEnabled": false,
+                  "titleAr": "اسبريسو",
+                  "titleEn": "Espresso Shot",
+                  "options": [
+                    {
+                      "titleAr": "اسبريسو",
+                      "titleEn": "Espresso Shot",
+                      "uuid": "6f497c3f-6d6e-4d00-9f85-f965ba7932a7",
+                      "price": 0.3
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "uuid": "7b328cab-0bbe-4803-ac2e-526187f98d7c",
+          "titleEn": "Cortado",
+          "titleAr": "Cortado",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/7b328cab-0bbe-4803-ac2e-526187f98d7c/original/8CC58FCF-C804-4422-90F1-630296F6EBB4.jpeg?1658142392",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "1.500",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 1.5,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": false,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["7637d943-062d-47bf-9990-6d147284adf1"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597637",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 1.5,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": [
+                {
+                  "maxQuantity": 6,
+                  "minQuantity": 0,
+                  "position": 0,
+                  "uuid": "e4f0472d-6482-476c-8ab7-54b0412f383c",
+                  "multipleAddOnsEnabled": false,
+                  "titleAr": "الاظافات",
+                  "titleEn": "Add ons",
+                  "options": [
+                    {
+                      "titleAr": "تابيوكا",
+                      "titleEn": "Tapioca Pearls",
+                      "uuid": "a8b89a80-c98b-499f-be02-1a01f7d1bf1a",
+                      "price": 0.35
+                    },
+                    {
+                      "titleAr": "صوص",
+                      "titleEn": "Syrup/Sauce",
+                      "uuid": "0324c8ed-c0af-4312-849f-8a4020ae2b49",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "اسبريسو",
+                      "titleEn": "Espresso Shot",
+                      "uuid": "976e9e1e-7f0a-40ab-bf74-97ca5bc9ae4c",
+                      "price": 0.3
+                    },
+                    {
+                      "titleAr": "حليب الصويا",
+                      "titleEn": "Soya Milk",
+                      "uuid": "9fb54a32-c42e-4c3f-9fe1-0a38e342b062",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب اللوز",
+                      "titleEn": "Almond Milk",
+                      "uuid": "e1138082-63f6-43db-b88a-c9cfe62ed85e",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب خالي من اللاكتوز",
+                      "titleEn": "Lactose Free Milk",
+                      "uuid": "462e6149-02b8-4f58-b31d-080cf5852f19",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب خالي الدسم",
+                      "titleEn": "Skimmed milk",
+                      "uuid": "4c77ddba-4fc8-4924-bcdc-af490201dd6c",
+                      "price": 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "uuid": "443a8db0-613b-4208-9480-1354c3f08aed",
+          "titleEn": "Macchiato",
+          "titleAr": "Macchiato",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/443a8db0-613b-4208-9480-1354c3f08aed/original/05C6137A-8078-44B6-A3AE-66630BB7A641.jpeg?1658142166",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "1.500",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 1.75,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": false,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["7637d943-062d-47bf-9990-6d147284adf1"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597638",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 1.5,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": [
+                {
+                  "maxQuantity": 6,
+                  "minQuantity": 0,
+                  "position": 0,
+                  "uuid": "e4f0472d-6482-476c-8ab7-54b0412f383c",
+                  "multipleAddOnsEnabled": false,
+                  "titleAr": "الاظافات",
+                  "titleEn": "Add ons",
+                  "options": [
+                    {
+                      "titleAr": "تابيوكا",
+                      "titleEn": "Tapioca Pearls",
+                      "uuid": "a8b89a80-c98b-499f-be02-1a01f7d1bf1a",
+                      "price": 0.35
+                    },
+                    {
+                      "titleAr": "صوص",
+                      "titleEn": "Syrup/Sauce",
+                      "uuid": "0324c8ed-c0af-4312-849f-8a4020ae2b49",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "اسبريسو",
+                      "titleEn": "Espresso Shot",
+                      "uuid": "976e9e1e-7f0a-40ab-bf74-97ca5bc9ae4c",
+                      "price": 0.3
+                    },
+                    {
+                      "titleAr": "حليب الصويا",
+                      "titleEn": "Soya Milk",
+                      "uuid": "9fb54a32-c42e-4c3f-9fe1-0a38e342b062",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب اللوز",
+                      "titleEn": "Almond Milk",
+                      "uuid": "e1138082-63f6-43db-b88a-c9cfe62ed85e",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب خالي من اللاكتوز",
+                      "titleEn": "Lactose Free Milk",
+                      "uuid": "462e6149-02b8-4f58-b31d-080cf5852f19",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب خالي الدسم",
+                      "titleEn": "Skimmed milk",
+                      "uuid": "4c77ddba-4fc8-4924-bcdc-af490201dd6c",
+                      "price": 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "uuid": "f55d0e1d-b739-4c93-ad21-fdedc98676d5",
+          "titleEn": "Americano",
+          "titleAr": "Americano",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/f55d0e1d-b739-4c93-ad21-fdedc98676d5/original/91AEBC7F-F7C5-45B3-9CE9-5200AA1A7621.jpeg?1658142186",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "1.500",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 1.5,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": false,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["7637d943-062d-47bf-9990-6d147284adf1"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597636",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 1.5,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": [
+                {
+                  "maxQuantity": 1,
+                  "minQuantity": 0,
+                  "position": 0,
+                  "uuid": "d2886880-12b0-4b45-a7bf-df6c4a81a83c",
+                  "multipleAddOnsEnabled": false,
+                  "titleAr": "اسبريسو",
+                  "titleEn": "Espresso Shot",
+                  "options": [
+                    {
+                      "titleAr": "اسبريسو",
+                      "titleEn": "Espresso Shot",
+                      "uuid": "6f497c3f-6d6e-4d00-9f85-f965ba7932a7",
+                      "price": 0.3
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "uuid": "2ed980ac-71d9-479f-b915-291c1ff302f8",
+          "titleEn": "Flatwhite",
+          "titleAr": "Flatwhite",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/2ed980ac-71d9-479f-b915-291c1ff302f8/original/AEF68053-5A2A-41B9-8CF3-79F708CCFB11.jpeg?1658142228",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "1.750",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 1.75,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": false,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["7637d943-062d-47bf-9990-6d147284adf1"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597639",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 1.75,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": [
+                {
+                  "maxQuantity": 6,
+                  "minQuantity": 0,
+                  "position": 0,
+                  "uuid": "e4f0472d-6482-476c-8ab7-54b0412f383c",
+                  "multipleAddOnsEnabled": false,
+                  "titleAr": "الاظافات",
+                  "titleEn": "Add ons",
+                  "options": [
+                    {
+                      "titleAr": "تابيوكا",
+                      "titleEn": "Tapioca Pearls",
+                      "uuid": "a8b89a80-c98b-499f-be02-1a01f7d1bf1a",
+                      "price": 0.35
+                    },
+                    {
+                      "titleAr": "صوص",
+                      "titleEn": "Syrup/Sauce",
+                      "uuid": "0324c8ed-c0af-4312-849f-8a4020ae2b49",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "اسبريسو",
+                      "titleEn": "Espresso Shot",
+                      "uuid": "976e9e1e-7f0a-40ab-bf74-97ca5bc9ae4c",
+                      "price": 0.3
+                    },
+                    {
+                      "titleAr": "حليب الصويا",
+                      "titleEn": "Soya Milk",
+                      "uuid": "9fb54a32-c42e-4c3f-9fe1-0a38e342b062",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب اللوز",
+                      "titleEn": "Almond Milk",
+                      "uuid": "e1138082-63f6-43db-b88a-c9cfe62ed85e",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب خالي من اللاكتوز",
+                      "titleEn": "Lactose Free Milk",
+                      "uuid": "462e6149-02b8-4f58-b31d-080cf5852f19",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب خالي الدسم",
+                      "titleEn": "Skimmed milk",
+                      "uuid": "4c77ddba-4fc8-4924-bcdc-af490201dd6c",
+                      "price": 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "uuid": "ced58aee-e144-4b60-8a3c-6711ba4ea35b",
+          "titleEn": "Spanish Latte",
+          "titleAr": "Spanish Latte",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/ced58aee-e144-4b60-8a3c-6711ba4ea35b/original/2B87B414-28B6-4C9D-8B25-C522063ED02D.jpeg?1657039051",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "1.950",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 2.25,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": false,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["7637d943-062d-47bf-9990-6d147284adf1"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597644",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 1.95,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": [
+                {
+                  "maxQuantity": 6,
+                  "minQuantity": 0,
+                  "position": 0,
+                  "uuid": "e4f0472d-6482-476c-8ab7-54b0412f383c",
+                  "multipleAddOnsEnabled": false,
+                  "titleAr": "الاظافات",
+                  "titleEn": "Add ons",
+                  "options": [
+                    {
+                      "titleAr": "تابيوكا",
+                      "titleEn": "Tapioca Pearls",
+                      "uuid": "a8b89a80-c98b-499f-be02-1a01f7d1bf1a",
+                      "price": 0.35
+                    },
+                    {
+                      "titleAr": "صوص",
+                      "titleEn": "Syrup/Sauce",
+                      "uuid": "0324c8ed-c0af-4312-849f-8a4020ae2b49",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "اسبريسو",
+                      "titleEn": "Espresso Shot",
+                      "uuid": "976e9e1e-7f0a-40ab-bf74-97ca5bc9ae4c",
+                      "price": 0.3
+                    },
+                    {
+                      "titleAr": "حليب الصويا",
+                      "titleEn": "Soya Milk",
+                      "uuid": "9fb54a32-c42e-4c3f-9fe1-0a38e342b062",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب اللوز",
+                      "titleEn": "Almond Milk",
+                      "uuid": "e1138082-63f6-43db-b88a-c9cfe62ed85e",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب خالي من اللاكتوز",
+                      "titleEn": "Lactose Free Milk",
+                      "uuid": "462e6149-02b8-4f58-b31d-080cf5852f19",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب خالي الدسم",
+                      "titleEn": "Skimmed milk",
+                      "uuid": "4c77ddba-4fc8-4924-bcdc-af490201dd6c",
+                      "price": 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "uuid": "94181a9d-c8e7-49f0-acee-2c6f876b3640",
+          "titleEn": "Cappuccino",
+          "titleAr": "Cappuccino",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/94181a9d-c8e7-49f0-acee-2c6f876b3640/original/9776E31B-F7DE-410A-B510-CA0F570A1A8B.jpeg?1658142332",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "1.750",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 1.75,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": false,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["7637d943-062d-47bf-9990-6d147284adf1"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597640",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 1.75,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": [
+                {
+                  "maxQuantity": 6,
+                  "minQuantity": 0,
+                  "position": 0,
+                  "uuid": "e4f0472d-6482-476c-8ab7-54b0412f383c",
+                  "multipleAddOnsEnabled": false,
+                  "titleAr": "الاظافات",
+                  "titleEn": "Add ons",
+                  "options": [
+                    {
+                      "titleAr": "تابيوكا",
+                      "titleEn": "Tapioca Pearls",
+                      "uuid": "a8b89a80-c98b-499f-be02-1a01f7d1bf1a",
+                      "price": 0.35
+                    },
+                    {
+                      "titleAr": "صوص",
+                      "titleEn": "Syrup/Sauce",
+                      "uuid": "0324c8ed-c0af-4312-849f-8a4020ae2b49",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "اسبريسو",
+                      "titleEn": "Espresso Shot",
+                      "uuid": "976e9e1e-7f0a-40ab-bf74-97ca5bc9ae4c",
+                      "price": 0.3
+                    },
+                    {
+                      "titleAr": "حليب الصويا",
+                      "titleEn": "Soya Milk",
+                      "uuid": "9fb54a32-c42e-4c3f-9fe1-0a38e342b062",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب اللوز",
+                      "titleEn": "Almond Milk",
+                      "uuid": "e1138082-63f6-43db-b88a-c9cfe62ed85e",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب خالي من اللاكتوز",
+                      "titleEn": "Lactose Free Milk",
+                      "uuid": "462e6149-02b8-4f58-b31d-080cf5852f19",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب خالي الدسم",
+                      "titleEn": "Skimmed milk",
+                      "uuid": "4c77ddba-4fc8-4924-bcdc-af490201dd6c",
+                      "price": 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "uuid": "bc303235-34a8-4d72-93a6-82f2a464e41d",
+          "titleEn": "Matcha Latte",
+          "titleAr": "Matcha Latte",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/bc303235-34a8-4d72-93a6-82f2a464e41d/original/61A213CA-3E86-428A-AA3F-C74D63C00D92.jpeg?1658142424",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "1.950",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 1.95,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": false,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["7637d943-062d-47bf-9990-6d147284adf1"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597648",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 1.95,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": [
+                {
+                  "maxQuantity": 1,
+                  "minQuantity": 0,
+                  "position": 0,
+                  "uuid": "6ee837b5-2ba1-4238-8e19-02c6a038b637",
+                  "multipleAddOnsEnabled": false,
+                  "titleAr": "ماتشا",
+                  "titleEn": "Matcha",
+                  "options": [
+                    {
+                      "titleAr": "ماتشا",
+                      "titleEn": "Matcha",
+                      "uuid": "2d72fc1b-0ed9-4acd-8284-3cff76d88ab9",
+                      "price": 0.5
+                    }
+                  ]
+                },
+                {
+                  "maxQuantity": 6,
+                  "minQuantity": 0,
+                  "position": 0,
+                  "uuid": "e4f0472d-6482-476c-8ab7-54b0412f383c",
+                  "multipleAddOnsEnabled": false,
+                  "titleAr": "الاظافات",
+                  "titleEn": "Add ons",
+                  "options": [
+                    {
+                      "titleAr": "تابيوكا",
+                      "titleEn": "Tapioca Pearls",
+                      "uuid": "a8b89a80-c98b-499f-be02-1a01f7d1bf1a",
+                      "price": 0.35
+                    },
+                    {
+                      "titleAr": "صوص",
+                      "titleEn": "Syrup/Sauce",
+                      "uuid": "0324c8ed-c0af-4312-849f-8a4020ae2b49",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "اسبريسو",
+                      "titleEn": "Espresso Shot",
+                      "uuid": "976e9e1e-7f0a-40ab-bf74-97ca5bc9ae4c",
+                      "price": 0.3
+                    },
+                    {
+                      "titleAr": "حليب الصويا",
+                      "titleEn": "Soya Milk",
+                      "uuid": "9fb54a32-c42e-4c3f-9fe1-0a38e342b062",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب اللوز",
+                      "titleEn": "Almond Milk",
+                      "uuid": "e1138082-63f6-43db-b88a-c9cfe62ed85e",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب خالي من اللاكتوز",
+                      "titleEn": "Lactose Free Milk",
+                      "uuid": "462e6149-02b8-4f58-b31d-080cf5852f19",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب خالي الدسم",
+                      "titleEn": "Skimmed milk",
+                      "uuid": "4c77ddba-4fc8-4924-bcdc-af490201dd6c",
+                      "price": 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "uuid": "1175264f-80aa-4e7a-a0e8-1c4fa1bc961b",
+          "titleEn": "Latte",
+          "titleAr": "Latte",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/1175264f-80aa-4e7a-a0e8-1c4fa1bc961b/original/4E175443-FE88-41BB-9836-1964D7165156.jpeg?1657039074",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "1.750",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 1.95,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": false,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["7637d943-062d-47bf-9990-6d147284adf1"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597641",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 1.75,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": [
+                {
+                  "maxQuantity": 6,
+                  "minQuantity": 0,
+                  "position": 0,
+                  "uuid": "e4f0472d-6482-476c-8ab7-54b0412f383c",
+                  "multipleAddOnsEnabled": false,
+                  "titleAr": "الاظافات",
+                  "titleEn": "Add ons",
+                  "options": [
+                    {
+                      "titleAr": "تابيوكا",
+                      "titleEn": "Tapioca Pearls",
+                      "uuid": "a8b89a80-c98b-499f-be02-1a01f7d1bf1a",
+                      "price": 0.35
+                    },
+                    {
+                      "titleAr": "صوص",
+                      "titleEn": "Syrup/Sauce",
+                      "uuid": "0324c8ed-c0af-4312-849f-8a4020ae2b49",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "اسبريسو",
+                      "titleEn": "Espresso Shot",
+                      "uuid": "976e9e1e-7f0a-40ab-bf74-97ca5bc9ae4c",
+                      "price": 0.3
+                    },
+                    {
+                      "titleAr": "حليب الصويا",
+                      "titleEn": "Soya Milk",
+                      "uuid": "9fb54a32-c42e-4c3f-9fe1-0a38e342b062",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب اللوز",
+                      "titleEn": "Almond Milk",
+                      "uuid": "e1138082-63f6-43db-b88a-c9cfe62ed85e",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب خالي من اللاكتوز",
+                      "titleEn": "Lactose Free Milk",
+                      "uuid": "462e6149-02b8-4f58-b31d-080cf5852f19",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب خالي الدسم",
+                      "titleEn": "Skimmed milk",
+                      "uuid": "4c77ddba-4fc8-4924-bcdc-af490201dd6c",
+                      "price": 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "uuid": "b6255265-297b-4dce-ba83-cf681a8d85a0",
+          "titleEn": "White Mocha",
+          "titleAr": "White Mocha",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/b6255265-297b-4dce-ba83-cf681a8d85a0/original/C1074660-4B69-449E-B44D-83C5C5F5A337.jpeg?1658142560",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "1.950",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 1.95,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": false,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["7637d943-062d-47bf-9990-6d147284adf1"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597643",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 1.95,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": [
+                {
+                  "maxQuantity": 6,
+                  "minQuantity": 0,
+                  "position": 0,
+                  "uuid": "e4f0472d-6482-476c-8ab7-54b0412f383c",
+                  "multipleAddOnsEnabled": false,
+                  "titleAr": "الاظافات",
+                  "titleEn": "Add ons",
+                  "options": [
+                    {
+                      "titleAr": "تابيوكا",
+                      "titleEn": "Tapioca Pearls",
+                      "uuid": "a8b89a80-c98b-499f-be02-1a01f7d1bf1a",
+                      "price": 0.35
+                    },
+                    {
+                      "titleAr": "صوص",
+                      "titleEn": "Syrup/Sauce",
+                      "uuid": "0324c8ed-c0af-4312-849f-8a4020ae2b49",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "اسبريسو",
+                      "titleEn": "Espresso Shot",
+                      "uuid": "976e9e1e-7f0a-40ab-bf74-97ca5bc9ae4c",
+                      "price": 0.3
+                    },
+                    {
+                      "titleAr": "حليب الصويا",
+                      "titleEn": "Soya Milk",
+                      "uuid": "9fb54a32-c42e-4c3f-9fe1-0a38e342b062",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب اللوز",
+                      "titleEn": "Almond Milk",
+                      "uuid": "e1138082-63f6-43db-b88a-c9cfe62ed85e",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب خالي من اللاكتوز",
+                      "titleEn": "Lactose Free Milk",
+                      "uuid": "462e6149-02b8-4f58-b31d-080cf5852f19",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب خالي الدسم",
+                      "titleEn": "Skimmed milk",
+                      "uuid": "4c77ddba-4fc8-4924-bcdc-af490201dd6c",
+                      "price": 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "uuid": "1321fb5d-61b8-4560-9bf8-04c2390e618d",
+          "titleEn": "Mocha",
+          "titleAr": "Mocha",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/1321fb5d-61b8-4560-9bf8-04c2390e618d/original/96154C12-53C2-49A0-8137-B66EB312EB12.jpeg?1658142602",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "1.950",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 1.95,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": false,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["7637d943-062d-47bf-9990-6d147284adf1"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597642",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 1.95,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": [
+                {
+                  "maxQuantity": 6,
+                  "minQuantity": 0,
+                  "position": 0,
+                  "uuid": "e4f0472d-6482-476c-8ab7-54b0412f383c",
+                  "multipleAddOnsEnabled": false,
+                  "titleAr": "الاظافات",
+                  "titleEn": "Add ons",
+                  "options": [
+                    {
+                      "titleAr": "تابيوكا",
+                      "titleEn": "Tapioca Pearls",
+                      "uuid": "a8b89a80-c98b-499f-be02-1a01f7d1bf1a",
+                      "price": 0.35
+                    },
+                    {
+                      "titleAr": "صوص",
+                      "titleEn": "Syrup/Sauce",
+                      "uuid": "0324c8ed-c0af-4312-849f-8a4020ae2b49",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "اسبريسو",
+                      "titleEn": "Espresso Shot",
+                      "uuid": "976e9e1e-7f0a-40ab-bf74-97ca5bc9ae4c",
+                      "price": 0.3
+                    },
+                    {
+                      "titleAr": "حليب الصويا",
+                      "titleEn": "Soya Milk",
+                      "uuid": "9fb54a32-c42e-4c3f-9fe1-0a38e342b062",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب اللوز",
+                      "titleEn": "Almond Milk",
+                      "uuid": "e1138082-63f6-43db-b88a-c9cfe62ed85e",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب خالي من اللاكتوز",
+                      "titleEn": "Lactose Free Milk",
+                      "uuid": "462e6149-02b8-4f58-b31d-080cf5852f19",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب خالي الدسم",
+                      "titleEn": "Skimmed milk",
+                      "uuid": "4c77ddba-4fc8-4924-bcdc-af490201dd6c",
+                      "price": 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "uuid": "7b73b9fc-f686-43b8-88f4-a2591fc25bcd",
+          "titleEn": "Hot Chocolate",
+          "titleAr": "Hot Chocolate",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/7b73b9fc-f686-43b8-88f4-a2591fc25bcd/original/B2B6ECBE-9D3D-4489-97D6-761CB93863CF.jpeg?1658142710",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "1.500",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 1.5,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": false,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["7637d943-062d-47bf-9990-6d147284adf1"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597650",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 1.5,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": [
+                {
+                  "maxQuantity": 6,
+                  "minQuantity": 0,
+                  "position": 0,
+                  "uuid": "e4f0472d-6482-476c-8ab7-54b0412f383c",
+                  "multipleAddOnsEnabled": false,
+                  "titleAr": "الاظافات",
+                  "titleEn": "Add ons",
+                  "options": [
+                    {
+                      "titleAr": "تابيوكا",
+                      "titleEn": "Tapioca Pearls",
+                      "uuid": "a8b89a80-c98b-499f-be02-1a01f7d1bf1a",
+                      "price": 0.35
+                    },
+                    {
+                      "titleAr": "صوص",
+                      "titleEn": "Syrup/Sauce",
+                      "uuid": "0324c8ed-c0af-4312-849f-8a4020ae2b49",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "اسبريسو",
+                      "titleEn": "Espresso Shot",
+                      "uuid": "976e9e1e-7f0a-40ab-bf74-97ca5bc9ae4c",
+                      "price": 0.3
+                    },
+                    {
+                      "titleAr": "حليب الصويا",
+                      "titleEn": "Soya Milk",
+                      "uuid": "9fb54a32-c42e-4c3f-9fe1-0a38e342b062",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب اللوز",
+                      "titleEn": "Almond Milk",
+                      "uuid": "e1138082-63f6-43db-b88a-c9cfe62ed85e",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب خالي من اللاكتوز",
+                      "titleEn": "Lactose Free Milk",
+                      "uuid": "462e6149-02b8-4f58-b31d-080cf5852f19",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب خالي الدسم",
+                      "titleEn": "Skimmed milk",
+                      "uuid": "4c77ddba-4fc8-4924-bcdc-af490201dd6c",
+                      "price": 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
-      "title": "Iced Tea"
+      "uuid": "d6cff29b-58d9-4a5b-9fa0-4ae25da2a593",
+      "titleEn": "Iced Tea",
+      "titleAr": "Iced Tea",
+      "published": true,
+      "showCategory": true,
+      "products": [
+        {
+          "uuid": "c8ae8899-d1fb-4d45-85ac-49a2d4b8ef43",
+          "titleEn": "Peach Iced Tea",
+          "titleAr": "Peach Iced Tea",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/c8ae8899-d1fb-4d45-85ac-49a2d4b8ef43/original/2A845050-7F91-4DD5-B25D-324FCA490E06.jpeg?1658143136",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "1.750",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 1.75,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": true,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["d6cff29b-58d9-4a5b-9fa0-4ae25da2a593"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597676",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 1.75,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": []
+            }
+          ]
+        },
+        {
+          "uuid": "4ae5347b-783a-4f65-a6da-3d35c00edc4e",
+          "titleEn": "Mixed Berries Iced Tea",
+          "titleAr": "Mixed Berries Iced Tea",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/4ae5347b-783a-4f65-a6da-3d35c00edc4e/original/016AB3FB-4663-4FA2-B376-2395E9A75DB6.jpeg?1658143164",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "2.000",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 2,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": true,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["d6cff29b-58d9-4a5b-9fa0-4ae25da2a593"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597678",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 2,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": []
+            }
+          ]
+        },
+        {
+          "uuid": "b2630010-8c63-4a46-901c-fd327487f5dd",
+          "titleEn": "Passion Fruit Iced Tea",
+          "titleAr": "Passion Fruit Iced Tea",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/b2630010-8c63-4a46-901c-fd327487f5dd/original/CBF6178C-F509-45D9-B184-4E6B45FC0264.jpeg?1658143193",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "1.750",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 1.75,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": true,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["d6cff29b-58d9-4a5b-9fa0-4ae25da2a593"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597677",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 1.75,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": []
+            }
+          ]
+        },
+        {
+          "uuid": "7ef8ab54-2164-452f-91ef-d48f79b3be0f",
+          "titleEn": "Strawberry Iced Tea",
+          "titleAr": "Strawberry Iced Tea",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/7ef8ab54-2164-452f-91ef-d48f79b3be0f/original/7CF9342C-10BF-4AAA-98B3-C6C42A3E363C.jpeg?1658143219",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "1.750",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 1.75,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": true,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["d6cff29b-58d9-4a5b-9fa0-4ae25da2a593"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597675",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 1.75,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": []
+            }
+          ]
+        }
+      ]
     },
-
     {
-      "title": "Brewed Drinks"
+      "uuid": "906c310c-ce0c-451d-ba41-b5a9f7c5e8fa",
+      "titleEn": "Brewed Drinks",
+      "titleAr": "Brewed Drinks",
+      "published": true,
+      "showCategory": true,
+      "products": [
+        {
+          "uuid": "983becc2-19b3-4898-9b91-45ab799df5e4",
+          "titleEn": "Iced V60",
+          "titleAr": "Iced V60",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/983becc2-19b3-4898-9b91-45ab799df5e4/original/346B0DF4-B17E-4640-BBB2-DE8F12A16BAE.jpeg?1658142958",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "2.000",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 0,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": true,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["906c310c-ce0c-451d-ba41-b5a9f7c5e8fa"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "626717",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 2,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": []
+            }
+          ]
+        },
+        {
+          "uuid": "0929bbe4-84a5-4dde-919f-2a899ff15af9",
+          "titleEn": "Cold Brew",
+          "titleAr": "كولد برو",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/0929bbe4-84a5-4dde-919f-2a899ff15af9/original/894CD841-4789-4547-B588-AAE88750B4A3.jpeg?1657666129",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "2.000",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 2,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": true,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["906c310c-ce0c-451d-ba41-b5a9f7c5e8fa"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597667",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 2,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": []
+            }
+          ]
+        },
+        {
+          "uuid": "b3417b65-8010-4f9f-b7d2-3934cdf8026d",
+          "titleEn": "Chemex",
+          "titleAr": "Chemex",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/b3417b65-8010-4f9f-b7d2-3934cdf8026d/original/8CDE4C0A-CAD8-4267-9B15-120DB205470F.jpeg?1658142778",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "2.000",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 2,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": true,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["906c310c-ce0c-451d-ba41-b5a9f7c5e8fa"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597666",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 2,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": []
+            }
+          ]
+        },
+        {
+          "uuid": "6ca47a97-606c-4015-9d0c-d6fce6967b17",
+          "titleEn": "V60",
+          "titleAr": "V60",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/6ca47a97-606c-4015-9d0c-d6fce6967b17/original/CEBDB93B-334C-4C04-8975-ABB32BCD327A.jpeg?1658142813",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "2.000",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 2,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": true,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["906c310c-ce0c-451d-ba41-b5a9f7c5e8fa"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597665",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 2,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": []
+            }
+          ]
+        }
+      ]
     },
     {
-      "title": "Cold Drinks"
+      "uuid": "a74d0aa9-854e-4de0-ae1b-021c4f559f1c",
+      "titleEn": "Cold Drinks",
+      "titleAr": "Cold Drinks",
+      "published": true,
+      "showCategory": true,
+      "products": [
+        {
+          "uuid": "59da3581-ecb5-4294-bc96-0d4217e46144",
+          "titleEn": "Iced Americano",
+          "titleAr": "Iced Americano",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/59da3581-ecb5-4294-bc96-0d4217e46144/original/95C600E1-E41F-4E04-9A76-9169405B4DE6.jpeg?1657666236",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "1.500",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 2,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": false,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["a74d0aa9-854e-4de0-ae1b-021c4f559f1c"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597651",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 1.5,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": [
+                {
+                  "maxQuantity": 1,
+                  "minQuantity": 0,
+                  "position": 0,
+                  "uuid": "d2886880-12b0-4b45-a7bf-df6c4a81a83c",
+                  "multipleAddOnsEnabled": false,
+                  "titleAr": "اسبريسو",
+                  "titleEn": "Espresso Shot",
+                  "options": [
+                    {
+                      "titleAr": "اسبريسو",
+                      "titleEn": "Espresso Shot",
+                      "uuid": "6f497c3f-6d6e-4d00-9f85-f965ba7932a7",
+                      "price": 0.3
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "uuid": "900e1cae-33a0-42d5-b7f6-dc211d03d805",
+          "titleEn": "Iced Spanish Latte",
+          "titleAr": "Iced Spanish Latte",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/900e1cae-33a0-42d5-b7f6-dc211d03d805/original/954F128A-0A60-42D2-B866-6E6D4D16D85F.jpeg?1657667449",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "2.000",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 2,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": false,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["a74d0aa9-854e-4de0-ae1b-021c4f559f1c"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597655",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 2,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": [
+                {
+                  "maxQuantity": 6,
+                  "minQuantity": 0,
+                  "position": 0,
+                  "uuid": "e4f0472d-6482-476c-8ab7-54b0412f383c",
+                  "multipleAddOnsEnabled": false,
+                  "titleAr": "الاظافات",
+                  "titleEn": "Add ons",
+                  "options": [
+                    {
+                      "titleAr": "تابيوكا",
+                      "titleEn": "Tapioca Pearls",
+                      "uuid": "a8b89a80-c98b-499f-be02-1a01f7d1bf1a",
+                      "price": 0.35
+                    },
+                    {
+                      "titleAr": "صوص",
+                      "titleEn": "Syrup/Sauce",
+                      "uuid": "0324c8ed-c0af-4312-849f-8a4020ae2b49",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "اسبريسو",
+                      "titleEn": "Espresso Shot",
+                      "uuid": "976e9e1e-7f0a-40ab-bf74-97ca5bc9ae4c",
+                      "price": 0.3
+                    },
+                    {
+                      "titleAr": "حليب الصويا",
+                      "titleEn": "Soya Milk",
+                      "uuid": "9fb54a32-c42e-4c3f-9fe1-0a38e342b062",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب اللوز",
+                      "titleEn": "Almond Milk",
+                      "uuid": "e1138082-63f6-43db-b88a-c9cfe62ed85e",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب خالي من اللاكتوز",
+                      "titleEn": "Lactose Free Milk",
+                      "uuid": "462e6149-02b8-4f58-b31d-080cf5852f19",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب خالي الدسم",
+                      "titleEn": "Skimmed milk",
+                      "uuid": "4c77ddba-4fc8-4924-bcdc-af490201dd6c",
+                      "price": 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "uuid": "81db2ae3-f9bc-4332-b823-32f800405c4d",
+          "titleEn": "KOHI Latte",
+          "titleAr": "KOHI Latte",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/81db2ae3-f9bc-4332-b823-32f800405c4d/original/3C4BC6C4-9691-4E0E-9D0A-79BC839CEFE7.jpeg?1657667499",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "2.500",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 2,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": false,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["a74d0aa9-854e-4de0-ae1b-021c4f559f1c"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597662",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 2.5,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": [
+                {
+                  "maxQuantity": 6,
+                  "minQuantity": 0,
+                  "position": 0,
+                  "uuid": "e4f0472d-6482-476c-8ab7-54b0412f383c",
+                  "multipleAddOnsEnabled": false,
+                  "titleAr": "الاظافات",
+                  "titleEn": "Add ons",
+                  "options": [
+                    {
+                      "titleAr": "تابيوكا",
+                      "titleEn": "Tapioca Pearls",
+                      "uuid": "a8b89a80-c98b-499f-be02-1a01f7d1bf1a",
+                      "price": 0.35
+                    },
+                    {
+                      "titleAr": "صوص",
+                      "titleEn": "Syrup/Sauce",
+                      "uuid": "0324c8ed-c0af-4312-849f-8a4020ae2b49",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "اسبريسو",
+                      "titleEn": "Espresso Shot",
+                      "uuid": "976e9e1e-7f0a-40ab-bf74-97ca5bc9ae4c",
+                      "price": 0.3
+                    },
+                    {
+                      "titleAr": "حليب الصويا",
+                      "titleEn": "Soya Milk",
+                      "uuid": "9fb54a32-c42e-4c3f-9fe1-0a38e342b062",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب اللوز",
+                      "titleEn": "Almond Milk",
+                      "uuid": "e1138082-63f6-43db-b88a-c9cfe62ed85e",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب خالي من اللاكتوز",
+                      "titleEn": "Lactose Free Milk",
+                      "uuid": "462e6149-02b8-4f58-b31d-080cf5852f19",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب خالي الدسم",
+                      "titleEn": "Skimmed milk",
+                      "uuid": "4c77ddba-4fc8-4924-bcdc-af490201dd6c",
+                      "price": 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "uuid": "8f40e82c-88c7-4313-ad5c-688d5dd71007",
+          "titleEn": "Iced Matcha Latte",
+          "titleAr": "Iced Matcha Latte",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/8f40e82c-88c7-4313-ad5c-688d5dd71007/original/4FF4E1F7-1461-4750-95F2-4AA62198E4B3.jpeg?1657668715",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "2.000",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 2,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": false,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["a74d0aa9-854e-4de0-ae1b-021c4f559f1c"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597659",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 2,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": [
+                {
+                  "maxQuantity": 1,
+                  "minQuantity": 0,
+                  "position": 0,
+                  "uuid": "6ee837b5-2ba1-4238-8e19-02c6a038b637",
+                  "multipleAddOnsEnabled": false,
+                  "titleAr": "ماتشا",
+                  "titleEn": "Matcha",
+                  "options": [
+                    {
+                      "titleAr": "ماتشا",
+                      "titleEn": "Matcha",
+                      "uuid": "2d72fc1b-0ed9-4acd-8284-3cff76d88ab9",
+                      "price": 0.5
+                    }
+                  ]
+                },
+                {
+                  "maxQuantity": 6,
+                  "minQuantity": 0,
+                  "position": 0,
+                  "uuid": "e4f0472d-6482-476c-8ab7-54b0412f383c",
+                  "multipleAddOnsEnabled": false,
+                  "titleAr": "الاظافات",
+                  "titleEn": "Add ons",
+                  "options": [
+                    {
+                      "titleAr": "تابيوكا",
+                      "titleEn": "Tapioca Pearls",
+                      "uuid": "a8b89a80-c98b-499f-be02-1a01f7d1bf1a",
+                      "price": 0.35
+                    },
+                    {
+                      "titleAr": "صوص",
+                      "titleEn": "Syrup/Sauce",
+                      "uuid": "0324c8ed-c0af-4312-849f-8a4020ae2b49",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "اسبريسو",
+                      "titleEn": "Espresso Shot",
+                      "uuid": "976e9e1e-7f0a-40ab-bf74-97ca5bc9ae4c",
+                      "price": 0.3
+                    },
+                    {
+                      "titleAr": "حليب الصويا",
+                      "titleEn": "Soya Milk",
+                      "uuid": "9fb54a32-c42e-4c3f-9fe1-0a38e342b062",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب اللوز",
+                      "titleEn": "Almond Milk",
+                      "uuid": "e1138082-63f6-43db-b88a-c9cfe62ed85e",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب خالي من اللاكتوز",
+                      "titleEn": "Lactose Free Milk",
+                      "uuid": "462e6149-02b8-4f58-b31d-080cf5852f19",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب خالي الدسم",
+                      "titleEn": "Skimmed milk",
+                      "uuid": "4c77ddba-4fc8-4924-bcdc-af490201dd6c",
+                      "price": 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "uuid": "0c637bda-16fb-41a0-a6c6-e090da38cb6d",
+          "titleEn": "Caramel ice shaken",
+          "titleAr": "Caramel ice shaken",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/0c637bda-16fb-41a0-a6c6-e090da38cb6d/original/B704148E-48E7-4318-99A9-FFBFD9A841F9.jpeg?1657668763",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "2.000",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 2,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": false,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["a74d0aa9-854e-4de0-ae1b-021c4f559f1c"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597660",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 2,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": [
+                {
+                  "maxQuantity": 6,
+                  "minQuantity": 0,
+                  "position": 0,
+                  "uuid": "e4f0472d-6482-476c-8ab7-54b0412f383c",
+                  "multipleAddOnsEnabled": false,
+                  "titleAr": "الاظافات",
+                  "titleEn": "Add ons",
+                  "options": [
+                    {
+                      "titleAr": "تابيوكا",
+                      "titleEn": "Tapioca Pearls",
+                      "uuid": "a8b89a80-c98b-499f-be02-1a01f7d1bf1a",
+                      "price": 0.35
+                    },
+                    {
+                      "titleAr": "صوص",
+                      "titleEn": "Syrup/Sauce",
+                      "uuid": "0324c8ed-c0af-4312-849f-8a4020ae2b49",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "اسبريسو",
+                      "titleEn": "Espresso Shot",
+                      "uuid": "976e9e1e-7f0a-40ab-bf74-97ca5bc9ae4c",
+                      "price": 0.3
+                    },
+                    {
+                      "titleAr": "حليب الصويا",
+                      "titleEn": "Soya Milk",
+                      "uuid": "9fb54a32-c42e-4c3f-9fe1-0a38e342b062",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب اللوز",
+                      "titleEn": "Almond Milk",
+                      "uuid": "e1138082-63f6-43db-b88a-c9cfe62ed85e",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب خالي من اللاكتوز",
+                      "titleEn": "Lactose Free Milk",
+                      "uuid": "462e6149-02b8-4f58-b31d-080cf5852f19",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب خالي الدسم",
+                      "titleEn": "Skimmed milk",
+                      "uuid": "4c77ddba-4fc8-4924-bcdc-af490201dd6c",
+                      "price": 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "uuid": "3e93d864-5c01-4509-806a-6a61f325d4eb",
+          "titleEn": "Iced Pistachio Latte",
+          "titleAr": "Iced Pistachio Latte",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/3e93d864-5c01-4509-806a-6a61f325d4eb/original/1086F546-8CB7-4CCB-A399-9BC04D8AB6D6.jpeg?1658143081",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "2.250",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 2,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": false,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["a74d0aa9-854e-4de0-ae1b-021c4f559f1c"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597657",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 2.25,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": [
+                {
+                  "maxQuantity": 6,
+                  "minQuantity": 0,
+                  "position": 0,
+                  "uuid": "e4f0472d-6482-476c-8ab7-54b0412f383c",
+                  "multipleAddOnsEnabled": false,
+                  "titleAr": "الاظافات",
+                  "titleEn": "Add ons",
+                  "options": [
+                    {
+                      "titleAr": "تابيوكا",
+                      "titleEn": "Tapioca Pearls",
+                      "uuid": "a8b89a80-c98b-499f-be02-1a01f7d1bf1a",
+                      "price": 0.35
+                    },
+                    {
+                      "titleAr": "صوص",
+                      "titleEn": "Syrup/Sauce",
+                      "uuid": "0324c8ed-c0af-4312-849f-8a4020ae2b49",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "اسبريسو",
+                      "titleEn": "Espresso Shot",
+                      "uuid": "976e9e1e-7f0a-40ab-bf74-97ca5bc9ae4c",
+                      "price": 0.3
+                    },
+                    {
+                      "titleAr": "حليب الصويا",
+                      "titleEn": "Soya Milk",
+                      "uuid": "9fb54a32-c42e-4c3f-9fe1-0a38e342b062",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب اللوز",
+                      "titleEn": "Almond Milk",
+                      "uuid": "e1138082-63f6-43db-b88a-c9cfe62ed85e",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب خالي من اللاكتوز",
+                      "titleEn": "Lactose Free Milk",
+                      "uuid": "462e6149-02b8-4f58-b31d-080cf5852f19",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب خالي الدسم",
+                      "titleEn": "Skimmed milk",
+                      "uuid": "4c77ddba-4fc8-4924-bcdc-af490201dd6c",
+                      "price": 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "uuid": "43369310-0457-4c1b-8990-68423ee73c7d",
+          "titleEn": "Iced Latte",
+          "titleAr": "Iced Latte",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/43369310-0457-4c1b-8990-68423ee73c7d/original/3FDAC8D6-4D2D-4F77-8428-8B52C4DFEC9D.jpeg?1657668887",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "2.000",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 2,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": false,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["a74d0aa9-854e-4de0-ae1b-021c4f559f1c"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597652",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 2,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": [
+                {
+                  "maxQuantity": 6,
+                  "minQuantity": 0,
+                  "position": 0,
+                  "uuid": "e4f0472d-6482-476c-8ab7-54b0412f383c",
+                  "multipleAddOnsEnabled": false,
+                  "titleAr": "الاظافات",
+                  "titleEn": "Add ons",
+                  "options": [
+                    {
+                      "titleAr": "تابيوكا",
+                      "titleEn": "Tapioca Pearls",
+                      "uuid": "a8b89a80-c98b-499f-be02-1a01f7d1bf1a",
+                      "price": 0.35
+                    },
+                    {
+                      "titleAr": "صوص",
+                      "titleEn": "Syrup/Sauce",
+                      "uuid": "0324c8ed-c0af-4312-849f-8a4020ae2b49",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "اسبريسو",
+                      "titleEn": "Espresso Shot",
+                      "uuid": "976e9e1e-7f0a-40ab-bf74-97ca5bc9ae4c",
+                      "price": 0.3
+                    },
+                    {
+                      "titleAr": "حليب الصويا",
+                      "titleEn": "Soya Milk",
+                      "uuid": "9fb54a32-c42e-4c3f-9fe1-0a38e342b062",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب اللوز",
+                      "titleEn": "Almond Milk",
+                      "uuid": "e1138082-63f6-43db-b88a-c9cfe62ed85e",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب خالي من اللاكتوز",
+                      "titleEn": "Lactose Free Milk",
+                      "uuid": "462e6149-02b8-4f58-b31d-080cf5852f19",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب خالي الدسم",
+                      "titleEn": "Skimmed milk",
+                      "uuid": "4c77ddba-4fc8-4924-bcdc-af490201dd6c",
+                      "price": 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "uuid": "10cbf9e7-8ba7-4cfd-9918-8031b2f03e8c",
+          "titleEn": "Iced Salted Caramel Latte",
+          "titleAr": "Iced Salted Caramel Latte",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/10cbf9e7-8ba7-4cfd-9918-8031b2f03e8c/original/F6D370C6-263B-4F85-84B7-17E4A536668C.jpeg?1657668915",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "2.000",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 2.25,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": false,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["a74d0aa9-854e-4de0-ae1b-021c4f559f1c"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597656",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 2,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": [
+                {
+                  "maxQuantity": 6,
+                  "minQuantity": 0,
+                  "position": 0,
+                  "uuid": "e4f0472d-6482-476c-8ab7-54b0412f383c",
+                  "multipleAddOnsEnabled": false,
+                  "titleAr": "الاظافات",
+                  "titleEn": "Add ons",
+                  "options": [
+                    {
+                      "titleAr": "تابيوكا",
+                      "titleEn": "Tapioca Pearls",
+                      "uuid": "a8b89a80-c98b-499f-be02-1a01f7d1bf1a",
+                      "price": 0.35
+                    },
+                    {
+                      "titleAr": "صوص",
+                      "titleEn": "Syrup/Sauce",
+                      "uuid": "0324c8ed-c0af-4312-849f-8a4020ae2b49",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "اسبريسو",
+                      "titleEn": "Espresso Shot",
+                      "uuid": "976e9e1e-7f0a-40ab-bf74-97ca5bc9ae4c",
+                      "price": 0.3
+                    },
+                    {
+                      "titleAr": "حليب الصويا",
+                      "titleEn": "Soya Milk",
+                      "uuid": "9fb54a32-c42e-4c3f-9fe1-0a38e342b062",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب اللوز",
+                      "titleEn": "Almond Milk",
+                      "uuid": "e1138082-63f6-43db-b88a-c9cfe62ed85e",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب خالي من اللاكتوز",
+                      "titleEn": "Lactose Free Milk",
+                      "uuid": "462e6149-02b8-4f58-b31d-080cf5852f19",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب خالي الدسم",
+                      "titleEn": "Skimmed milk",
+                      "uuid": "4c77ddba-4fc8-4924-bcdc-af490201dd6c",
+                      "price": 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "uuid": "69c1a469-399d-4b60-81b5-e9d69bb72523",
+          "titleEn": "Iced White Mocha",
+          "titleAr": "Iced White Mocha",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/69c1a469-399d-4b60-81b5-e9d69bb72523/original/10030654-C9D2-4C64-8AC7-A621AC866EF2.jpeg?1657669039",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "2.000",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 2,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": false,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["a74d0aa9-854e-4de0-ae1b-021c4f559f1c"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597654",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 2,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": [
+                {
+                  "maxQuantity": 6,
+                  "minQuantity": 0,
+                  "position": 0,
+                  "uuid": "e4f0472d-6482-476c-8ab7-54b0412f383c",
+                  "multipleAddOnsEnabled": false,
+                  "titleAr": "الاظافات",
+                  "titleEn": "Add ons",
+                  "options": [
+                    {
+                      "titleAr": "تابيوكا",
+                      "titleEn": "Tapioca Pearls",
+                      "uuid": "a8b89a80-c98b-499f-be02-1a01f7d1bf1a",
+                      "price": 0.35
+                    },
+                    {
+                      "titleAr": "صوص",
+                      "titleEn": "Syrup/Sauce",
+                      "uuid": "0324c8ed-c0af-4312-849f-8a4020ae2b49",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "اسبريسو",
+                      "titleEn": "Espresso Shot",
+                      "uuid": "976e9e1e-7f0a-40ab-bf74-97ca5bc9ae4c",
+                      "price": 0.3
+                    },
+                    {
+                      "titleAr": "حليب الصويا",
+                      "titleEn": "Soya Milk",
+                      "uuid": "9fb54a32-c42e-4c3f-9fe1-0a38e342b062",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب اللوز",
+                      "titleEn": "Almond Milk",
+                      "uuid": "e1138082-63f6-43db-b88a-c9cfe62ed85e",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب خالي من اللاكتوز",
+                      "titleEn": "Lactose Free Milk",
+                      "uuid": "462e6149-02b8-4f58-b31d-080cf5852f19",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب خالي الدسم",
+                      "titleEn": "Skimmed milk",
+                      "uuid": "4c77ddba-4fc8-4924-bcdc-af490201dd6c",
+                      "price": 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "uuid": "7a8b3837-c621-4dd4-ac12-64ded0e9e8d3",
+          "titleEn": "Iced Mocha",
+          "titleAr": "Iced Mocha",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/7a8b3837-c621-4dd4-ac12-64ded0e9e8d3/original/E30E9BB2-5708-4A83-A80D-5DC91FA430F6.jpeg?1657669092",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "2.000",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 2,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": false,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["a74d0aa9-854e-4de0-ae1b-021c4f559f1c"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597653",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 2,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": [
+                {
+                  "maxQuantity": 6,
+                  "minQuantity": 0,
+                  "position": 0,
+                  "uuid": "e4f0472d-6482-476c-8ab7-54b0412f383c",
+                  "multipleAddOnsEnabled": false,
+                  "titleAr": "الاظافات",
+                  "titleEn": "Add ons",
+                  "options": [
+                    {
+                      "titleAr": "تابيوكا",
+                      "titleEn": "Tapioca Pearls",
+                      "uuid": "a8b89a80-c98b-499f-be02-1a01f7d1bf1a",
+                      "price": 0.35
+                    },
+                    {
+                      "titleAr": "صوص",
+                      "titleEn": "Syrup/Sauce",
+                      "uuid": "0324c8ed-c0af-4312-849f-8a4020ae2b49",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "اسبريسو",
+                      "titleEn": "Espresso Shot",
+                      "uuid": "976e9e1e-7f0a-40ab-bf74-97ca5bc9ae4c",
+                      "price": 0.3
+                    },
+                    {
+                      "titleAr": "حليب الصويا",
+                      "titleEn": "Soya Milk",
+                      "uuid": "9fb54a32-c42e-4c3f-9fe1-0a38e342b062",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب اللوز",
+                      "titleEn": "Almond Milk",
+                      "uuid": "e1138082-63f6-43db-b88a-c9cfe62ed85e",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب خالي من اللاكتوز",
+                      "titleEn": "Lactose Free Milk",
+                      "uuid": "462e6149-02b8-4f58-b31d-080cf5852f19",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب خالي الدسم",
+                      "titleEn": "Skimmed milk",
+                      "uuid": "4c77ddba-4fc8-4924-bcdc-af490201dd6c",
+                      "price": 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "uuid": "11f8db4f-293a-441b-bbeb-df9e44cd77c3",
+          "titleEn": "Vanilla Ice Shaken",
+          "titleAr": "Vanilla Ice Shaken",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/11f8db4f-293a-441b-bbeb-df9e44cd77c3/original/95776672-D376-491A-82F4-37B546D3DEEC.jpeg?1657669143",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "2.000",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 2,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": false,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["a74d0aa9-854e-4de0-ae1b-021c4f559f1c"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597661",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 2,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": [
+                {
+                  "maxQuantity": 6,
+                  "minQuantity": 0,
+                  "position": 0,
+                  "uuid": "e4f0472d-6482-476c-8ab7-54b0412f383c",
+                  "multipleAddOnsEnabled": false,
+                  "titleAr": "الاظافات",
+                  "titleEn": "Add ons",
+                  "options": [
+                    {
+                      "titleAr": "تابيوكا",
+                      "titleEn": "Tapioca Pearls",
+                      "uuid": "a8b89a80-c98b-499f-be02-1a01f7d1bf1a",
+                      "price": 0.35
+                    },
+                    {
+                      "titleAr": "صوص",
+                      "titleEn": "Syrup/Sauce",
+                      "uuid": "0324c8ed-c0af-4312-849f-8a4020ae2b49",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "اسبريسو",
+                      "titleEn": "Espresso Shot",
+                      "uuid": "976e9e1e-7f0a-40ab-bf74-97ca5bc9ae4c",
+                      "price": 0.3
+                    },
+                    {
+                      "titleAr": "حليب الصويا",
+                      "titleEn": "Soya Milk",
+                      "uuid": "9fb54a32-c42e-4c3f-9fe1-0a38e342b062",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب اللوز",
+                      "titleEn": "Almond Milk",
+                      "uuid": "e1138082-63f6-43db-b88a-c9cfe62ed85e",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب خالي من اللاكتوز",
+                      "titleEn": "Lactose Free Milk",
+                      "uuid": "462e6149-02b8-4f58-b31d-080cf5852f19",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب خالي الدسم",
+                      "titleEn": "Skimmed milk",
+                      "uuid": "4c77ddba-4fc8-4924-bcdc-af490201dd6c",
+                      "price": 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "uuid": "8593a1fc-2b86-4111-8a2c-d96c416b4529",
+          "titleEn": "Iced chocolate",
+          "titleAr": "Iced chocolate",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/8593a1fc-2b86-4111-8a2c-d96c416b4529/original/24AE84F8-AC12-41C1-85CB-5BC0D65895DC.jpeg?1657669184",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "1.500",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 2,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": false,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["a74d0aa9-854e-4de0-ae1b-021c4f559f1c"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597663",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 1.5,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": [
+                {
+                  "maxQuantity": 6,
+                  "minQuantity": 0,
+                  "position": 0,
+                  "uuid": "e4f0472d-6482-476c-8ab7-54b0412f383c",
+                  "multipleAddOnsEnabled": false,
+                  "titleAr": "الاظافات",
+                  "titleEn": "Add ons",
+                  "options": [
+                    {
+                      "titleAr": "تابيوكا",
+                      "titleEn": "Tapioca Pearls",
+                      "uuid": "a8b89a80-c98b-499f-be02-1a01f7d1bf1a",
+                      "price": 0.35
+                    },
+                    {
+                      "titleAr": "صوص",
+                      "titleEn": "Syrup/Sauce",
+                      "uuid": "0324c8ed-c0af-4312-849f-8a4020ae2b49",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "اسبريسو",
+                      "titleEn": "Espresso Shot",
+                      "uuid": "976e9e1e-7f0a-40ab-bf74-97ca5bc9ae4c",
+                      "price": 0.3
+                    },
+                    {
+                      "titleAr": "حليب الصويا",
+                      "titleEn": "Soya Milk",
+                      "uuid": "9fb54a32-c42e-4c3f-9fe1-0a38e342b062",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب اللوز",
+                      "titleEn": "Almond Milk",
+                      "uuid": "e1138082-63f6-43db-b88a-c9cfe62ed85e",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب خالي من اللاكتوز",
+                      "titleEn": "Lactose Free Milk",
+                      "uuid": "462e6149-02b8-4f58-b31d-080cf5852f19",
+                      "price": 0.25
+                    },
+                    {
+                      "titleAr": "حليب خالي الدسم",
+                      "titleEn": "Skimmed milk",
+                      "uuid": "4c77ddba-4fc8-4924-bcdc-af490201dd6c",
+                      "price": 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
-      "title": "Juice"
+      "uuid": "2cf40ee0-3058-4973-b2d7-44512aa4719a",
+      "titleEn": "Juice",
+      "titleAr": "Juice",
+      "published": true,
+      "showCategory": true,
+      "products": [
+        {
+          "uuid": "2bbad467-3639-4610-83ef-b2ea5c01c376",
+          "titleEn": "Fresh cocktail Juice",
+          "titleAr": "عصير الكوكتيل الطبيعي",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/2bbad467-3639-4610-83ef-b2ea5c01c376/original/42761659-8F5F-469E-9D75-AE407B9E95D0.jpeg?1658143285",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "1.500",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 1.5,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": true,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["2cf40ee0-3058-4973-b2d7-44512aa4719a"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597683",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 1.5,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": []
+            }
+          ]
+        },
+        {
+          "uuid": "892e9b18-7d71-4ec4-a68c-e75ad3f489fc",
+          "titleEn": "Strawberry Juice",
+          "titleAr": "عصير فراولة طبيعي",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/892e9b18-7d71-4ec4-a68c-e75ad3f489fc/original/2EFCD1AC-01AA-487A-8B4A-F71CC1CC3565.jpeg?1658143329",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "1.250",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 1.25,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": true,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["2cf40ee0-3058-4973-b2d7-44512aa4719a"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597682",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 1.25,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": []
+            }
+          ]
+        },
+        {
+          "uuid": "8d1f27c6-25d1-4cd6-b9a1-e83645279d6f",
+          "titleEn": "Fresh Mango Juice",
+          "titleAr": "عصير المانجا الطبيعي",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/8d1f27c6-25d1-4cd6-b9a1-e83645279d6f/original/D0EF9ECB-B536-422E-BC77-0D70F51C17C2.jpeg?1658143361",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "1.250",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 1.25,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": true,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["2cf40ee0-3058-4973-b2d7-44512aa4719a"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597681",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 1.25,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": []
+            }
+          ]
+        },
+        {
+          "uuid": "5516d723-8ece-402f-b4fb-45594231b084",
+          "titleEn": "Fresh Lime with Mint Juice",
+          "titleAr": "عصير ليمون نعناع الطبيعي",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/5516d723-8ece-402f-b4fb-45594231b084/original/43E46E91-BFFF-4F19-A4D6-269739E77696.jpeg?1658143391",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "1.250",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 1.25,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": true,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["2cf40ee0-3058-4973-b2d7-44512aa4719a"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597680",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 1.25,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": []
+            }
+          ]
+        },
+        {
+          "uuid": "5e30ec14-b1e9-494a-bb8c-7fb4dc095467",
+          "titleEn": "Fresh Orange Juice",
+          "titleAr": "عصير البرتقال الطبيعي",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/5e30ec14-b1e9-494a-bb8c-7fb4dc095467/original/8A377B32-C1CD-4BB1-AC36-CDB28B35310F.jpeg?1658143422",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "1.250",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 1.25,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": true,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["2cf40ee0-3058-4973-b2d7-44512aa4719a"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597679",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 1.25,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": []
+            }
+          ]
+        }
+      ]
     },
     {
-      "title": "Gathering"
+      "uuid": "8d57d829-4f50-4fa4-8fad-9019dee47e9d",
+      "titleEn": "Gathering",
+      "titleAr": "Gathering",
+      "published": true,
+      "showCategory": true,
+      "products": [
+        {
+          "uuid": "68643121-28f9-42a2-b911-3d09d570a58c",
+          "titleEn": "Gathering Box 15 Pcs",
+          "titleAr": "Gathering Box 15 Pcs",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/68643121-28f9-42a2-b911-3d09d570a58c/original/77E677B5-F434-452A-98DF-496E4CA57B77.jpeg?1657669678",
+          "maxPrepTime": 30,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "17.000",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 17,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أختياركم من القهوة ، الموهيتو، او الشاي المثلج",
+          "specialNotesPlaceholderEn": "Your selection of Coffee, mojito or Iced Tea",
+          "quickAddToCart": true,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["8d57d829-4f50-4fa4-8fad-9019dee47e9d"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597694",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 17,
+              "prepTime": 30,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": []
+            }
+          ]
+        },
+        {
+          "uuid": "99565131-ddc0-42c7-a050-aad8644cb829",
+          "titleEn": "Gathering Box 12 Pcs",
+          "titleAr": "Gathering Box 12 Pcs",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/99565131-ddc0-42c7-a050-aad8644cb829/original/EDF91671-E25C-45EA-958A-6DF8E10CC6E9.jpeg?1659302657",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "14.000",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 14,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": true,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["8d57d829-4f50-4fa4-8fad-9019dee47e9d"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597693",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 14,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": []
+            }
+          ]
+        },
+        {
+          "uuid": "7e73e152-717a-4161-b9a3-9c711e85eb4c",
+          "titleEn": "Gathering Box 10 Pcs",
+          "titleAr": "Gathering Box 10 Pcs",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/7e73e152-717a-4161-b9a3-9c711e85eb4c/original/193510D0-94F2-4365-8F59-C9F43966A4F8.jpeg?1659302712",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "12.000",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 12,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": true,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["8d57d829-4f50-4fa4-8fad-9019dee47e9d"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597692",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 12,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": []
+            }
+          ]
+        },
+        {
+          "uuid": "b407d142-778f-400f-baf7-60ffb895ee3e",
+          "titleEn": "Gathering Box 8 Pcs",
+          "titleAr": "Gathering Box 8 Pcs",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/b407d142-778f-400f-baf7-60ffb895ee3e/original/92C50034-1D75-455E-ACE7-2EA8EE1B6144.jpeg?1659302785",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "10.000",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 10,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": true,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["8d57d829-4f50-4fa4-8fad-9019dee47e9d"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597691",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 10,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": []
+            }
+          ]
+        }
+      ]
     },
-
     {
-      "title": "Soft serve"
+      "uuid": "98577fee-e3a1-4988-84be-6340c0f3472c",
+      "titleEn": "Soft serve",
+      "titleAr": "Soft serve",
+      "published": true,
+      "showCategory": true,
+      "products": [
+        {
+          "uuid": "4887246b-533e-4f04-94e2-8a03b8ad739f",
+          "titleEn": "Mango Japanese Waffle soft Serve",
+          "titleAr": "Mango Japanese Waffle soft Serve",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/4887246b-533e-4f04-94e2-8a03b8ad739f/original/E5289888-7F7D-41C7-8E9C-79DB36DEE3D5.jpeg?1657669930",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "2.000",
+          "fulfillmentMode": "pickup",
+          "highestDiscountedPercentage": null,
+          "price": 0,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": true,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["98577fee-e3a1-4988-84be-6340c0f3472c"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "625323",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 2,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": []
+            }
+          ]
+        },
+        {
+          "uuid": "ba328831-4d08-4713-a41f-63e9c93f83c5",
+          "titleEn": "Vanilla Japanese waffle Soft Serve",
+          "titleAr": "soft serve",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/ba328831-4d08-4713-a41f-63e9c93f83c5/original/948ED565-93C7-4476-B014-61A462A9D863.jpeg?1657669810",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "2.000",
+          "fulfillmentMode": "pickup",
+          "highestDiscountedPercentage": null,
+          "price": 2,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": true,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["98577fee-e3a1-4988-84be-6340c0f3472c"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597697",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 2,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": []
+            }
+          ]
+        },
+        {
+          "uuid": "2a3dce5d-c018-4f11-8eab-faab6e4e06c9",
+          "titleEn": "Mixed Flavor Cup",
+          "titleAr": "Mixed Flavor Cup",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/2a3dce5d-c018-4f11-8eab-faab6e4e06c9/original/logo.jpeg?1653991108",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "1.750",
+          "fulfillmentMode": "pickup",
+          "highestDiscountedPercentage": null,
+          "price": 1.75,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": true,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["98577fee-e3a1-4988-84be-6340c0f3472c"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597696",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 1.75,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": []
+            }
+          ]
+        },
+        {
+          "uuid": "909e912b-328d-42a5-8958-bb7ffd5d18ee",
+          "titleEn": "Single Flavor Cup",
+          "titleAr": "Single Flavor Cup",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/909e912b-328d-42a5-8958-bb7ffd5d18ee/original/logo.jpeg?1653991187",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "1.500",
+          "fulfillmentMode": "pickup",
+          "highestDiscountedPercentage": null,
+          "price": 1.5,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": true,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["98577fee-e3a1-4988-84be-6340c0f3472c"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597695",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 1.5,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": []
+            }
+          ]
+        }
+      ]
     },
-
     {
-      "title": "Water"
+      "uuid": "20905a57-66fd-4478-aca7-1e8ce4718e20",
+      "titleEn": "Water",
+      "titleAr": "Water",
+      "published": true,
+      "showCategory": true,
+      "products": [
+        {
+          "uuid": "c56e520f-d772-4864-b705-9d542584a63b",
+          "titleEn": "Mineral water 250 ml",
+          "titleAr": "Mineral water 250 ml",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/c56e520f-d772-4864-b705-9d542584a63b/original/1BCC0D7B-2B1D-43C0-88E9-98D509F86B2D.jpeg?1658143459",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "0.450",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 0.45,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": true,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["20905a57-66fd-4478-aca7-1e8ce4718e20"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597699",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 0.45,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": []
+            }
+          ]
+        },
+        {
+          "uuid": "dde3e82e-c27c-4167-9ff0-a38b24456aa4",
+          "titleEn": "Sparkling water 250 ml",
+          "titleAr": "Sparkling water 250 ml",
+          "photoUrl": "https://static.zyda.com/photos/menu_items/photo_urls/dde3e82e-c27c-4167-9ff0-a38b24456aa4/original/84CEDCE8-CC82-4E6E-9E68-86A4987C2DA7.jpeg?1658143493",
+          "maxPrepTime": -1,
+          "descriptionAr": null,
+          "descriptionEn": null,
+          "displayPrice": "0.600",
+          "fulfillmentMode": "delivery_and_pickup",
+          "highestDiscountedPercentage": null,
+          "price": 0.6,
+          "variantsTitleEn": "Size",
+          "variantsTitleAr": "الحجم",
+          "specialNotesEnabled": true,
+          "specialNotesRequired": false,
+          "specialNotesPlaceholderAr": "أضف تعليمات",
+          "specialNotesPlaceholderEn": "Add Instructions",
+          "quickAddToCart": true,
+          "publishedBranchIds": ["6460"],
+          "categoryIds": ["20905a57-66fd-4478-aca7-1e8ce4718e20"],
+          "stockData": {
+            "unavailable": null,
+            "stockCount": null,
+            "trackingType": null
+          },
+          "variants": [
+            {
+              "id": "597698",
+              "titleAr": "عادى",
+              "titleEn": "Regular",
+              "price": 0.6,
+              "prepTime": -1,
+              "discountEnabled": false,
+              "discountedPrice": null,
+              "images": [],
+              "stockData": null,
+              "optionGroups": []
+            }
+          ]
+        }
+      ]
     }
   ]
 }

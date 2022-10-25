@@ -99,8 +99,9 @@
       >
         <template x-for="category in categories">
           <div
+            :id="category.uuid"
             class="bg-purple text-white px-3 py-2 min-w-max h-9 rounded-full"
-            x-text="category.title"
+            x-text="category.titleEn"
           >
             Bubble Tea
           </div>
@@ -140,31 +141,36 @@
       <!-- PRODUCTS -->
       <div class="listings flex flex-col">
         <!-- PRODUCT -->
-        <div class="listing flex flex-col">
-          <h4 class="text-[32px] font-semibold text-dark mx-4 pt-4">
-            Bubble Tea
-          </h4>
-
-          <div
-            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)]"
-          >
-            <div class="description flex flex-col justify-between">
-              <h6 class="text-lg text-dark font-medium">KOHI Boba</h6>
-              <button
-                class="border text-dark px-3 min-w-[123px] h-9 border-[rgb(224,224,224)] rounded"
-              >
-                KWD 2
-              </button>
-            </div>
+        <template x-for="category in categories">
+          <div class="listing flex flex-col">
+            <h4
+              x-text="category.titleEn"
+              class="text-[32px] font-semibold text-dark mx-4 pt-4"
+            >
+              Bubble Tea
+            </h4>
 
             <div
-              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
-              style="
-                background-image: url('/public/images/productsFallback.svg');
-              "
-            ></div>
+              class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)]"
+            >
+              <div class="description flex flex-col justify-between">
+                <h6 class="text-lg text-dark font-medium">KOHI Boba</h6>
+                <button
+                  class="border text-dark px-3 min-w-[123px] h-9 border-[rgb(224,224,224)] rounded"
+                >
+                  KWD 2
+                </button>
+              </div>
+
+              <div
+                class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+                style="
+                  background-image: url('/public/images/productsFallback.svg');
+                "
+              ></div>
+            </div>
           </div>
-        </div>
+        </template>
       </div>
     </aside>
 
