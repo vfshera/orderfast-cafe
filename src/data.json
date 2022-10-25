@@ -1,4 +1,75 @@
 {
+  "store": {
+    "id": "4117",
+    "branch": {
+      "id": "6460",
+      "titleAr": "العقيله",
+      "titleEn": "Egaila",
+      "addressAr": "مجمع الدرة مول ، العقيلة",
+      "addressEn": "Aldurra Mall , uqaila",
+      "areaEn": "Block 5,Eqaila",
+      "busyUntil": "2022-10-01T23:07:00Z",
+      "contactNumber": "96766363",
+      "phoneNumber": null,
+      "delivery": false,
+      "deliveryOrdersEnabled": true,
+      "beachOrderEnabled": false,
+      "dineIn": true,
+      "gmapsUrl": null,
+      "lat": 29.1741428350479,
+      "lng": 48.093458712101,
+      "openingHours": [
+        {
+          "day": "sun",
+          "off-day": false,
+          "open-at": "07:00",
+          "close-at": "00:00"
+        },
+        {
+          "day": "mon",
+          "off-day": false,
+          "open-at": "07:00",
+          "close-at": "00:00"
+        },
+        {
+          "day": "tue",
+          "off-day": false,
+          "open-at": "07:00",
+          "close-at": "00:00"
+        },
+        {
+          "day": "wed",
+          "off-day": false,
+          "open-at": "07:00",
+          "close-at": "00:00"
+        },
+        {
+          "day": "thu",
+          "off-day": false,
+          "open-at": "07:00",
+          "close-at": "00:00"
+        },
+        {
+          "day": "fri",
+          "off-day": false,
+          "open-at": "12:00",
+          "close-at": "00:00"
+        },
+        {
+          "day": "sat",
+          "off-day": false,
+          "open-at": "08:00",
+          "close-at": "00:00"
+        }
+      ],
+      "pickupEnabled": true,
+      "pickupOrdersType": "store_pickup",
+      "published": true,
+      "maxOrderFulfillmentPeriod": 360,
+      "busyMode": "delivery",
+      "busyFrom": null
+    }
+  },
   "categories": [
     {
       "uuid": "5a49a91f-f751-435f-8ff7-f3f35d487d55",

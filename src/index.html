@@ -16,13 +16,17 @@
       x-data="{
         categories: [],
          cities:[], 
+         deliveringTo: null,
+         pickingFrom: null,
          tab:1, 
          orderMode: false ,
          viewProduct: null,
          productOptions: [], 
          quantity: 1,
          finalPrice: 0,
+         store:null,
          totalPrice(){
+
           this.finalPrice = (this.viewProduct.variants[0].optionGroups[0].options
           .filter(op => this.productOptions.includes(op.uuid))
           .reduce((total,option) => total + option.price,+this.viewProduct.displayPrice) * this.quantity).toFixed(3);          
@@ -45,6 +49,7 @@
       .then(response => response.json())
       .then(data => {
         categories = data.categories;
+        store = data.store;
          cities = data.countries[0].cities;
          })"
     >
@@ -80,7 +85,7 @@
         <div class="title-price mx-4 py-4 border-b border-[rgb(224,224,224)]">
           <h4
             class="text-[32px] leading-7 mb-2 font-semibold text-dark"
-            x-text="viewProduct.titleEn"
+            x-text="viewProduct?.titleEn"
           ></h4>
           <p
             class="price text-sm"
@@ -90,7 +95,10 @@
           </p>
         </div>
 
-        <div class="addons mx-4 py-4 border-b border-[rgb(224,224,224)]">
+        <div
+          x-show="viewProduct?.variants[0].optionGroups[0].options.length > 0"
+          class="addons mx-4 py-4 border-b border-[rgb(224,224,224)]"
+        >
           <p class="text-dark font-bold mb-1">Add ons</p>
           <p class="text-[rgb(118,118,118)] mb-4 font-medium text-sm">
             Select upto 5
@@ -262,6 +270,165 @@
           Pickup
         </a>
       </nav>
+
+      <!-- PICKING AND DELIVERY -->
+      <div
+        x-show="!orderMode && !viewProduct && deliveringTo || pickingFrom"
+        class="picking px-4"
+      >
+        <div
+          class="flex justify-between items-center border-b border-[rgb(224, 224, 224)] py-4"
+        >
+          <div class="flex items-center gap-3">
+            <svg
+              class="fill-purple"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <g
+                id="Group_16349"
+                data-name="Group 16349"
+                transform="translate(13134 9654)"
+              >
+                <rect
+                  id="Rectangle_6072"
+                  data-name="Rectangle 6072"
+                  width="24"
+                  height="24"
+                  transform="translate(-13134 -9654)"
+                  fill="none"
+                ></rect>
+                <g
+                  id="Group_16330"
+                  data-name="Group 16330"
+                  transform="translate(-13134 -9654.243)"
+                >
+                  <path
+                    id="Path_8597"
+                    data-name="Path 8597"
+                    d="M12,22.236a2.73,2.73,0,0,1-1.944-.806L5.813,17.187a8.75,8.75,0,1,1,12.375,0L13.944,21.43A2.73,2.73,0,0,1,12,22.236ZM12,3.75A7.25,7.25,0,0,0,6.873,16.127l4.244,4.243a1.248,1.248,0,0,0,1.766,0l4.243-4.243A7.25,7.25,0,0,0,12,3.75Z"
+                  ></path>
+                  <path
+                    id="Path_8598"
+                    data-name="Path 8598"
+                    d="M12,7.25A3.75,3.75,0,1,1,8.25,11,3.754,3.754,0,0,1,12,7.25Zm0,6A2.25,2.25,0,1,0,9.75,11,2.253,2.253,0,0,0,12,13.25Z"
+                  ></path>
+                </g>
+              </g>
+            </svg>
+
+            <div class="flex flex-col">
+              <p
+                class="text-sm text-[rgb(97,97,97)]"
+                x-text="deliveringTo ? 'Delivering to' : 'Picking from' "
+              ></p>
+              <p
+                class="text-dark"
+                x-text="deliveringTo ? deliveringTo.titleEn : pickingFrom.branch.titleEn "
+              ></p>
+            </div>
+          </div>
+
+          <button>
+            <svg
+              class="fill-purple"
+              width="24"
+              height="24"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M7.9415 4.55859L13.3834 10.0005L7.9415 15.4425L7.05762 14.5586L11.6157 10.0005L7.05762 5.44248L7.9415 4.55859Z"
+                fill-opacity="0.75"
+              ></path></svg
+            ><label
+              variant="smallText"
+              cursor="pointer"
+              mx="0"
+              class="style__StyledText-sc-nykyuh-0 bOKSJC"
+            ></label>
+          </button>
+        </div>
+        <div
+          class="flex justify-between items-center border-b border-[rgb(224, 224, 224)] py-4"
+        >
+          <div class="flex items-center gap-3">
+            <svg
+              class="fill-purple"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <g
+                id="Group_16350"
+                data-name="Group 16350"
+                transform="translate(13134 9622)"
+              >
+                <rect
+                  id="Rectangle_6073"
+                  data-name="Rectangle 6073"
+                  width="24"
+                  height="24"
+                  transform="translate(-13134 -9622)"
+                  fill="none"
+                ></rect>
+                <path
+                  id="Path_8597"
+                  data-name="Path 8597"
+                  d="M12,2.25A9.75,9.75,0,1,1,2.25,12,9.761,9.761,0,0,1,12,2.25Zm0,18A8.25,8.25,0,1,0,3.75,12,8.259,8.259,0,0,0,12,20.25Z"
+                  transform="translate(-13134 -9622)"
+                ></path>
+                <path
+                  id="Path_8631"
+                  data-name="Path 8631"
+                  d="M15-7.25a.748.748,0,0,1-.53-.22l-3-3a.75.75,0,0,1-.22-.53v-4a.75.75,0,0,1,.75-.75.75.75,0,0,1,.75.75v3.689l2.78,2.78a.75.75,0,0,1,0,1.061A.748.748,0,0,1,15-7.25Z"
+                  transform="translate(-13134 -9599)"
+                ></path>
+              </g>
+            </svg>
+
+            <div class="flex flex-col">
+              <p
+                class="text-sm text-[rgb(97,97,97)]"
+                x-text="deliveringTo ? 'Arrives in' : 'Ready within' "
+              ></p>
+              <p
+                class="text-dark"
+                x-text="deliveringTo ? deliveringTo.deliveryZone.deliveryTime + ' minutes' : '15 minutes' "
+              ></p>
+            </div>
+          </div>
+
+          <button>
+            <svg
+              class="fill-purple"
+              width="24"
+              height="24"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M7.9415 4.55859L13.3834 10.0005L7.9415 15.4425L7.05762 14.5586L11.6157 10.0005L7.05762 5.44248L7.9415 4.55859Z"
+                fill-opacity="0.75"
+              ></path></svg
+            ><label
+              variant="smallText"
+              cursor="pointer"
+              mx="0"
+              class="style__StyledText-sc-nykyuh-0 bOKSJC"
+            ></label>
+          </button>
+        </div>
+      </div>
 
       <!-- SLIDE MENU -->
 
@@ -436,6 +603,7 @@
               >
                 <template x-for="area in city.areas">
                   <div
+                    @click="deliveringTo = area;"
                     class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
                   >
                     <span class="" x-text="area.titleEn">City</span>
@@ -444,6 +612,44 @@
               </div>
             </div>
           </template>
+        </div>
+
+        <!-- PICKUP -->
+        <div
+          x-show="tab==2"
+          @click="pickingFrom = store;orderMode = false"
+          class="mt-4 flex justify-between items-center cursor-pointer"
+        >
+          <div class="flex flex-col">
+            <p class="font-bold text-dark" x-text="store.branch.titleEn"></p>
+            <p
+              class="mt-1 text-[rgb(97,97,97)]"
+              x-text="store.branch.addressEn"
+            ></p>
+          </div>
+
+          <button>
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M7.9415 4.55859L13.3834 10.0005L7.9415 15.4425L7.05762 14.5586L11.6157 10.0005L7.05762 5.44248L7.9415 4.55859Z"
+                fill="#1F1F1F"
+                fill-opacity="0.75"
+              ></path></svg
+            ><label
+              variant="smallText"
+              cursor="pointer"
+              mx="0"
+              class="style__StyledText-sc-nykyuh-0 bOKSJC"
+            ></label>
+          </button>
         </div>
       </div>
     </aside>
