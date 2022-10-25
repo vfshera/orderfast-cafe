@@ -4,8 +4,124 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="/dist/output.css" rel="stylesheet" />
+    <script src="./index.js"></script>
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
   </head>
-  <body>
-    <h1 class="text-3xl font-bold underline">Hello world!</h1>
+  <body class="flex">
+    <aside
+      class="bg-white min-h-full pt-4 w-[450px] flex flex-col overflow-y-auto"
+    >
+      <!-- ONE CLICK -->
+      <div
+        class="bg-lavendar mx-4 flex justify-between items-center px-4 py-3 rounded-lg mb-4"
+      >
+        <p>
+          <strong>Orderfast</strong> <span class="text-sm">with one click</span>
+        </p>
+        <svg
+          class="w-6 h-6"
+          xmlns="http://www.w3.org/2000/svg"
+          width="48"
+          height="48"
+          viewBox="0 0 48 48"
+        >
+          <g
+            id="Group_16404"
+            data-name="Group 16404"
+            transform="translate(0.008 0.008)"
+          >
+            <rect
+              id="Rectangle_6078"
+              data-name="Rectangle 6078"
+              width="48"
+              height="48"
+              transform="translate(-0.008 -0.008)"
+              fill="none"
+            ></rect>
+            <g
+              id="Group_16405"
+              data-name="Group 16405"
+              transform="translate(5.998 5.998)"
+            >
+              <path
+                id="Polygon_27"
+                data-name="Polygon 27"
+                d="M17.194,1.067a1,1,0,0,1,1.6,0L34.788,22.392a1,1,0,0,1-.8,1.6H2a1,1,0,0,1-.8-1.6Z"
+                transform="translate(35.371 0) rotate(90)"
+                fill="#000"
+              ></path>
+              <path
+                id="Path_8616"
+                data-name="Path 8616"
+                d="M16.86.7a1.409,1.409,0,0,1,2.43,0L33.1,23.878a1.443,1.443,0,0,1-1.215,2.19H1.422a1.443,1.443,0,0,1-1.215-2.19Z"
+                transform="translate(26.068 0.616) rotate(90)"
+                fill="#807d7d"
+                opacity="0.8"
+              ></path>
+            </g>
+          </g>
+        </svg>
+      </div>
+
+      <!-- TABS -->
+
+      <nav class="flex border-b border-gray-100 px-4">
+        <a
+          href=""
+          class="-mb-px border-b-[3px] border-purple p-4 flex-1 text-center text-black font-semibold"
+        >
+          Delivery
+        </a>
+
+        <a
+          href=""
+          class="-mb-px border-b-[3px] border-transparent p-4 flex-1 text-[#585858] text-center"
+        >
+          Pickup
+        </a>
+      </nav>
+
+      <!-- SLIDE MENU -->
+
+      <div
+        class="top-slide top-0 sticky [box-shadow:rgba(0,0,0,0.1)_0px_0.25em_0.25em] pt-5 pb-4 flex gap-1 px-4 overflow-x-scroll"
+      >
+        <div class="bg-purple text-white px-3 py-2 min-w-max rounded-full">
+          Bubble Tea
+        </div>
+        <div class="bg-[#f5f5f5] px-3 py-2 min-w-max rounded-full">Mojito</div>
+        <div class="bg-[#f5f5f5] px-3 py-2 min-w-max rounded-full">
+          Desserts
+        </div>
+        <div class="bg-[#f5f5f5] px-3 py-2 min-w-max rounded-full">
+          Hot Drinks
+        </div>
+        <div class="bg-[#f5f5f5] px-3 py-2 min-w-max rounded-full">
+          Iced Tea
+        </div>
+        <div class="bg-[#f5f5f5] px-3 py-2 min-w-max rounded-full">
+          Brewed Drinks
+        </div>
+        <div class="bg-[#f5f5f5] px-3 py-2 min-w-max rounded-full">
+          Cold Drinks
+        </div>
+        <div class="bg-[#f5f5f5] px-3 py-2 min-w-max rounded-full">Juice</div>
+        <div class="bg-[#f5f5f5] px-3 py-2 min-w-max rounded-full">
+          Gathering
+        </div>
+        <div class="bg-[#f5f5f5] px-3 py-2 min-w-max rounded-full">
+          Soft serve
+        </div>
+        <div class="bg-[#f5f5f5] px-3 py-2 min-w-max rounded-full">Water</div>
+      </div>
+
+      <div class="min-h-screen bg-red-800"></div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="bg-[#7a7a7a] min-h-full flex-1">Main</main>
   </body>
 </html>
