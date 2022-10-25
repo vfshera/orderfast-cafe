@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="/dist/output.css" rel="stylesheet" />
-    <script src="./index.js"></script>
+    <script src="./index.js" defer></script>
+
     <script
       defer
       src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
@@ -16,6 +17,7 @@
       x-data="{
         categories: [],
          cities:[], 
+         cart: localStorage.getItem('KohiCafe_Cart') ? JSON.parse(localStorage.getItem('KohiCafe_Cart')) :  [], 
          deliveringTo: null,
          pickingFrom: null,
          tab:1, 
@@ -25,6 +27,29 @@
          quantity: 1,
          finalPrice: 0,
          store:null,
+         get cartProducts(){
+          return this.cart.map(i => i.product.uuid)
+         },
+         resetPurchase(){
+          this.viewProduct = null;
+         this.productOptions = [];
+         this.quantity = 1;
+         this.finalPrice = 0;
+         },
+         addToCart(){
+
+        this.cart.push({
+            product: this.viewProduct,
+            optitions: this.productOptions,
+            quantity:this.quantity,
+            total: this.finalPrice,
+          })
+         localStorage.setItem('KohiCafe_Cart',JSON.stringify(this.cart))
+
+         this.resetPurchase();
+
+         orderMode = false;
+         },
          totalPrice(){
 
           this.finalPrice = (this.viewProduct.variants[0].optionGroups[0].options
@@ -154,19 +179,45 @@
               @click="quantity--"
               class="rounded-full aspect-square disabled:opacity-40 h-5 flex justify-center items-center border border-dark"
             >
-              -
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M1.71429 12C1.71429 6.3191 6.3191 1.71429 12 1.71429C17.6809 1.71429 22.2857 6.3191 22.2857 12C22.2857 17.6809 17.6809 22.2857 12 22.2857C6.3191 22.2857 1.71429 17.6809 1.71429 12ZM12 0C5.37233 0 0 5.37233 0 12C0 18.6277 5.37233 24 12 24C18.6277 24 24 18.6277 24 12C24 5.37233 18.6277 0 12 0ZM6 12.8571H18V11.1429H6V12.8571Z"
+                  fill="#1F1F1F"
+                ></path>
+              </svg>
             </button>
             <span x-text="quantity">1</span>
             <button
               @click="quantity++"
               class="rounded-full aspect-square h-5 flex justify-center items-center border border-dark"
             >
-              +
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M1.71429 12C1.71429 6.3191 6.3191 1.71429 12 1.71429C17.6809 1.71429 22.2857 6.3191 22.2857 12C22.2857 17.6809 17.6809 22.2857 12 22.2857C6.3191 22.2857 1.71429 17.6809 1.71429 12ZM12 0C5.37233 0 0 5.37233 0 12C0 18.6277 5.37233 24 12 24C18.6277 24 24 18.6277 24 12C24 5.37233 18.6277 0 12 0ZM11.1429 18V12.8571H6V11.1429H11.1429V6H12.8571V11.1429H18V12.8571H12.8571V18H11.1429Z"
+                  fill="#1F1F1F"
+                ></path>
+              </svg>
             </button>
           </div>
 
           <button
-            @click="totalPrice()"
+            @click="addToCart()"
             class="flex justify-between items-center bg-purple text-white py-2 px-4 rounded w-full mt-4 h-12 shadow text-sm font-medium"
           >
             Add to Cart
@@ -478,7 +529,9 @@
             <template x-for="product in category.products">
               <div
                 :id="product.uuid"
+                data-in-cart="cartProducts.includes(product.uuid)"
                 class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+                x-bind:class="cartProducts.includes(product.uuid) && 'border-l-4 border-l-purple' "
                 @click="viewProduct = product"
               >
                 <div class="description flex flex-col justify-between">
@@ -659,13 +712,8 @@
                 d="M7.9415 4.55859L13.3834 10.0005L7.9415 15.4425L7.05762 14.5586L11.6157 10.0005L7.05762 5.44248L7.9415 4.55859Z"
                 fill="#1F1F1F"
                 fill-opacity="0.75"
-              ></path></svg
-            ><label
-              variant="smallText"
-              cursor="pointer"
-              mx="0"
-              class="style__StyledText-sc-nykyuh-0 bOKSJC"
-            ></label>
+              ></path>
+            </svg>
           </button>
         </div>
       </div>
