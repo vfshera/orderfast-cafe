@@ -13,7 +13,34 @@
   <body class="flex">
     <aside
       class="bg-white max-h-screen w-[450px] flex flex-col overflow-y-auto relative z-0"
-      x-data="{categories: [], cities:[], tab:1, orderMode: true ,product: {}}"
+      x-data="{
+        categories: [],
+         cities:[], 
+         tab:1, 
+         orderMode: false ,
+         viewProduct: null,
+         productOptions: [], 
+         quantity: 1,
+         finalPrice: 0,
+         totalPrice(){
+          this.finalPrice = (this.viewProduct.variants[0].optionGroups[0].options
+          .filter(op => this.productOptions.includes(op.uuid))
+          .reduce((total,option) => total + option.price,+this.viewProduct.displayPrice) * this.quantity).toFixed(3);          
+         }
+         ,
+         checkOptions(option){
+
+          if(this.productOptions.length >= 5)return;
+
+          if(this.productOptions.includes(option)){
+            this.productOptions = this.productOptions.filter(opt => opt != option);
+           
+          }else          {
+            this.productOptions.push(option)
+          }
+
+          this.totalPrice();
+      }}"
       x-init="fetch('data.json')
       .then(response => response.json())
       .then(data => {
@@ -21,12 +48,128 @@
          cities = data.countries[0].cities;
          })"
     >
+      <!-- PRODUCT VIEW -->
+
+      <div class="product-view" x-show="viewProduct">
+        <div
+          class="item-img h-[450px] aspect-square bg-cover bg-center"
+          style="background-image: url('/public/images/productsFallback.svg')"
+        >
+          <button
+            @click="viewProduct = null; productOptions = [];
+          quantity = 1;
+          finalPrice = 0"
+            class="bg-white flex justify-center items-center relative top-4 left-4 w-9 aspect-square rounded-full"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <g><path fill="rgba(0,119,189,0)" d="M0 0H24V24H0z"></path></g>
+              <path
+                fill="#212121"
+                d="M1598.321-2.738l-6.615-6.615a.843.843 0 0 1-.406-.721.84.84 0 0 1 .113-.422.847.847 0 0 1 .146-.2.859.859 0 0 1 .089-.078l6.672-6.672a.844.844 0 0 1 1.193 0 .844.844 0 0 1 0 1.193l-5.331 5.331h14.273a.844.844 0 0 1 .844.844.844.844 0 0 1-.844.843h-14.242l5.3 5.3a.843.843 0 0 1 0 1.192.842.842 0 0 1-.6.247.841.841 0 0 1-.592-.242z"
+                transform="translate(-1588.301 22.689)"
+              ></path>
+            </svg>
+          </button>
+        </div>
+
+        <div class="title-price mx-4 py-4 border-b border-[rgb(224,224,224)]">
+          <h4
+            class="text-[32px] leading-7 mb-2 font-semibold text-dark"
+            x-text="viewProduct.titleEn"
+          ></h4>
+          <p
+            class="price text-sm"
+            x-text="'KWD ' + viewProduct?.variants[0].price"
+          >
+            KWD 2
+          </p>
+        </div>
+
+        <div class="addons mx-4 py-4 border-b border-[rgb(224,224,224)]">
+          <p class="text-dark font-bold mb-1">Add ons</p>
+          <p class="text-[rgb(118,118,118)] mb-4 font-medium text-sm">
+            Select upto 5
+          </p>
+
+          <div class="option-groups flex flex-col gap-2">
+            <template
+              x-for="option in viewProduct?.variants[0].optionGroups[0].options"
+            >
+              <div class="input-group flex items-center gap-3">
+                <input
+                  type="checkbox"
+                  class="accent-purple text-sm"
+                  :name="option.uuid"
+                  :id="option.uuid"
+                  @click="checkOptions(option.uuid)"
+                  :disabled="!productOptions.includes(option.uuid) && productOptions.length >= 5"
+                />
+                <label
+                  :for="option.uuid"
+                  class="text-dark flex justify-between items-center flex-1"
+                >
+                  <span x-text="option.titleEn"></span>
+                  <span
+                    x-text=" option.price > 0 ? 'KWD '+ option.price.toFixed(3)  : ''"
+                  ></span>
+                </label>
+              </div>
+            </template>
+          </div>
+        </div>
+
+        <div class="mx-4 py-4 border-b border-[rgb(224,224,224)]">
+          <p class="text-dark font-bold mb-1">Special instructions</p>
+          <input
+            type="text"
+            placeholder="Add instructions"
+            class="h-10 outline-none text-sm w-full p-3 rounded bg-[rgb(245,245,245)]"
+          />
+        </div>
+
+        <div
+          class="sticky bottom-0 bg-white w-full border-t p-4 pb-8 border-[rgb(224,224,224)]"
+        >
+          <div class="quatity flex justify-center gap-3 items-center">
+            <button
+              :disabled="quantity === 1"
+              @click="quantity--;  totalPrice()"
+              class="rounded-full aspect-square disabled:opacity-40 h-5 flex justify-center items-center border border-dark"
+            >
+              -
+            </button>
+            <span x-text="quantity">1</span>
+            <button
+              @click="quantity++; totalPrice()"
+              class="rounded-full aspect-square h-5 flex justify-center items-center border border-dark"
+            >
+              +
+            </button>
+          </div>
+
+          <button
+            @click="totalPrice()"
+            class="flex justify-between items-center bg-purple text-white py-2 px-4 rounded w-full mt-4 h-12 shadow text-sm font-medium"
+          >
+            Add to Cart
+            <span
+              x-text=" finalPrice > 0 ? 'KWD ' + finalPrice : 'KWD ' + viewProduct?.displayPrice"
+            ></span>
+          </button>
+        </div>
+      </div>
+
       <!-- ORDER MODE -->
       <div
-        x-show="orderMode"
+        x-show="orderMode && !viewProduct"
         class="order-mode-header flex sticky p-4 z-10 border-b border-[rgb(224, 224, 224)]"
       >
-        <button>
+        <button @click="orderMode = false">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -47,7 +190,7 @@
 
       <!-- ONE CLICK -->
       <div
-        x-show="!orderMode"
+        x-show="!orderMode && !viewProduct"
         class="bg-lavendar mx-4 mt-4 flex justify-between items-center px-4 py-3 rounded-lg mb-4"
       >
         <p>
@@ -100,10 +243,10 @@
 
       <!-- TABS -->
 
-      <nav class="flex border-b border-gray-100 px-4">
+      <nav x-show="!viewProduct" class="flex border-b border-gray-100 px-4">
         <a
           href="#"
-          @click="tab = 1"
+          @click="tab = 1; orderMode = true"
           class="-mb-px border-b-[3px] p-4 flex-1 text-center"
           :class=" tab == 1 ? 'border-purple text-black font-semibold' : 'border-transparent text-[#585858]'"
         >
@@ -112,7 +255,7 @@
 
         <a
           href="#"
-          @click="tab = 2"
+          @click="tab = 2; orderMode = true"
           class="-mb-px border-b-[3px] p-4 flex-1 text-center"
           :class=" tab == 2 ? 'border-purple text-black font-semibold' : 'border-transparent text-[#585858]'"
         >
@@ -123,7 +266,7 @@
       <!-- SLIDE MENU -->
 
       <div
-        x-show="!orderMode"
+        x-show="!orderMode && !viewProduct"
         class="top-slide bg-white z-10 top-0 sticky min-h-[70px] [box-shadow:rgba(0,0,0,0.1)_0px_0.25em_0.25em] pt-5 pb-4 flex gap-1 px-4 overflow-x-scroll"
       >
         <template x-for="category in categories">
@@ -138,7 +281,7 @@
       </div>
 
       <!-- PRODUCTS -->
-      <div x-show="!orderMode" class="listings flex flex-col">
+      <div x-show="!orderMode && !viewProduct" class="listings flex flex-col">
         <!-- PRODUCT -->
         <template x-for="(category,index) in categories">
           <div class="listing flex flex-col" :id="index + category.uuid">
@@ -152,7 +295,8 @@
             <template x-for="product in category.products">
               <div
                 :id="product.uuid"
-                class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)]"
+                class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+                @click="viewProduct = product"
               >
                 <div class="description flex flex-col justify-between">
                   <h6
@@ -198,7 +342,7 @@
             return this.cities?.filter( city => { 
               city.areas = city.areas.filter(area => area.titleEn.trim().toLowerCase().startsWith(this.search.toLowerCase()))
 
-              
+              // FIXME: FILTER FUNCTION
               console.log({ areas: city.areas ,search: this.search});
               
               
@@ -241,6 +385,7 @@
         <!-- CITIES LIST -->
 
         <div
+          x-show="tab==1"
           class="cities"
           x-data="{
           openCity: 0,
