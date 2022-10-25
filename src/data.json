@@ -4609,5 +4609,2664 @@
         }
       ]
     }
+  ],
+
+  "countries": [
+    {
+      "code": "KW",
+      "currency": { "decimals": "3", "title_ar": "د.ك", "title_en": "KWD" },
+      "flag": "🇰🇼",
+      "id": "2",
+      "lat": 29.366667,
+      "lng": 47.966667,
+      "timeZone": "Asia/Kuwait",
+      "titleAr": "الكويت",
+      "titleEn": "Kuwait",
+      "cities": [
+        {
+          "id": "22",
+          "lat": 29.3342457,
+          "lng": 47.9812152,
+          "titleAr": "العاصمة",
+          "titleEn": "Kuwait City",
+          "areas": [
+            {
+              "id": "3097",
+              "lat": 29.2699529,
+              "lng": 48.0183705,
+              "titleAr": "منطقة الوزارات",
+              "titleEn": "Ministries area ",
+              "cityId": 22,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "5914",
+              "lat": 29.0447402,
+              "lng": 48.1504119,
+              "titleAr": "ميناء الشعبية",
+              "titleEn": "Port of Shuaiba",
+              "cityId": 22,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "5915",
+              "lat": 29.2498968,
+              "lng": 48.037189,
+              "titleAr": "مستشفى جابر الأحمد العسكري",
+              "titleEn": "Jaber Al-Ahmad Armed Forces Hospital",
+              "cityId": 22,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "5916",
+              "lat": 29.2260672,
+              "lng": 47.9826567,
+              "titleAr": "مطار الشيخ سعد",
+              "titleEn": "Sheikh Saad Airport",
+              "cityId": 22,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "5919",
+              "lat": 29.2701641,
+              "lng": 48.0192916,
+              "titleAr": "جنوب السرة",
+              "titleEn": "West Surra",
+              "cityId": 22,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "5920",
+              "lat": 29.2041546,
+              "lng": 48.0240925,
+              "titleAr": "مخيم وزارة الدفاع",
+              "titleEn": "Defense Camp",
+              "cityId": 22,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "510",
+              "lat": 29.3518587,
+              "lng": 47.9836915,
+              "titleAr": "عبدالله السالم",
+              "titleEn": "Abdullah Al Salem",
+              "cityId": 22,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "511",
+              "lat": 29.328058,
+              "lng": 47.9836915,
+              "titleAr": "العديلية",
+              "titleEn": "Adailiya",
+              "cityId": 22,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "512",
+              "lat": 29.3748727,
+              "lng": 48.0042721,
+              "titleAr": "بنيد القار",
+              "titleEn": "Bneid Al Qar",
+              "cityId": 22,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "513",
+              "lat": 29.3604396,
+              "lng": 48.0183705,
+              "titleAr": "الدعية",
+              "titleEn": "Daiya",
+              "cityId": 22,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "514",
+              "lat": 29.3664336,
+              "lng": 48.000698,
+              "titleAr": "الدسمة",
+              "titleEn": "Dasma",
+              "cityId": 22,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "515",
+              "lat": 29.3878041,
+              "lng": 47.9997896,
+              "titleAr": "دسمان",
+              "titleEn": "Dasman",
+              "cityId": 22,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "517",
+              "lat": 29.3404328,
+              "lng": 47.9787391,
+              "titleAr": "الفيحاء",
+              "titleEn": "Faiha",
+              "cityId": 22,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "518",
+              "lat": 29.312521,
+              "lng": 47.8785532,
+              "titleAr": "غرناطة",
+              "titleEn": "Ghornata",
+              "cityId": 22,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "520",
+              "lat": 29.3375672,
+              "lng": 47.9589345,
+              "titleAr": "كيفان",
+              "titleEn": "Kaifan",
+              "cityId": 22,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "521",
+              "lat": 29.3251956,
+              "lng": 47.9638849,
+              "titleAr": "الخالدية",
+              "titleEn": "Khaldiya",
+              "cityId": 22,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "522",
+              "lat": 29.375859,
+              "lng": 47.9774052,
+              "titleAr": "مدينة الكويت",
+              "titleEn": "Kuwait City",
+              "cityId": 22,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "523",
+              "lat": 29.3573377,
+              "lng": 47.9948358,
+              "titleAr": "المنصورية",
+              "titleEn": "Mansouriya",
+              "cityId": 22,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "524",
+              "lat": 29.3661375,
+              "lng": 47.9836915,
+              "titleAr": "المرقاب",
+              "titleEn": "Mirqab",
+              "cityId": 22,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "525",
+              "lat": 29.3137412,
+              "lng": 47.9094547,
+              "titleAr": "معسكرات المباركية",
+              "titleEn": "Mubarakiya Camps",
+              "cityId": 22,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "527",
+              "lat": 29.3413899,
+              "lng": 47.9935975,
+              "titleAr": "النزهة",
+              "titleEn": "Nuzha",
+              "cityId": 22,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "528",
+              "lat": 29.3499618,
+              "lng": 48.0035053,
+              "titleAr": "القادسية",
+              "titleEn": "Qadsiya",
+              "cityId": 22,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "529",
+              "lat": 29.369934,
+              "lng": 47.9688359,
+              "titleAr": "القبلة",
+              "titleEn": "Qibla",
+              "cityId": 22,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "530",
+              "lat": 29.3123481,
+              "lng": 47.9861678,
+              "titleAr": "قرطبة",
+              "titleEn": "Qortuba",
+              "cityId": 22,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "531",
+              "lat": 29.3290126,
+              "lng": 47.9985512,
+              "titleAr": "الروضة",
+              "titleEn": "Rawdah",
+              "cityId": 22,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "532",
+              "lat": 29.3635088,
+              "lng": 47.9675981,
+              "titleAr": "الصالحية",
+              "titleEn": "Salhiya",
+              "cityId": 22,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "533",
+              "lat": 29.3508986,
+              "lng": 47.9688359,
+              "titleAr": "الشامية",
+              "titleEn": "Shamiya",
+              "cityId": 22,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "534",
+              "lat": 29.3823227,
+              "lng": 47.9886442,
+              "titleAr": "شرق",
+              "titleEn": "Sharq",
+              "cityId": 22,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "536",
+              "lat": 29.3137752,
+              "lng": 48.0084599,
+              "titleAr": "السرة",
+              "titleEn": "Surra",
+              "cityId": 22,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "537",
+              "lat": 29.3128217,
+              "lng": 47.9688359,
+              "titleAr": "اليرموك",
+              "titleEn": "Yarmouk",
+              "cityId": 22,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "539",
+              "lat": 29.3477884,
+              "lng": 47.945323,
+              "titleAr": "الشويخ الإدارية",
+              "titleEn": "Shuwaikh Administrative",
+              "cityId": 22,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "540",
+              "lat": 29.3235105,
+              "lng": 47.9360112,
+              "titleAr": "الشويخ الصناعية",
+              "titleEn": "Shuwaikh Industrial",
+              "cityId": 22,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "541",
+              "lat": 29.3546948,
+              "lng": 47.9539844,
+              "titleAr": "الشويخ السكنية",
+              "titleEn": "Shuwaikh Residential",
+              "cityId": 22,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "994",
+              "lat": 29.3346987,
+              "lng": 47.9391371,
+              "titleAr": "الشويخ الصناعية ١",
+              "titleEn": "Shuwaikh Industrial 1",
+              "cityId": 22,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "995",
+              "lat": 29.3242366,
+              "lng": 47.9490349,
+              "titleAr": "الشويخ الصناعØ© Ù¢",
+              "titleEn": "Shuwaikh Industrial 2",
+              "cityId": 22,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "996",
+              "lat": 29.3213689,
+              "lng": 47.9292411,
+              "titleAr": "Ø§ÙØ´ÙÙØ® Ø§ÙØµÙØ§Ø¹ÙØ© Ù£",
+              "titleEn": "Shuwaikh Industrial 3",
+              "cityId": 22,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "1002",
+              "lat": 29.3790539,
+              "lng": 47.9932879,
+              "titleAr": "Ø¨Ø±Ø¬ Ø§ÙØ­ÙØ±Ø§Ø¡",
+              "titleEn": "Al Hamra Tower",
+              "cityId": 22,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "1003",
+              "lat": 29.3256209,
+              "lng": 47.897092,
+              "titleAr": "Ø§ÙØ´ÙÙØ® Ø§ÙØµØ­ÙØ©",
+              "titleEn": "Shuwaikh Medical",
+              "cityId": 22,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "3095",
+              "lat": 29.3256209,
+              "lng": 47.897092,
+              "titleAr": "ÙÙØ·ÙØ© Ø§ÙØµØ¨Ø§Ø­ Ø§ÙØ·Ø¨ÙØ© Ø§ÙØªØ®ØµØµÙØ©",
+              "titleEn": "Health Region",
+              "cityId": 22,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "3096",
+              "lat": 29.3616036,
+              "lng": 47.9835826,
+              "titleAr": "Ø­Ø¯Ø§Ø¦Ù Ø§ÙØ³ÙØ±",
+              "titleEn": "Soor Gardens",
+              "cityId": 22,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "3098",
+              "lat": 29.3768055,
+              "lng": 47.9779782,
+              "titleAr": "ÙØ±ÙØ³ØªØ§Ù ØªØ§ÙØ±",
+              "titleEn": "Crystal Tower",
+              "cityId": 22,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "4043",
+              "lat": 29.3734289,
+              "lng": 47.9728451,
+              "titleAr": "Ø§ÙÙØ¨Ø§Ø±ÙÙØ©",
+              "titleEn": "Mubarakiya",
+              "cityId": 22,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "5917",
+              "lat": 29.3516583,
+              "lng": 48.0187545,
+              "titleAr": "Ø§ÙØ´Ø¹Ø¨ Ø§ÙØ¨Ø­Ø±Ù",
+              "titleEn": "Shaab Al Bahri",
+              "cityId": 22,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "5918",
+              "lat": 29.3256253,
+              "lng": 47.8990099,
+              "titleAr": "ÙØ³ØªØ´ÙÙ Ø§ÙØµØ¨Ø§Ø­",
+              "titleEn": "Al Sabah Hospital",
+              "cityId": 22,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "516",
+              "lat": 29.3155169,
+              "lng": 47.8155695,
+              "titleAr": "Ø§ÙØ¯ÙØ­Ø©",
+              "titleEn": "Doha",
+              "cityId": 22,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20114",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 5
+              }
+            },
+            {
+              "id": "535",
+              "lat": 29.3155591,
+              "lng": 47.8402601,
+              "titleAr": "Ø§ÙØµÙÙØ¨Ø®Ø§Øª",
+              "titleEn": "Sulaibikhat",
+              "cityId": 22,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20114",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 5
+              }
+            },
+            {
+              "id": "538",
+              "lat": 29.3563081,
+              "lng": 47.9057456,
+              "titleAr": "Ø§ÙÙÙØ·ÙØ© Ø§ÙØ­Ø±Ø©",
+              "titleEn": "Kuwait Free Trade Zone",
+              "cityId": 22,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20114",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 5
+              }
+            },
+            {
+              "id": "993",
+              "lat": 29.3278632,
+              "lng": 47.8106327,
+              "titleAr": "Ø´ÙØ§Ù ØºØ±Ø¨ Ø§ÙØµÙÙØ¨Ø®Ø§Øª",
+              "titleEn": "North West Sulaibikhat",
+              "cityId": 22,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20114",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 5
+              }
+            },
+            {
+              "id": "4434",
+              "lat": 29.3035371,
+              "lng": 47.7960952,
+              "titleAr": "Ø§ÙÙÙØ±ÙØ§Ù",
+              "titleEn": "Qairawan",
+              "cityId": 22,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20114",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 5
+              }
+            },
+            {
+              "id": "519",
+              "lat": 29.3481663,
+              "lng": 47.7588245,
+              "titleAr": "Ø¬Ø§Ø¨Ø± Ø§ÙØ£Ø­ÙØ¯",
+              "titleEn": "Jaber Al Ahmad",
+              "cityId": 22,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20115",
+                "areaId": null,
+                "deliveryTime": 90,
+                "minimumOrder": 10
+              }
+            }
+          ]
+        },
+        {
+          "id": "23",
+          "lat": 29.3377882,
+          "lng": 48.0234708,
+          "titleAr": "ÙØ­Ø§ÙØ¸Ø© Ø­ÙÙÙ",
+          "titleEn": "Hawally",
+          "areas": [
+            {
+              "id": "542",
+              "lat": 29.3149201,
+              "lng": 48.0890362,
+              "titleAr": "Ø§ÙØ¨Ø¯Ø¹",
+              "titleEn": "Al Bidae",
+              "cityId": 23,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "543",
+              "lat": 29.2979895,
+              "lng": 48.0510871,
+              "titleAr": "Ø¨ÙØ§Ù",
+              "titleEn": "Bayan",
+              "cityId": 23,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "545",
+              "lat": 29.2842433,
+              "lng": 48.0183705,
+              "titleAr": "Ø­Ø·ÙÙ",
+              "titleEn": "Hitteen",
+              "cityId": 23,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "547",
+              "lat": 29.3056716,
+              "lng": 48.0307613,
+              "titleAr": "ÙÙØ¯Ø§Ù Ø­ÙÙÙ",
+              "titleEn": "Maidan Hawally",
+              "cityId": 23,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "548",
+              "lat": 29.2765468,
+              "lng": 48.0673248,
+              "titleAr": "ÙØ´Ø±Ù",
+              "titleEn": "Mishrif",
+              "cityId": 23,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "549",
+              "lat": 29.2734463,
+              "lng": 48.0441604,
+              "titleAr": "ÙØ¨Ø§Ø±Ù Ø§ÙØ¹Ø¨Ø¯Ø§ÙÙÙ - ØºØ±Ø¨ ÙØ´Ø±Ù",
+              "titleEn": "Mubarak Al Abdullah - West Mishref",
+              "cityId": 23,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "550",
+              "lat": 29.3161237,
+              "lng": 48.0719508,
+              "titleAr": "Ø§ÙØ±ÙÙØ«ÙØ©",
+              "titleEn": "Rumaithiya",
+              "cityId": 23,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "551",
+              "lat": 29.2966294,
+              "lng": 48.013415,
+              "titleAr": "Ø§ÙØ³ÙØ§Ù",
+              "titleEn": "Salam",
+              "cityId": 23,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "553",
+              "lat": 29.2964866,
+              "lng": 48.079379,
+              "titleAr": "Ø³ÙÙÙ",
+              "titleEn": "Salwa",
+              "cityId": 23,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "555",
+              "lat": 29.270894,
+              "lng": 48.0332398,
+              "titleAr": "Ø§ÙØ´ÙØ¯Ø§Ø¡",
+              "titleEn": "Shuhada",
+              "cityId": 23,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "557",
+              "lat": 29.2746424,
+              "lng": 47.99978,
+              "titleAr": "Ø§ÙØ²ÙØ±Ø§Ø¡",
+              "titleEn": "Zahra",
+              "cityId": 23,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "990",
+              "lat": 29.2972882,
+              "lng": 48.0865551,
+              "titleAr": " Ø£ÙØ¬ÙØ© ",
+              "titleEn": "Anjafa",
+              "cityId": 23,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "544",
+              "lat": 29.3377882,
+              "lng": 48.0234708,
+              "titleAr": "Ø­ÙÙÙ",
+              "titleEn": "Hawally",
+              "cityId": 23,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "546",
+              "lat": 29.3199043,
+              "lng": 48.0255416,
+              "titleAr": "Ø§ÙØ¬Ø§Ø¨Ø±ÙØ©",
+              "titleEn": "Jabriya",
+              "cityId": 23,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "552",
+              "lat": 29.3352938,
+              "lng": 48.0715612,
+              "titleAr": "Ø§ÙØ³Ø§ÙÙÙØ©",
+              "titleEn": "Salmiya",
+              "cityId": 23,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "554",
+              "lat": 29.349965,
+              "lng": 48.0282829,
+              "titleAr": "Ø§ÙØ´Ø¹Ø¨",
+              "titleEn": "Shaab",
+              "cityId": 23,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "556",
+              "lat": 29.2937781,
+              "lng": 47.9935975,
+              "titleAr": "Ø§ÙØµØ¯ÙÙ",
+              "titleEn": "Siddiq",
+              "cityId": 23,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "6366",
+              "lat": 29.3139024045534,
+              "lng": 48.0081734174172,
+              "titleAr": "Ø¬ÙÙØ¨ Ø§ÙØ³Ø±Ø©",
+              "titleEn": "Surra South",
+              "cityId": 23,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            }
+          ]
+        },
+        {
+          "id": "24",
+          "lat": 29.273357,
+          "lng": 47.9400154,
+          "titleAr": "محافظة الفروانية",
+          "titleEn": "Farwaniya",
+          "areas": [
+            {
+              "id": "567",
+              "lat": 29.2620388,
+              "lng": 47.9630143,
+              "titleAr": "الضجيج",
+              "titleEn": "Al Dhajeej",
+              "cityId": 24,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "579",
+              "lat": 29.2259527,
+              "lng": 47.984963,
+              "titleAr": "مطار الشيخ سعد العبدالله",
+              "titleEn": " Shaikh Saad Alabdullah Terminal",
+              "cityId": 24,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "997",
+              "lat": 29.2404414,
+              "lng": 47.9710458,
+              "titleAr": "مطار الكويت الدولي",
+              "titleEn": "Kuwait International Airport",
+              "cityId": 24,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "6158",
+              "lat": 29.2525067,
+              "lng": 47.959138,
+              "titleAr": "مطار الكويت الدولي - صالة 4",
+              "titleEn": "Kuwait International Airport - Terminal 4",
+              "cityId": 24,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "558",
+              "lat": 29.281596,
+              "lng": 47.9602518,
+              "titleAr": "العباسية",
+              "titleEn": "Abbasiya",
+              "cityId": 24,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "559",
+              "lat": 29.24287,
+              "lng": 47.9018439,
+              "titleAr": "عبدالله المبارك - غرب الجليب",
+              "titleEn": "Abdullah Al Mubarak - West Jileeb",
+              "cityId": 24,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "560",
+              "lat": 29.3005464,
+              "lng": 47.97218,
+              "titleAr": "أبرق خيطان",
+              "titleEn": "Abraq Khaitan",
+              "cityId": 24,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "562",
+              "lat": 29.3042048,
+              "lng": 47.8847321,
+              "titleAr": "الأندلس",
+              "titleEn": "Andalous",
+              "cityId": 24,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "563",
+              "lat": 29.2886069,
+              "lng": 47.9061441,
+              "titleAr": "العارضية",
+              "titleEn": "Ardiya",
+              "cityId": 24,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "564",
+              "lat": 29.2947115,
+              "lng": 47.9094547,
+              "titleAr": "العارضية الصناعية",
+              "titleEn": "Ardiya Small Industrial",
+              "cityId": 24,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "565",
+              "lat": 29.2947115,
+              "lng": 47.9094547,
+              "titleAr": "مخازن العارضية",
+              "titleEn": "Ardiya Storage Zone",
+              "cityId": 24,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "566",
+              "lat": 29.2728333,
+              "lng": 47.9391371,
+              "titleAr": "إشبيليا",
+              "titleEn": "Ishbiliya",
+              "cityId": 24,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "568",
+              "lat": 29.279973,
+              "lng": 47.9762632,
+              "titleAr": "جنوب خيطان - منطقة المعارض ",
+              "titleEn": "South Khaitan - Exhibits",
+              "cityId": 24,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "569",
+              "lat": 29.281596,
+              "lng": 47.9602518,
+              "titleAr": "الفروانية",
+              "titleEn": "Farwaniya",
+              "cityId": 24,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "570",
+              "lat": 29.2834971,
+              "lng": 47.8744558,
+              "titleAr": "الفردوس",
+              "titleEn": "Ferdous",
+              "cityId": 24,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "571",
+              "lat": 29.2594054,
+              "lng": 47.9397542,
+              "titleAr": "جليب الشيوخ",
+              "titleEn": "Jeleeb Al Shoyoukh",
+              "cityId": 24,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "572",
+              "lat": 29.279973,
+              "lng": 47.9762632,
+              "titleAr": "خيطان",
+              "titleEn": "Khaitan",
+              "cityId": 24,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "573",
+              "lat": 29.2958138,
+              "lng": 47.9556801,
+              "titleAr": "العمرية",
+              "titleEn": "Omariya",
+              "cityId": 24,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "574",
+              "lat": 29.2966301,
+              "lng": 47.9391371,
+              "titleAr": "الرابية",
+              "titleEn": "Rabiya",
+              "cityId": 24,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "575",
+              "lat": 29.3080538,
+              "lng": 47.9440857,
+              "titleAr": "الري",
+              "titleEn": "Rai",
+              "cityId": 24,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "576",
+              "lat": 29.3061333,
+              "lng": 47.9144007,
+              "titleAr": "الرقعي",
+              "titleEn": "Reggai",
+              "cityId": 24,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "577",
+              "lat": 29.2852067,
+              "lng": 47.9341889,
+              "titleAr": "الرحاب",
+              "titleEn": "Rehab",
+              "cityId": 24,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "578",
+              "lat": 29.2707391,
+              "lng": 47.8831023,
+              "titleAr": "صباح الناصر",
+              "titleEn": "Sabah Al Nasser",
+              "cityId": 24,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "991",
+              "lat": 29.2590213,
+              "lng": 47.897092,
+              "titleAr": "الشدادية",
+              "titleEn": "Al Shadadiya",
+              "cityId": 24,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "3093",
+              "lat": 29.2886069,
+              "lng": 47.9061441,
+              "titleAr": "العارضية (4)",
+              "titleEn": "Ardiya (4)",
+              "cityId": 24,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "3094",
+              "lat": 29.2886069,
+              "lng": 47.9061441,
+              "titleAr": "العارضية (6)",
+              "titleEn": "Ardiya (6)",
+              "cityId": 24,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "4044",
+              "lat": 29.2433059,
+              "lng": 47.8852842,
+              "titleAr": " ضاحية عبدالله المبارك الصباح",
+              "titleEn": "Abdullah Al-Mubarak Al Sabah",
+              "cityId": 24,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "4985",
+              "lat": 29.2391774,
+              "lng": 47.8501282,
+              "titleAr": "غرب عبدالله المبارك",
+              "titleEn": "Western Abdullah Al-Mubarak",
+              "cityId": 24,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "5587",
+              "lat": 29.2116309,
+              "lng": 47.8914961,
+              "titleAr": "جنوب عبدالله المبارك",
+              "titleEn": "South Abdullah Al-Mubarak",
+              "cityId": 24,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "4039",
+              "lat": 29.2538186,
+              "lng": 47.8415038,
+              "titleAr": "جامعة صباح السالم",
+              "titleEn": "Sabah Al Salem University",
+              "cityId": 24,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20114",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 5
+              }
+            }
+          ]
+        },
+        {
+          "id": "25",
+          "lat": 28.5745125,
+          "lng": 48.1024743,
+          "titleAr": "محافظة الأحمدي",
+          "titleEn": "Ahmadi",
+          "areas": [
+            {
+              "id": "580",
+              "lat": 29.1281522,
+              "lng": 48.1259111,
+              "titleAr": "أبو حليفة",
+              "titleEn": "Abu Halifa",
+              "cityId": 25,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "582",
+              "lat": 29.083461,
+              "lng": 48.0734762,
+              "titleAr": "الأحمدي",
+              "titleEn": "Al Ahmadi",
+              "cityId": 25,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "584",
+              "lat": 29.1650224,
+              "lng": 48.0679507,
+              "titleAr": "الظهر",
+              "titleEn": "Dhaher",
+              "cityId": 25,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "585",
+              "lat": 29.0771923,
+              "lng": 48.0877956,
+              "titleAr": "شرق الأحمدي",
+              "titleEn": "East Al Ahmadi",
+              "cityId": 25,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "586",
+              "lat": 29.1686861,
+              "lng": 48.1009461,
+              "titleAr": "العقيلة",
+              "titleEn": "Egaila",
+              "cityId": 25,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "587",
+              "lat": 29.1277082,
+              "lng": 48.1076478,
+              "titleAr": "فهد الأحمد",
+              "titleEn": "Fahad Al Ahmed",
+              "cityId": 25,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "588",
+              "lat": 29.083128,
+              "lng": 48.1334643,
+              "titleAr": "الفحيحيل",
+              "titleEn": "Fahaheel",
+              "cityId": 25,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "589",
+              "lat": 29.1704692,
+              "lng": 48.1193001,
+              "titleAr": "الفنطاس",
+              "titleEn": "Fintas",
+              "cityId": 25,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "590",
+              "lat": 29.1458815,
+              "lng": 48.092758,
+              "titleAr": "هدية",
+              "titleEn": "Hadiya",
+              "cityId": 25,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "591",
+              "lat": 29.1691087,
+              "lng": 48.0825523,
+              "titleAr": "جابر العلي",
+              "titleEn": "Jaber Al Ali",
+              "cityId": 25,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "593",
+              "lat": 29.0938425,
+              "lng": 48.0755468,
+              "titleAr": "المقوع",
+              "titleEn": "Magwa",
+              "cityId": 25,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "594",
+              "lat": 29.1496559,
+              "lng": 48.1191986,
+              "titleAr": "المهبولة",
+              "titleEn": "Mahboula",
+              "cityId": 25,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "595",
+              "lat": 29.1070609,
+              "lng": 48.1239894,
+              "titleAr": "المنقف",
+              "titleEn": "Mangaf",
+              "cityId": 25,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "597",
+              "lat": 29.0583698,
+              "lng": 48.1141687,
+              "titleAr": "ميناء الأحمدي",
+              "titleEn": "Mina Al Ahmadi",
+              "cityId": 25,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "599",
+              "lat": 29.1504085,
+              "lng": 48.1050756,
+              "titleAr": "الرقة",
+              "titleEn": "Riqqa",
+              "cityId": 25,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "602",
+              "lat": 29.1081627,
+              "lng": 48.1058589,
+              "titleAr": "الصباحية",
+              "titleEn": "Al Sabahiya",
+              "cityId": 25,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "603",
+              "lat": 29.0499058,
+              "lng": 48.1101299,
+              "titleAr": "الشعيبة - قطعة 1",
+              "titleEn": "Shuaiba Block 1",
+              "cityId": 25,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "4038",
+              "lat": 29.0854667,
+              "lng": 48.0543788,
+              "titleAr": "غرب الأحمدي",
+              "titleEn": "West Ahmadi",
+              "cityId": 25,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "4040",
+              "lat": 29.1023058,
+              "lng": 48.0598425,
+              "titleAr": "شمال الأحمدي",
+              "titleEn": "North Ahmadi ",
+              "cityId": 25,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "4041",
+              "lat": 29.0854667,
+              "lng": 48.0543788,
+              "titleAr": "وسط الأحمدي",
+              "titleEn": "Middle of Ahmadi",
+              "cityId": 25,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "4042",
+              "lat": 29.0746639,
+              "lng": 48.0449051,
+              "titleAr": "جنوب الأحمدي",
+              "titleEn": "South Al Ahmadi",
+              "cityId": 25,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "4045",
+              "lat": 29.0774904,
+              "lng": 48.0893487,
+              "titleAr": "جنوب الصباحية",
+              "titleEn": "South Sabahiya",
+              "cityId": 25,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "583",
+              "lat": 28.9570473,
+              "lng": 48.154826,
+              "titleAr": " علي صباح السالم - أم الهيمان",
+              "titleEn": "Ali Sabah Al-Salem - Umm Al Hayman",
+              "cityId": 25,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "596",
+              "lat": 29.008169,
+              "lng": 48.161171,
+              "titleAr": "ميناء عبدالله",
+              "titleEn": "Mina Abdullah",
+              "cityId": 25,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "999",
+              "lat": 29.0117129,
+              "lng": 48.1101299,
+              "titleAr": "الشعيبة الصناعية",
+              "titleEn": "West Industrial Shuaiba",
+              "cityId": 25,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "4431",
+              "lat": 28.9425568,
+              "lng": 48.1219109,
+              "titleAr": "أسطبلات محافظة الأحمدي‭",
+              "titleEn": "Ahmadi Stables ",
+              "cityId": 25,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "4435",
+              "lat": 29.38,
+              "lng": 47.985,
+              "titleAr": "المقوع الشرقي",
+              "titleEn": "East Al-Maqwa",
+              "cityId": 25,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "1000",
+              "lat": 28.9467573,
+              "lng": 48.1915545,
+              "titleAr": "شاليهات الضباعية",
+              "titleEn": "Al Duba'iya",
+              "cityId": 25,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20114",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 5
+              }
+            },
+            {
+              "id": "581",
+              "lat": 28.8844085,
+              "lng": 48.2629941,
+              "titleAr": "الجليعة ",
+              "titleEn": "Al Julai'a",
+              "cityId": 25,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20115",
+                "areaId": null,
+                "deliveryTime": 90,
+                "minimumOrder": 10
+              }
+            },
+            {
+              "id": "601",
+              "lat": 28.7864783,
+              "lng": 48.070431,
+              "titleAr": "صباح الأحمد السكنية",
+              "titleEn": "Sabah Al Ahmed Residential",
+              "cityId": 25,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20115",
+                "areaId": null,
+                "deliveryTime": 90,
+                "minimumOrder": 10
+              }
+            },
+            {
+              "id": "592",
+              "lat": 28.6691107,
+              "lng": 48.3688834,
+              "titleAr": "الخيران",
+              "titleEn": "Khairan",
+              "cityId": 25,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20116",
+                "areaId": null,
+                "deliveryTime": 90,
+                "minimumOrder": 10
+              }
+            },
+            {
+              "id": "604",
+              "lat": 28.5939707,
+              "lng": 47.9240088,
+              "titleAr": "مزارع الوفرة",
+              "titleEn": "Wafra Farms",
+              "cityId": 25,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20116",
+                "areaId": null,
+                "deliveryTime": 90,
+                "minimumOrder": 10
+              }
+            },
+            {
+              "id": "605",
+              "lat": 28.6627954,
+              "lng": 48.2816655,
+              "titleAr": "الوفرة السكنية",
+              "titleEn": "Wafra Residential",
+              "cityId": 25,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20116",
+                "areaId": null,
+                "deliveryTime": 90,
+                "minimumOrder": 10
+              }
+            },
+            {
+              "id": "992",
+              "lat": 28.7762968,
+              "lng": 48.2841556,
+              "titleAr": "بنيدر",
+              "titleEn": "Bnaider",
+              "cityId": 25,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20116",
+                "areaId": null,
+                "deliveryTime": 90,
+                "minimumOrder": 10
+              }
+            },
+            {
+              "id": "998",
+              "lat": 28.711697,
+              "lng": 48.3289951,
+              "titleAr": "الزور",
+              "titleEn": "Al Zour",
+              "cityId": 25,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20116",
+                "areaId": null,
+                "deliveryTime": 90,
+                "minimumOrder": 10
+              }
+            },
+            {
+              "id": "4430",
+              "lat": 29.1770964,
+              "lng": 47.5959605,
+              "titleAr": "وارة",
+              "titleEn": "Wara",
+              "cityId": 25,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20116",
+                "areaId": null,
+                "deliveryTime": 90,
+                "minimumOrder": 10
+              }
+            },
+            {
+              "id": "4432",
+              "lat": 28.6643438,
+              "lng": 48.2707929,
+              "titleAr": "الخيران السكنية",
+              "titleEn": "Khairan residential",
+              "cityId": 25,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20116",
+                "areaId": null,
+                "deliveryTime": 90,
+                "minimumOrder": 10
+              }
+            },
+            {
+              "id": "4433",
+              "lat": 28.7310084,
+              "lng": 48.3572693,
+              "titleAr": "ميناء الزور",
+              "titleEn": "Mina Alzour",
+              "cityId": 25,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20116",
+                "areaId": null,
+                "deliveryTime": 90,
+                "minimumOrder": 10
+              }
+            }
+          ]
+        },
+        {
+          "id": "26",
+          "lat": 29.3365728,
+          "lng": 47.6755291,
+          "titleAr": "محافظة الجهراء",
+          "titleEn": "Jahra",
+          "areas": [
+            {
+              "id": "617",
+              "lat": 29.2818243,
+              "lng": 47.8575503,
+              "titleAr": "الصليبية الصناعية ٢",
+              "titleEn": "Sulaibiya Industrial 2",
+              "cityId": 26,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "526",
+              "lat": 29.3041767,
+              "lng": 47.8600208,
+              "titleAr": "النهضة",
+              "titleEn": "Nahda",
+              "cityId": 26,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20114",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 5
+              }
+            },
+            {
+              "id": "612",
+              "lat": 29.3002821,
+              "lng": 47.8007606,
+              "titleAr": "القيروان",
+              "titleEn": "Qairawan ",
+              "cityId": 26,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20114",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 5
+              }
+            },
+            {
+              "id": "615",
+              "lat": 29.2855773,
+              "lng": 47.818038,
+              "titleAr": "الصليبية",
+              "titleEn": "Sulaibiya",
+              "cityId": 26,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20114",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 5
+              }
+            },
+            {
+              "id": "616",
+              "lat": 29.2870345,
+              "lng": 47.8402601,
+              "titleAr": "الصليبية الصناعية ١",
+              "titleEn": "Sulaibiya Industrial 1",
+              "cityId": 26,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20114",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 5
+              }
+            },
+            {
+              "id": "618",
+              "lat": 29.2855773,
+              "lng": 47.818038,
+              "titleAr": "الصليبية السكنية",
+              "titleEn": "Sulaibiya Residential",
+              "cityId": 26,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20114",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 5
+              }
+            },
+            {
+              "id": "606",
+              "lat": 29.3334892,
+              "lng": 47.6935198,
+              "titleAr": "النعيم",
+              "titleEn": "Al Naeem",
+              "cityId": 26,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20115",
+                "areaId": null,
+                "deliveryTime": 90,
+                "minimumOrder": 10
+              }
+            },
+            {
+              "id": "607",
+              "lat": 29.3006712,
+              "lng": 47.7588245,
+              "titleAr": "أمغرة الصناعية",
+              "titleEn": "Amgarah Industrial",
+              "cityId": 26,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20115",
+                "areaId": null,
+                "deliveryTime": 90,
+                "minimumOrder": 10
+              }
+            },
+            {
+              "id": "608",
+              "lat": 29.3365728,
+              "lng": 47.6755291,
+              "titleAr": "الجهراء",
+              "titleEn": "Jahrah",
+              "cityId": 26,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20115",
+                "areaId": null,
+                "deliveryTime": 90,
+                "minimumOrder": 10
+              }
+            },
+            {
+              "id": "609",
+              "lat": 29.0953403,
+              "lng": 47.7193856,
+              "titleAr": "كبد",
+              "titleEn": "Kabd",
+              "cityId": 26,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20115",
+                "areaId": null,
+                "deliveryTime": 90,
+                "minimumOrder": 10
+              }
+            },
+            {
+              "id": "610",
+              "lat": 29.3189617,
+              "lng": 47.677514,
+              "titleAr": "النسيم",
+              "titleEn": "Nasseem",
+              "cityId": 26,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20115",
+                "areaId": null,
+                "deliveryTime": 90,
+                "minimumOrder": 10
+              }
+            },
+            {
+              "id": "613",
+              "lat": 29.3408578,
+              "lng": 47.6972141,
+              "titleAr": "القصر",
+              "titleEn": "Qasser",
+              "cityId": 26,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20115",
+                "areaId": null,
+                "deliveryTime": 90,
+                "minimumOrder": 10
+              }
+            },
+            {
+              "id": "614",
+              "lat": 29.3138682,
+              "lng": 47.7193856,
+              "titleAr": "سعد العبدالله",
+              "titleEn": "Saad Al Abdullah",
+              "cityId": 26,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20115",
+                "areaId": null,
+                "deliveryTime": 90,
+                "minimumOrder": 10
+              }
+            },
+            {
+              "id": "619",
+              "lat": 29.3303676,
+              "lng": 47.6824383,
+              "titleAr": "تيماء",
+              "titleEn": "Taima",
+              "cityId": 26,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20115",
+                "areaId": null,
+                "deliveryTime": 90,
+                "minimumOrder": 10
+              }
+            },
+            {
+              "id": "4026",
+              "lat": 29.3365728,
+              "lng": 47.6755291,
+              "titleAr": "الجهراء القديمة",
+              "titleEn": "Old Jahra",
+              "cityId": 26,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20115",
+                "areaId": null,
+                "deliveryTime": 90,
+                "minimumOrder": 10
+              }
+            },
+            {
+              "id": "5525",
+              "lat": 29.334581,
+              "lng": 47.6711935,
+              "titleAr": "شرق تيماء",
+              "titleEn": "Sharq Taimaa",
+              "cityId": 26,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20115",
+                "areaId": null,
+                "deliveryTime": 90,
+                "minimumOrder": 10
+              }
+            },
+            {
+              "id": "611",
+              "lat": 29.3302817,
+              "lng": 47.6578212,
+              "titleAr": "العيون",
+              "titleEn": "Oyoun",
+              "cityId": 26,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20116",
+                "areaId": null,
+                "deliveryTime": 90,
+                "minimumOrder": 10
+              }
+            },
+            {
+              "id": "620",
+              "lat": 29.3445143,
+              "lng": 47.6578212,
+              "titleAr": "الواحة",
+              "titleEn": "Waha",
+              "cityId": 26,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20116",
+                "areaId": null,
+                "deliveryTime": 90,
+                "minimumOrder": 10
+              }
+            },
+            {
+              "id": "4441",
+              "lat": 29.3210998,
+              "lng": 47.6198752,
+              "titleAr": "الجهراء الصناعية",
+              "titleEn": "Al Jahra Industrial Area ",
+              "cityId": 26,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20116",
+                "areaId": null,
+                "deliveryTime": 90,
+                "minimumOrder": 10
+              }
+            }
+          ]
+        },
+        {
+          "id": "27",
+          "lat": 29.21224,
+          "lng": 48.0605108,
+          "titleAr": "محافظة مبارك الكبير",
+          "titleEn": "Mubarak Al Kabir",
+          "areas": [
+            {
+              "id": "621",
+              "lat": 29.1976045,
+              "lng": 48.1034175,
+              "titleAr": "أبو فطيرة",
+              "titleEn": "Abu Fatira",
+              "cityId": 27,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "622",
+              "lat": 29.1909059,
+              "lng": 48.1138531,
+              "titleAr": "أبو الحصانية",
+              "titleEn": "Abu Al Hasaniya",
+              "cityId": 27,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "623",
+              "lat": 29.23358,
+              "lng": 48.0679104,
+              "titleAr": "العدان",
+              "titleEn": "Adan",
+              "cityId": 27,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "624",
+              "lat": 29.2393671,
+              "lng": 48.0877956,
+              "titleAr": "المسايل",
+              "titleEn": "Al Masayel",
+              "cityId": 27,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "625",
+              "lat": 29.201281,
+              "lng": 48.0786033,
+              "titleAr": "القرين",
+              "titleEn": "Al Qurain",
+              "cityId": 27,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "626",
+              "lat": 29.2160974,
+              "lng": 48.0732097,
+              "titleAr": "القصور",
+              "titleEn": "Al Qusour",
+              "cityId": 27,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "627",
+              "lat": 29.21224,
+              "lng": 48.0605108,
+              "titleAr": "الشريط الساحلي ب",
+              "titleEn": "Coast Strip B",
+              "cityId": 27,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "628",
+              "lat": 29.2207571,
+              "lng": 48.0952394,
+              "titleAr": "الفنيطيس",
+              "titleEn": "ِAl Funaitees",
+              "cityId": 27,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "629",
+              "lat": 29.2495718,
+              "lng": 48.0940508,
+              "titleAr": "المسيلة",
+              "titleEn": "Messila",
+              "cityId": 27,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "630",
+              "lat": 29.1886698,
+              "lng": 48.0806909,
+              "titleAr": "مبارك الكبير",
+              "titleEn": "Mubarak Al Kabeer",
+              "cityId": 27,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "631",
+              "lat": 29.2565637,
+              "lng": 48.062605,
+              "titleAr": "صباح السالم",
+              "titleEn": "Sabah Al Salem",
+              "cityId": 27,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "632",
+              "lat": 29.2309026,
+              "lng": 48.0035053,
+              "titleAr": "صبحان الصناعية",
+              "titleEn": "Sabhan Industrial",
+              "cityId": 27,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "633",
+              "lat": 29.21224,
+              "lng": 48.0605108,
+              "titleAr": "جنوب الوسطى",
+              "titleEn": "South Wista",
+              "cityId": 27,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "634",
+              "lat": 29.1922447,
+              "lng": 48.045634,
+              "titleAr": "غرب ابو فطيرة الحرفية",
+              "titleEn": "West Abu Fatira Industrial",
+              "cityId": 27,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "635",
+              "lat": 29.2295559,
+              "lng": 48.0315752,
+              "titleAr": "الوسطى",
+              "titleEn": "Wista",
+              "cityId": 27,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            },
+            {
+              "id": "989",
+              "lat": 29.1922447,
+              "lng": 48.045634,
+              "titleAr": "أسواق القرين",
+              "titleEn": "Aswaq Al Qurain",
+              "cityId": 27,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20112",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            }
+          ]
+        },
+        {
+          "id": "252",
+          "lat": 29.008187,
+          "lng": 48.1524162,
+          "titleAr": "ميناء عبد الله",
+          "titleEn": "Mina Abd Allah",
+          "areas": [
+            {
+              "id": "6015",
+              "lat": 29.0046064,
+              "lng": 48.1489112,
+              "titleAr": "مصفاة ميناء عبد الله",
+              "titleEn": "Mina Abdullah Refinery",
+              "cityId": 252,
+              "deliveryZone": {
+                "branchId": 6460,
+                "id": "20113",
+                "areaId": null,
+                "deliveryTime": 60,
+                "minimumOrder": 0
+              }
+            }
+          ]
+        }
+      ]
+    }
   ]
 }
