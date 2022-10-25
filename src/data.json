@@ -1,0 +1,41 @@
+{
+  "categories": [
+    {
+      "title": "Bubble Tea"
+    },
+
+    {
+      "title": "Mojito"
+    },
+    {
+      "title": "Desserts"
+    },
+    {
+      "title": "Hot Drinks"
+    },
+    {
+      "title": "Iced Tea"
+    },
+
+    {
+      "title": "Brewed Drinks"
+    },
+    {
+      "title": "Cold Drinks"
+    },
+    {
+      "title": "Juice"
+    },
+    {
+      "title": "Gathering"
+    },
+
+    {
+      "title": "Soft serve"
+    },
+
+    {
+      "title": "Water"
+    }
+  ]
+}

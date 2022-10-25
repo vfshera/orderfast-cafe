@@ -12,7 +12,11 @@
   </head>
   <body class="flex">
     <aside
-      class="bg-white min-h-full pt-4 w-[450px] flex flex-col overflow-y-auto"
+      class="bg-white max-h-screen pt-4 w-[450px] flex flex-col overflow-y-auto"
+      x-data="{categories: [], tab:1}"
+      x-init="fetch('data.json')
+      .then(response => response.json())
+      .then(data => categories = data.categories)"
     >
       <!-- ONE CLICK -->
       <div
@@ -68,7 +72,7 @@
 
       <!-- TABS -->
 
-      <nav class="flex border-b border-gray-100 px-4" x-data="{tab: 1}">
+      <nav class="flex border-b border-gray-100 px-4">
         <a
           href="#"
           @click="tab = 1"
@@ -91,41 +95,84 @@
       <!-- SLIDE MENU -->
 
       <div
-        class="top-slide top-0 sticky [box-shadow:rgba(0,0,0,0.1)_0px_0.25em_0.25em] pt-5 pb-4 flex gap-1 px-4 overflow-x-scroll"
+        class="top-slide z-10 top-0 sticky [box-shadow:rgba(0,0,0,0.1)_0px_0.25em_0.25em] pt-5 pb-4 flex gap-1 px-4 overflow-x-scroll"
       >
-        <div class="bg-purple text-white px-3 py-2 min-w-max rounded-full">
-          Bubble Tea
+        <template x-for="category in categories">
+          <div
+            class="bg-purple text-white px-3 py-2 min-w-max h-9 rounded-full"
+            x-text="category.title"
+          >
+            Bubble Tea
+          </div>
+        </template>
+        <!-- <div class="bg-[#f5f5f5] px-3 py-2 min-w-max h-9 rounded-full">
+          Mojito
         </div>
-        <div class="bg-[#f5f5f5] px-3 py-2 min-w-max rounded-full">Mojito</div>
-        <div class="bg-[#f5f5f5] px-3 py-2 min-w-max rounded-full">
+        <div class="bg-[#f5f5f5] px-3 py-2 min-w-max h-9 rounded-full">
           Desserts
         </div>
-        <div class="bg-[#f5f5f5] px-3 py-2 min-w-max rounded-full">
+        <div class="bg-[#f5f5f5] px-3 py-2 min-w-max h-9 rounded-full">
           Hot Drinks
         </div>
-        <div class="bg-[#f5f5f5] px-3 py-2 min-w-max rounded-full">
+        <div class="bg-[#f5f5f5] px-3 py-2 min-w-max h-9 rounded-full">
           Iced Tea
         </div>
-        <div class="bg-[#f5f5f5] px-3 py-2 min-w-max rounded-full">
+        <div class="bg-[#f5f5f5] px-3 py-2 min-w-max h-9 rounded-full">
           Brewed Drinks
         </div>
-        <div class="bg-[#f5f5f5] px-3 py-2 min-w-max rounded-full">
+        <div class="bg-[#f5f5f5] px-3 py-2 min-w-max h-9 rounded-full">
           Cold Drinks
         </div>
-        <div class="bg-[#f5f5f5] px-3 py-2 min-w-max rounded-full">Juice</div>
-        <div class="bg-[#f5f5f5] px-3 py-2 min-w-max rounded-full">
+        <div class="bg-[#f5f5f5] px-3 py-2 min-w-max h-9 rounded-full">
+          Juice
+        </div>
+        <div class="bg-[#f5f5f5] px-3 py-2 min-w-max h-9 rounded-full">
           Gathering
         </div>
-        <div class="bg-[#f5f5f5] px-3 py-2 min-w-max rounded-full">
+        <div class="bg-[#f5f5f5] px-3 py-2 min-w-max h-9 rounded-full">
           Soft serve
         </div>
-        <div class="bg-[#f5f5f5] px-3 py-2 min-w-max rounded-full">Water</div>
+        <div class="bg-[#f5f5f5] px-3 py-2 min-w-max h-9 rounded-full">
+          Water
+        </div> -->
       </div>
 
-      <div class="min-h-screen bg-red-800"></div>
+      <!-- PRODUCTS -->
+      <div class="listings flex flex-col">
+        <!-- PRODUCT -->
+        <div class="listing flex flex-col">
+          <h4 class="text-[32px] font-semibold text-dark mx-4 pt-4">
+            Bubble Tea
+          </h4>
+
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)]"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6 class="text-lg text-dark font-medium">KOHI Boba</h6>
+              <button
+                class="border text-dark px-3 min-w-[123px] h-9 border-[rgb(224,224,224)] rounded"
+              >
+                KWD 2
+              </button>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+        </div>
+      </div>
     </aside>
 
     <!-- MAIN -->
-    <main class="bg-[#7a7a7a] min-h-full flex-1">Main</main>
+    <main
+      class="bg-[#7a7a7a] min-h-full flex-1 flex justify-center items-center"
+    >
+      Main
+    </main>
   </body>
 </html>
