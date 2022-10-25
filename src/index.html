@@ -12,15 +12,15 @@
   </head>
   <body class="flex">
     <aside
-      class="bg-white max-h-screen pt-4 w-[450px] flex flex-col overflow-y-auto"
-      x-data="{categories: [], tab:1}"
+      class="bg-white max-h-screen w-[450px] flex flex-col overflow-y-auto"
+      x-data="{categories: [], tab:1 ,product: {}}"
       x-init="fetch('data.json')
       .then(response => response.json())
       .then(data => categories = data.categories)"
     >
       <!-- ONE CLICK -->
       <div
-        class="bg-lavendar mx-4 flex justify-between items-center px-4 py-3 rounded-lg mb-4"
+        class="bg-lavendar mx-4 mt-4 flex justify-between items-center px-4 py-3 rounded-lg mb-4"
       >
         <p>
           <strong>Orderfast</strong> <span class="text-sm">with one click</span>
@@ -95,7 +95,7 @@
       <!-- SLIDE MENU -->
 
       <div
-        class="top-slide z-10 top-0 sticky [box-shadow:rgba(0,0,0,0.1)_0px_0.25em_0.25em] pt-5 pb-4 flex gap-1 px-4 overflow-x-scroll"
+        class="top-slide bg-white z-10 top-0 sticky min-h-[70px] [box-shadow:rgba(0,0,0,0.1)_0px_0.25em_0.25em] pt-5 pb-4 flex gap-1 px-4 overflow-x-scroll"
       >
         <template x-for="category in categories">
           <div
