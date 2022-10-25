@@ -186,7 +186,27 @@
       </div>
 
       <!-- ORDER MODE -->
-      <div x-show="orderMode" class="flex flex-col px-4">
+      <div
+        x-show="orderMode"
+        class="flex flex-col px-4"
+        x-data="{
+          search: '',
+          get filteredCities() {
+
+            if(this.search === '') return this.cities;
+
+            return this.cities?.filter( city => { 
+              city.areas = city.areas.filter(area => area.titleEn.trim().toLowerCase().startsWith(this.search.toLowerCase()))
+
+              
+              console.log({ areas: city.areas ,search: this.search});
+              
+              
+              return city.areas.length > 0;
+            } )
+           
+    }}"
+      >
         <p
           class="py-4 border-b border-[rgb(224, 224, 224)] text-lg font-medium text-dark"
           x-text="tab==1 ? 'Select Area' : 'Select Branch' "
@@ -213,6 +233,7 @@
               type="text"
               placeholder="Search Cities and Areas"
               class="outline-none bg-transparent p-3 h-[40px]"
+              x-model="search"
             />
           </div>
         </div>
@@ -224,19 +245,24 @@
           x-data="{
           openCity: 0,
           toggleOpenCity(index){
-            if(this.openCity === 0){
-              this.openCity = index + 1;
+
+            if(this.openCity === index){
+              this.openCity = 0;
+
               return;
             }
 
-            this.openCity = 0;
-        }}"
+            this.openCity = index;
+
+        },
+        
+        }"
         >
-          <template x-for="(city,i) in cities">
+          <template x-for="(city,i) in filteredCities">
             <div class="city flex flex-col">
               <div
                 class="flex py-4 border-b border-[rgb(224, 224, 224)] justify-between cursor-pointer"
-                @click="toggleOpenCity(i)"
+                @click="toggleOpenCity(i+1)"
               >
                 <span
                   x-text="city.titleEn"
@@ -259,7 +285,10 @@
                 </svg>
               </div>
               <!-- CITY AREA -->
-              <div class="city-areas" x-show="openCity === i + 1">
+              <div
+                class="city-areas"
+                x-show="openCity === i + 1 || search !== '' "
+              >
                 <template x-for="area in city.areas">
                   <div
                     class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
