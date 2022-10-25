@@ -55,7 +55,7 @@
     >
       <!-- PRODUCT VIEW -->
 
-      <div class="product-view" x-show="viewProduct">
+      <div class="product-view" x-cloak x-show="viewProduct">
         <div
           class="item-img h-[450px] aspect-square bg-cover bg-center"
           style="background-image: url('/public/images/productsFallback.svg')"
@@ -175,6 +175,7 @@
       <!-- ORDER MODE -->
       <div
         x-show="orderMode && !viewProduct"
+        x-cloak
         class="order-mode-header flex sticky p-4 z-10 border-b border-[rgb(224, 224, 224)]"
       >
         <button @click="orderMode = false">
@@ -251,7 +252,11 @@
 
       <!-- TABS -->
 
-      <nav x-show="!viewProduct" class="flex border-b border-gray-100 px-4">
+      <nav
+        x-show="!viewProduct"
+        x-cloak
+        class="flex border-b border-gray-100 px-4"
+      >
         <a
           href="#"
           @click="tab = 1; orderMode = true"
@@ -274,6 +279,7 @@
       <!-- PICKING AND DELIVERY -->
       <div
         x-show="!orderMode && !viewProduct && deliveringTo || pickingFrom"
+        x-cloak
         class="picking px-4"
       >
         <div
@@ -434,6 +440,7 @@
 
       <div
         x-show="!orderMode && !viewProduct"
+        x-cloak
         class="top-slide bg-white z-10 top-0 sticky min-h-[70px] [box-shadow:rgba(0,0,0,0.1)_0px_0.25em_0.25em] pt-5 pb-4 flex gap-1 px-4 overflow-x-scroll"
       >
         <template x-for="category in categories">
@@ -448,7 +455,11 @@
       </div>
 
       <!-- PRODUCTS -->
-      <div x-show="!orderMode && !viewProduct" class="listings flex flex-col">
+      <div
+        x-cloak
+        x-show="!orderMode && !viewProduct"
+        class="listings flex flex-col"
+      >
         <!-- PRODUCT -->
         <template x-for="(category,index) in categories">
           <div class="listing flex flex-col" :id="index + category.uuid">
@@ -499,6 +510,7 @@
       <!-- ORDER MODE -->
       <div
         x-show="orderMode"
+        x-cloak
         class="flex flex-col px-4"
         x-data="{
           search: '',
@@ -656,9 +668,22 @@
 
     <!-- MAIN -->
     <main
-      class="bg-[#7a7a7a] min-h-full flex-1 flex justify-center items-center"
+      class="min-h-full relative flex-1 flex flex-col justify-center items-center bg-cover bg-center"
+      style="background-image: url('/public/images/productsFallback.svg')"
     >
-      Main
+      <img
+        src="/public/images/productsFallback.svg"
+        class="w-[150px] relative z-10"
+        alt=""
+      />
+      <h1 class="text-white relative z-10 text-3xl font-bold mt-8 mb-3">
+        Kohi Cafe
+      </h1>
+      <p class="text-white relative z-10 text-sm">
+        Straight outta the streets of tokyo
+      </p>
+
+      <div class="absolute top-0 left-0 bg-dark/50 z-0 w-full h-full"></div>
     </main>
   </body>
 </html>
