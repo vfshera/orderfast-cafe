@@ -27,6 +27,25 @@
          quantity: 1,
          finalPrice: 0,
          store:null,
+         showProduct(product){
+
+          if(!this.cartProducts.includes(product.uuid)){       
+
+           this.viewProduct = product;
+
+           return;
+          }
+
+
+          let [item] = this.cart.filter(item => item.product.uuid === product.uuid);
+
+
+          this.viewProduct = item.product;
+         this.productOptions = item.options;
+         this.quantity = item.quantity;
+
+         this.totalPrice();
+         },
          get cartProducts(){
           return this.cart.map(i => i.product.uuid)
          },
@@ -34,13 +53,12 @@
           this.viewProduct = null;
          this.productOptions = [];
          this.quantity = 1;
-         this.finalPrice = 0;
          },
          addToCart(){
 
         this.cart.push({
             product: this.viewProduct,
-            optitions: this.productOptions,
+            options: this.productOptions,
             quantity:this.quantity,
             total: this.finalPrice,
           })
@@ -146,6 +164,7 @@
                   :id="option.uuid"
                   @click="checkOptions(option.uuid)"
                   :disabled="!productOptions.includes(option.uuid) && productOptions.length >= 5"
+                  :checked="productOptions.length > 0 && productOptions.includes(option.uuid)"
                 />
                 <label
                   :for="option.uuid"
@@ -532,7 +551,7 @@
                 data-in-cart="cartProducts.includes(product.uuid)"
                 class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
                 x-bind:class="cartProducts.includes(product.uuid) && 'border-l-4 border-l-purple' "
-                @click="viewProduct = product"
+                @click="showProduct(product)"
               >
                 <div class="description flex flex-col justify-between">
                   <h6
