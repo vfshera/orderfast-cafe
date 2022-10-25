@@ -106,43 +106,13 @@
             Bubble Tea
           </div>
         </template>
-        <!-- <div class="bg-[#f5f5f5] px-3 py-2 min-w-max h-9 rounded-full">
-          Mojito
-        </div>
-        <div class="bg-[#f5f5f5] px-3 py-2 min-w-max h-9 rounded-full">
-          Desserts
-        </div>
-        <div class="bg-[#f5f5f5] px-3 py-2 min-w-max h-9 rounded-full">
-          Hot Drinks
-        </div>
-        <div class="bg-[#f5f5f5] px-3 py-2 min-w-max h-9 rounded-full">
-          Iced Tea
-        </div>
-        <div class="bg-[#f5f5f5] px-3 py-2 min-w-max h-9 rounded-full">
-          Brewed Drinks
-        </div>
-        <div class="bg-[#f5f5f5] px-3 py-2 min-w-max h-9 rounded-full">
-          Cold Drinks
-        </div>
-        <div class="bg-[#f5f5f5] px-3 py-2 min-w-max h-9 rounded-full">
-          Juice
-        </div>
-        <div class="bg-[#f5f5f5] px-3 py-2 min-w-max h-9 rounded-full">
-          Gathering
-        </div>
-        <div class="bg-[#f5f5f5] px-3 py-2 min-w-max h-9 rounded-full">
-          Soft serve
-        </div>
-        <div class="bg-[#f5f5f5] px-3 py-2 min-w-max h-9 rounded-full">
-          Water
-        </div> -->
       </div>
 
       <!-- PRODUCTS -->
       <div class="listings flex flex-col">
         <!-- PRODUCT -->
-        <template x-for="category in categories">
-          <div class="listing flex flex-col">
+        <template x-for="(category,index) in categories">
+          <div class="listing flex flex-col" :id="index + category.uuid">
             <h4
               x-text="category.titleEn"
               class="text-[32px] font-semibold text-dark mx-4 pt-4"
@@ -150,25 +120,38 @@
               Bubble Tea
             </h4>
 
-            <div
-              class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)]"
-            >
-              <div class="description flex flex-col justify-between">
-                <h6 class="text-lg text-dark font-medium">KOHI Boba</h6>
-                <button
-                  class="border text-dark px-3 min-w-[123px] h-9 border-[rgb(224,224,224)] rounded"
-                >
-                  KWD 2
-                </button>
-              </div>
-
+            <template x-for="product in category.products">
               <div
-                class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
-                style="
-                  background-image: url('/public/images/productsFallback.svg');
-                "
-              ></div>
-            </div>
+                :id="product.uuid"
+                class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)]"
+              >
+                <div class="description flex flex-col justify-between">
+                  <h6
+                    class="text-lg text-dark font-medium mb-3"
+                    x-text="product.titleEn"
+                  >
+                    KOHI Boba
+                  </h6>
+                  <button
+                    class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+                    x-text="'KWD ' + product.variants[0].price"
+                  ></button>
+
+                  <p
+                    class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+                  >
+                    May require extra time
+                  </p>
+                </div>
+
+                <div
+                  class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+                  style="
+                    background-image: url('/public/images/productsFallback.svg');
+                  "
+                ></div>
+              </div>
+            </template>
           </div>
         </template>
       </div>
