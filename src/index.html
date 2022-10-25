@@ -10,9 +10,9 @@
       src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
     ></script>
   </head>
-  <body class="flex">
+  <body class="flex flex-col-reverse lg:flex-row">
     <aside
-      class="bg-white max-h-screen w-[450px] flex flex-col overflow-y-auto relative z-0"
+      class="bg-white max-h-screen w-full lg:w-[450px] flex flex-col overflow-y-auto relative z-0"
       x-data="{
         categories: [],
          cities:[], 
@@ -43,21 +43,26 @@
             this.productOptions.push(option)
           }
 
-          this.totalPrice();
       }}"
-      x-init="fetch('data.json')
+      x-init="
+      fetch('data.json')
       .then(response => response.json())
       .then(data => {
         categories = data.categories;
         store = data.store;
          cities = data.countries[0].cities;
-         })"
+       });
+         
+          $watch('productOptions',(value) => totalPrice())
+          $watch('quantity',(value) => totalPrice())
+         
+         "
     >
       <!-- PRODUCT VIEW -->
 
       <div class="product-view" x-cloak x-show="viewProduct">
         <div
-          class="item-img h-[450px] aspect-square bg-cover bg-center"
+          class="item-img h-[450px] lg:aspect-square bg-cover bg-center"
           style="background-image: url('/public/images/productsFallback.svg')"
         >
           <button
@@ -146,14 +151,14 @@
           <div class="quatity flex justify-center gap-3 items-center">
             <button
               :disabled="quantity === 1"
-              @click="quantity--;  totalPrice()"
+              @click="quantity--"
               class="rounded-full aspect-square disabled:opacity-40 h-5 flex justify-center items-center border border-dark"
             >
               -
             </button>
             <span x-text="quantity">1</span>
             <button
-              @click="quantity++; totalPrice()"
+              @click="quantity++"
               class="rounded-full aspect-square h-5 flex justify-center items-center border border-dark"
             >
               +
@@ -278,7 +283,7 @@
 
       <!-- PICKING AND DELIVERY -->
       <div
-        x-show="!orderMode && !viewProduct && deliveringTo || pickingFrom"
+        x-show="!orderMode && !viewProduct && (deliveringTo || pickingFrom)"
         x-cloak
         class="picking px-4"
       >
@@ -441,7 +446,7 @@
       <div
         x-show="!orderMode && !viewProduct"
         x-cloak
-        class="top-slide bg-white z-10 top-0 sticky min-h-[70px] [box-shadow:rgba(0,0,0,0.1)_0px_0.25em_0.25em] pt-5 pb-4 flex gap-1 px-4 overflow-x-scroll"
+        class="top-slide bg-white z-10 top-20 lg:top-0 sticky min-h-[70px] [box-shadow:rgba(0,0,0,0.1)_0px_0.25em_0.25em] pt-5 pb-4 flex gap-1 px-4 overflow-x-scroll"
       >
         <template x-for="category in categories">
           <div
@@ -668,20 +673,69 @@
 
     <!-- MAIN -->
     <main
-      class="min-h-full relative flex-1 flex flex-col justify-center items-center bg-cover bg-center"
+      :class="viewProduct && 'hidden '  "
+      class="lg:min-h-full relative flex-1 flex flex-col justify-center items-center bg-cover bg-center"
       style="background-image: url('/public/images/productsFallback.svg')"
     >
-      <img
-        src="/public/images/productsFallback.svg"
-        class="w-[150px] relative z-10"
-        alt=""
-      />
-      <h1 class="text-white relative z-10 text-3xl font-bold mt-8 mb-3">
-        Kohi Cafe
-      </h1>
-      <p class="text-white relative z-10 text-sm">
-        Straight outta the streets of tokyo
-      </p>
+      <div
+        class="menu bg-white lg:bg-transparent h-20 z-20 min-h-[80px] lg:h-max lg:min-h-max fixed top-0 left-0 w-full lg:absolute lg:top-10 lg:right-10 flex gap-4 items-center lg:justify-end"
+        :class="viewProduct && 'hidden '  "
+      >
+        <button
+          class="bg-white w-11 aspect-square rounded-full flex justify-center items-center"
+        >
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M3.75 10.5C3.75 6.77196 6.77196 3.75 10.5 3.75C14.2273 3.75 17.25 6.77201 17.25 10.5C17.25 14.2273 14.2273 17.25 10.5 17.25C6.77201 17.25 3.75 14.2273 3.75 10.5ZM10.5 2.25C5.94354 2.25 2.25 5.94354 2.25 10.5C2.25 15.0557 5.94349 18.75 10.5 18.75C12.508 18.75 14.3487 18.0323 15.7795 16.8394L20.4699 21.5299L21.5306 20.4692L16.8401 15.7787C18.0325 14.348 18.75 12.5077 18.75 10.5C18.75 5.94349 15.0557 2.25 10.5 2.25Z"
+              fill="black"
+            ></path>
+          </svg>
+        </button>
+        <button
+          class="bg-white w-11 aspect-square rounded-full flex justify-center items-center"
+        >
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M13.4603 21C12.7619 21 12.0376 20.9127 11.2875 20.738C10.5373 20.5767 9.83892 20.2878 9.19224 19.8712C8.54556 19.4681 8.01529 18.9171 7.60141 18.2184C7.20047 17.533 7 16.6663 7 15.6181C7 14.6506 7.18754 13.7436 7.56261 12.897C7.93768 12.0504 8.46796 11.2844 9.15344 10.5991C9.85185 9.91377 10.6731 9.33595 11.6173 8.86562C12.5614 8.3953 13.6026 8.05935 14.7407 7.85778L15.1481 9.43001C14.204 9.6047 13.331 9.86674 12.5291 10.2161C11.7272 10.5655 11.0288 10.9955 10.4339 11.5062C9.85185 12.0034 9.39918 12.5745 9.07584 13.2195C8.7525 13.8779 8.59083 14.5969 8.59083 15.3763C8.59083 16.0078 8.6943 16.5521 8.90123 17.009C9.10817 17.4658 9.37978 17.8421 9.71605 18.1377C10.0653 18.4468 10.4533 18.6887 10.8801 18.8634C11.3069 19.0381 11.7402 19.159 12.1799 19.2262C12.6326 19.3068 13.0594 19.3471 13.4603 19.3471C14.1458 19.3471 14.8442 19.28 15.5556 19.1456C16.2669 19.0246 16.9136 18.8365 17.4956 18.5812L18 19.9922C17.6896 20.1534 17.2757 20.3079 16.7584 20.4558C16.254 20.617 15.7108 20.7447 15.1287 20.8387C14.5467 20.9462 13.9906 21 13.4603 21ZM10.2593 10.3169C9.74192 10.1825 9.27631 9.94065 8.86243 9.59127C8.44856 9.24188 8.11875 8.82531 7.87302 8.34154C7.64021 7.85778 7.52381 7.34714 7.52381 6.80963C7.52381 5.96305 7.71135 5.25756 8.08642 4.69317C8.47443 4.12878 8.9659 3.70549 9.56085 3.42329C10.1687 3.1411 10.8089 3 11.4815 3C11.779 3 12.0958 3.02688 12.4321 3.08063C12.7684 3.13438 13.0917 3.215 13.4021 3.32251L13.0723 4.87458C12.8136 4.80739 12.542 4.75364 12.2575 4.71333C11.973 4.67301 11.7143 4.65285 11.4815 4.65285C11.0159 4.65285 10.602 4.7402 10.2399 4.91489C9.87772 5.08958 9.59318 5.33147 9.38624 5.64054C9.17931 5.93617 9.07584 6.28555 9.07584 6.68869C9.07584 7.05151 9.17284 7.38074 9.36684 7.67637C9.57378 7.95857 9.83245 8.20717 10.1429 8.42217C10.4533 8.62374 10.7701 8.77828 11.0935 8.88578C11.4168 8.97984 11.7014 9.02016 11.9471 9.00672L10.2593 10.3169Z"
+              fill="black"
+            ></path>
+          </svg>
+        </button>
+      </div>
+
+      <div
+        class="flex flex-row-reverse w-full bg-white lg:bg-transparent lg:w-max mt-64 lg:mt-0 relative z-10 lg:flex-col justify-between px-4 lg:justify-center items-center"
+      >
+        <span class="w-20 lg:w-[150px] aspect-square">
+          <img
+            src="/public/images/productsFallback.svg"
+            class="h-full"
+            alt=""
+          />
+        </span>
+        <div class="flex flex-col lg:items-center lg:justify-center">
+          <h1 class="text-dark lg:text-white text-3xl font-bold mt-8 mb-3">
+            Kohi Cafe
+          </h1>
+          <p class="text-dark lg:text-white text-sm">
+            Straight outta the streets of tokyo
+          </p>
+        </div>
+      </div>
 
       <div class="absolute top-0 left-0 bg-dark/50 z-0 w-full h-full"></div>
     </main>
