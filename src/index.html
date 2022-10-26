@@ -84,22 +84,24 @@
          ,
          totalPrice(){
 
-          // FIXME: WHWTTTT
 
-          console.log('Getting price fired');
-
-
+         
           if(this.viewProduct === null) return;
+          
+          
+          if(this.viewProduct.variants[0].optionGroups.length === 0){
+       
 
-          console.log('Getting price worki');
+            this.finalPrice = (+this.viewProduct.displayPrice *  this.quantity).toFixed(3);
+            return;
+          }
 
           const selectedOptions =  this.viewProduct.variants[0].optionGroups[0].options
           .filter(op => this.productOptions.map(po => po.uuid).includes(op.uuid))
 
           const accumulatedPrice = selectedOptions.reduce((total,option) => total + option.price,+this.viewProduct.displayPrice);
           
-          this.finalPrice = (accumulatedPrice * this.quantity).toFixed(3);          
-          console.log({selectedOptions,accumulatedPrice});
+          this.finalPrice = (accumulatedPrice * this.quantity).toFixed(3); 
          }
          ,
          checkOptions(option){
@@ -173,7 +175,7 @@
         </div>
 
         <div
-          x-show="viewProduct?.variants[0].optionGroups[0].options.length > 0"
+          x-show="viewProduct?.variants[0]?.optionGroups?.[0].options.length > 0"
           class="addons mx-4 py-4 border-b border-[rgb(224,224,224)]"
         >
           <p class="text-dark font-bold mb-1">Add ons</p>
@@ -183,7 +185,7 @@
 
           <div class="option-groups flex flex-col gap-2">
             <template
-              x-for="option in viewProduct?.variants[0].optionGroups[0].options"
+              x-for="option in viewProduct?.variants[0]?.optionGroups?.[0].options"
             >
               <div class="input-group flex items-center gap-3">
                 <input
