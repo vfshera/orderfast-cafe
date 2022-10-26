@@ -167,7 +167,7 @@
 
         <div class="title-price mx-4 py-4 border-b border-[rgb(224,224,224)]">
           <h4
-            class="text-[32px] leading-7 mb-2 font-semibold text-dark"
+            class="text-[32px] leading-7 mb-2 sticky top-0 md:static font-semibold text-dark"
             x-text="viewProduct?.titleEn"
           ></h4>
           <p
@@ -285,7 +285,7 @@
       <!-- CART MODE -->
 
       <section x-show="cartMode && cart.length > 0" x-cloak="">
-        <div class="flex sticky p-4 z-10 border-b border-[rgb(224, 224, 224)]">
+        <div class="flex p-4 z-10 border-b border-[rgb(224, 224, 224)]">
           <button @click="cartMode = false">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -387,7 +387,7 @@
           >
             <button
               @click="cartMode = true"
-              class="flex justify-between items-center bg-[#191919] text-white py-2 px-4 rounded w-full mt-4 h-12 shadow text-sm font-medium"
+              class="flex justify-center items-center bg-[#191919] text-white py-2 px-4 rounded w-full mt-4 h-12 shadow text-sm font-medium"
             >
               Orderfast Checkout
             </button>
@@ -423,6 +423,7 @@
       <!-- ONE CLICK -->
       <div
         x-show="!orderMode && !viewProduct && !cartMode"
+        x-cloak=""
         class="bg-lavendar mx-4 mt-4 flex justify-between items-center px-4 py-3 rounded-lg mb-4"
       >
         <p>
@@ -574,13 +575,8 @@
                 clip-rule="evenodd"
                 d="M7.9415 4.55859L13.3834 10.0005L7.9415 15.4425L7.05762 14.5586L11.6157 10.0005L7.05762 5.44248L7.9415 4.55859Z"
                 fill-opacity="0.75"
-              ></path></svg
-            ><label
-              variant="smallText"
-              cursor="pointer"
-              mx="0"
-              class="style__StyledText-sc-nykyuh-0 bOKSJC"
-            ></label>
+              ></path>
+            </svg>
           </button>
         </div>
         <div
@@ -664,7 +660,7 @@
       <div
         x-show="!orderMode && !viewProduct && !cartMode"
         x-cloak
-        class="top-slide bg-white z-10 top-20 lg:top-0 sticky min-h-[70px] [box-shadow:rgba(0,0,0,0.1)_0px_0.25em_0.25em] pt-5 pb-4 flex gap-1 px-4 overflow-x-scroll"
+        class="top-slide bg-white z-50 lg:top-0 top-[70px] sticky min-h-[70px] [box-shadow:rgba(0,0,0,0.1)_0px_0.25em_0.25em] pt-5 pb-4 flex gap-1 px-4 overflow-x-scroll"
       >
         <template x-for="category in categories">
           <a
@@ -672,6 +668,7 @@
             class="px-3 py-2 min-w-max h-9 cursor-pointer rounded-full"
             x-bind:class=" isCurrent === category.titleEn.replace(' ','') ? 'bg-purple text-white' : 'text-[#212121] bg-[#f5f5f5]' "
             x-text="category.titleEn"
+            @click="isCurrent = category.titleEn.replace(' ','')"
             :href="'#'+category.uuid"
           >
             Bubble Tea
@@ -916,16 +913,14 @@
 
     <!-- MAIN -->
     <main
-      :class="viewProduct && 'hidden '  "
       class="lg:min-h-full relative flex-1 flex flex-col justify-center items-center bg-cover bg-center"
       style="background-image: url('/public/images/productsFallback.svg')"
     >
       <div
-        class="menu bg-white lg:bg-transparent h-20 z-20 min-h-[80px] lg:h-max lg:min-h-max fixed top-0 left-0 w-full lg:absolute lg:top-10 lg:right-10 flex gap-4 items-center lg:justify-end"
-        :class="viewProduct && 'hidden '  "
+        class="menu bg-white lg:bg-transparent h-20 z-20 min-h-[76px] lg:h-max lg:min-h-max fixed top-0 lg:absolute lg:top-10 left-0 w-full flex gap-4 items-center justify-between px-4 lg:justify-end"
       >
         <button
-          class="bg-white w-11 aspect-square rounded-full flex justify-center items-center"
+          class="user bg-[rgba(31,31,31,0.05)] lg:bg-white w-11 aspect-square rounded-full lg:mr-10 flex justify-center items-center lg:hidden"
         >
           <svg
             width="24"
@@ -937,27 +932,48 @@
             <path
               fill-rule="evenodd"
               clip-rule="evenodd"
-              d="M3.75 10.5C3.75 6.77196 6.77196 3.75 10.5 3.75C14.2273 3.75 17.25 6.77201 17.25 10.5C17.25 14.2273 14.2273 17.25 10.5 17.25C6.77201 17.25 3.75 14.2273 3.75 10.5ZM10.5 2.25C5.94354 2.25 2.25 5.94354 2.25 10.5C2.25 15.0557 5.94349 18.75 10.5 18.75C12.508 18.75 14.3487 18.0323 15.7795 16.8394L20.4699 21.5299L21.5306 20.4692L16.8401 15.7787C18.0325 14.348 18.75 12.5077 18.75 10.5C18.75 5.94349 15.0557 2.25 10.5 2.25Z"
+              d="M8.25 6.75C8.25 4.67946 9.92946 3 12 3C14.0705 3 15.75 4.67946 15.75 6.75C15.75 8.82054 14.0705 10.5 12 10.5C9.92946 10.5 8.25 8.82054 8.25 6.75ZM12 1.5C9.10104 1.5 6.75 3.85104 6.75 6.75C6.75 9.64896 9.10104 12 12 12C14.899 12 17.25 9.64896 17.25 6.75C17.25 3.85104 14.899 1.5 12 1.5ZM9.75 13.5C6.85104 13.5 4.5 15.851 4.5 18.75V21.75H6V18.75C6 16.6795 7.67946 15 9.75 15H14.25C16.3205 15 18 16.6795 18 18.75V21.75H19.5V18.75C19.5 15.851 17.149 13.5 14.25 13.5H9.75Z"
               fill="black"
             ></path>
           </svg>
         </button>
-        <button
-          class="bg-white w-11 aspect-square rounded-full flex justify-center items-center"
-        >
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
+
+        <div class="flex items-center gap-4">
+          <button
+            class="bg-[rgba(31,31,31,0.05)] lg:bg-white w-11 aspect-square rounded-full flex justify-center items-center"
           >
-            <path
-              d="M13.4603 21C12.7619 21 12.0376 20.9127 11.2875 20.738C10.5373 20.5767 9.83892 20.2878 9.19224 19.8712C8.54556 19.4681 8.01529 18.9171 7.60141 18.2184C7.20047 17.533 7 16.6663 7 15.6181C7 14.6506 7.18754 13.7436 7.56261 12.897C7.93768 12.0504 8.46796 11.2844 9.15344 10.5991C9.85185 9.91377 10.6731 9.33595 11.6173 8.86562C12.5614 8.3953 13.6026 8.05935 14.7407 7.85778L15.1481 9.43001C14.204 9.6047 13.331 9.86674 12.5291 10.2161C11.7272 10.5655 11.0288 10.9955 10.4339 11.5062C9.85185 12.0034 9.39918 12.5745 9.07584 13.2195C8.7525 13.8779 8.59083 14.5969 8.59083 15.3763C8.59083 16.0078 8.6943 16.5521 8.90123 17.009C9.10817 17.4658 9.37978 17.8421 9.71605 18.1377C10.0653 18.4468 10.4533 18.6887 10.8801 18.8634C11.3069 19.0381 11.7402 19.159 12.1799 19.2262C12.6326 19.3068 13.0594 19.3471 13.4603 19.3471C14.1458 19.3471 14.8442 19.28 15.5556 19.1456C16.2669 19.0246 16.9136 18.8365 17.4956 18.5812L18 19.9922C17.6896 20.1534 17.2757 20.3079 16.7584 20.4558C16.254 20.617 15.7108 20.7447 15.1287 20.8387C14.5467 20.9462 13.9906 21 13.4603 21ZM10.2593 10.3169C9.74192 10.1825 9.27631 9.94065 8.86243 9.59127C8.44856 9.24188 8.11875 8.82531 7.87302 8.34154C7.64021 7.85778 7.52381 7.34714 7.52381 6.80963C7.52381 5.96305 7.71135 5.25756 8.08642 4.69317C8.47443 4.12878 8.9659 3.70549 9.56085 3.42329C10.1687 3.1411 10.8089 3 11.4815 3C11.779 3 12.0958 3.02688 12.4321 3.08063C12.7684 3.13438 13.0917 3.215 13.4021 3.32251L13.0723 4.87458C12.8136 4.80739 12.542 4.75364 12.2575 4.71333C11.973 4.67301 11.7143 4.65285 11.4815 4.65285C11.0159 4.65285 10.602 4.7402 10.2399 4.91489C9.87772 5.08958 9.59318 5.33147 9.38624 5.64054C9.17931 5.93617 9.07584 6.28555 9.07584 6.68869C9.07584 7.05151 9.17284 7.38074 9.36684 7.67637C9.57378 7.95857 9.83245 8.20717 10.1429 8.42217C10.4533 8.62374 10.7701 8.77828 11.0935 8.88578C11.4168 8.97984 11.7014 9.02016 11.9471 9.00672L10.2593 10.3169Z"
-              fill="black"
-            ></path>
-          </svg>
-        </button>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M3.75 10.5C3.75 6.77196 6.77196 3.75 10.5 3.75C14.2273 3.75 17.25 6.77201 17.25 10.5C17.25 14.2273 14.2273 17.25 10.5 17.25C6.77201 17.25 3.75 14.2273 3.75 10.5ZM10.5 2.25C5.94354 2.25 2.25 5.94354 2.25 10.5C2.25 15.0557 5.94349 18.75 10.5 18.75C12.508 18.75 14.3487 18.0323 15.7795 16.8394L20.4699 21.5299L21.5306 20.4692L16.8401 15.7787C18.0325 14.348 18.75 12.5077 18.75 10.5C18.75 5.94349 15.0557 2.25 10.5 2.25Z"
+                fill="black"
+              ></path>
+            </svg>
+          </button>
+          <button
+            class="bg-[rgba(31,31,31,0.05)] lg:bg-white w-11 aspect-square rounded-full lg:mr-10 flex justify-center items-center"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M13.4603 21C12.7619 21 12.0376 20.9127 11.2875 20.738C10.5373 20.5767 9.83892 20.2878 9.19224 19.8712C8.54556 19.4681 8.01529 18.9171 7.60141 18.2184C7.20047 17.533 7 16.6663 7 15.6181C7 14.6506 7.18754 13.7436 7.56261 12.897C7.93768 12.0504 8.46796 11.2844 9.15344 10.5991C9.85185 9.91377 10.6731 9.33595 11.6173 8.86562C12.5614 8.3953 13.6026 8.05935 14.7407 7.85778L15.1481 9.43001C14.204 9.6047 13.331 9.86674 12.5291 10.2161C11.7272 10.5655 11.0288 10.9955 10.4339 11.5062C9.85185 12.0034 9.39918 12.5745 9.07584 13.2195C8.7525 13.8779 8.59083 14.5969 8.59083 15.3763C8.59083 16.0078 8.6943 16.5521 8.90123 17.009C9.10817 17.4658 9.37978 17.8421 9.71605 18.1377C10.0653 18.4468 10.4533 18.6887 10.8801 18.8634C11.3069 19.0381 11.7402 19.159 12.1799 19.2262C12.6326 19.3068 13.0594 19.3471 13.4603 19.3471C14.1458 19.3471 14.8442 19.28 15.5556 19.1456C16.2669 19.0246 16.9136 18.8365 17.4956 18.5812L18 19.9922C17.6896 20.1534 17.2757 20.3079 16.7584 20.4558C16.254 20.617 15.7108 20.7447 15.1287 20.8387C14.5467 20.9462 13.9906 21 13.4603 21ZM10.2593 10.3169C9.74192 10.1825 9.27631 9.94065 8.86243 9.59127C8.44856 9.24188 8.11875 8.82531 7.87302 8.34154C7.64021 7.85778 7.52381 7.34714 7.52381 6.80963C7.52381 5.96305 7.71135 5.25756 8.08642 4.69317C8.47443 4.12878 8.9659 3.70549 9.56085 3.42329C10.1687 3.1411 10.8089 3 11.4815 3C11.779 3 12.0958 3.02688 12.4321 3.08063C12.7684 3.13438 13.0917 3.215 13.4021 3.32251L13.0723 4.87458C12.8136 4.80739 12.542 4.75364 12.2575 4.71333C11.973 4.67301 11.7143 4.65285 11.4815 4.65285C11.0159 4.65285 10.602 4.7402 10.2399 4.91489C9.87772 5.08958 9.59318 5.33147 9.38624 5.64054C9.17931 5.93617 9.07584 6.28555 9.07584 6.68869C9.07584 7.05151 9.17284 7.38074 9.36684 7.67637C9.57378 7.95857 9.83245 8.20717 10.1429 8.42217C10.4533 8.62374 10.7701 8.77828 11.0935 8.88578C11.4168 8.97984 11.7014 9.02016 11.9471 9.00672L10.2593 10.3169Z"
+                fill="black"
+              ></path>
+            </svg>
+          </button>
+        </div>
       </div>
 
       <div
