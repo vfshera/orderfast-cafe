@@ -757,18 +757,19 @@
         x-data="{
           search: '',
           get filteredCities() {
+           
+            if(this.search === ''){ 
 
-            if(this.search === '') return this.cities;
+              console.log(this.cities)
+              return this.cities
+            };
 
-            return this.cities?.filter( city => { 
-              city.areas = city.areas.filter(area => area.titleEn.trim().toLowerCase().startsWith(this.search.toLowerCase()))
-
-              // FIXME: FILTER FUNCTION
-              console.log({ areas: city.areas ,search: this.search});
-              
-              
-              return city.areas.length > 0;
-            } )
+            return this.cities?.filter((city) => {
+                city.areas = city.areas.filter((area) =>
+                  area.titleEn.toLowerCase().startsWith(this.search.toLowerCase())
+                );
+                return city.areas.length > 0;
+              });
            
     }}"
       >
