@@ -68,6 +68,10 @@
 
          orderMode = false;
          },
+         get cartTotal(){
+          return this.cart.reduce((total,cartItem) => total += +cartItem.total , 0)
+         }
+         ,
          totalPrice(){
 
           this.finalPrice = (this.viewProduct.variants[0].optionGroups[0].options
@@ -582,6 +586,25 @@
             </template>
           </div>
         </template>
+
+        <!-- IF CART HAS PRODUCTS -->
+        <div
+          class="sticky bottom-0 bg-white w-full border-t p-4 pb-8 border-[rgb(224,224,224)]"
+        >
+          <button
+            class="flex justify-between items-center bg-purple text-white py-2 px-4 rounded w-full mt-4 h-12 shadow text-sm font-medium"
+          >
+            <p>
+              <span
+                class="bg-[#821390] p-1 px-2 leading-none rounded-full"
+                x-text="cart.length "
+              ></span>
+              Review Order
+            </p>
+
+            <p x-text="'KWD '+ cartTotal.toFixed(3)"></p>
+          </button>
+        </div>
       </div>
 
       <!-- ORDER MODE -->
