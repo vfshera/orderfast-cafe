@@ -22,6 +22,7 @@
          pickingFrom: null,
          tab:1, 
          orderMode: false ,
+         cartMode: false ,
          viewProduct: null,
          productOptions: [], 
          quantity: 1,
@@ -29,22 +30,19 @@
          store:null,
          showProduct(product){
 
-          if(!this.cartProducts.includes(product.uuid)){       
 
+           if(!this.cartProducts.includes(product.uuid)){  
            this.viewProduct = product;
-
            return;
           }
 
 
           let [item] = this.cart.filter(item => item.product.uuid === product.uuid);
 
-
           this.viewProduct = item.product;
-         this.productOptions = item.options;
-         this.quantity = item.quantity;
-
-         this.totalPrice();
+          this.productOptions = item.options;
+          this.quantity = item.quantity;
+          
          },
          get cartProducts(){
           return this.cart.map(i => i.product.uuid)
@@ -54,14 +52,26 @@
          this.productOptions = [];
          this.quantity = 1;
          },
+         removeItem(id){       
+
+        this.cart = this.cart.filter(item => item.product.uuid !== id)
+
+        if(this.cart.length === 0){
+          this.cartMode = false;
+        }
+
+         localStorage.setItem('KohiCafe_Cart',JSON.stringify(this.cart))        
+         },
          addToCart(){
 
-        this.cart.push({
-            product: this.viewProduct,
-            options: this.productOptions,
-            quantity:this.quantity,
-            total: this.finalPrice,
-          })
+        this.cart.unshift({
+             product: this.viewProduct,
+             options: this.productOptions,
+             quantity:this.quantity,
+             total: this.finalPrice,
+            });
+
+
          localStorage.setItem('KohiCafe_Cart',JSON.stringify(this.cart))
 
          this.resetPurchase();
@@ -74,17 +84,31 @@
          ,
          totalPrice(){
 
-          this.finalPrice = (this.viewProduct.variants[0].optionGroups[0].options
-          .filter(op => this.productOptions.includes(op.uuid))
-          .reduce((total,option) => total + option.price,+this.viewProduct.displayPrice) * this.quantity).toFixed(3);          
+          // FIXME: WHWTTTT
+
+          console.log('Getting price fired');
+
+
+          if(this.viewProduct === null) return;
+
+          console.log('Getting price worki');
+
+          const selectedOptions =  this.viewProduct.variants[0].optionGroups[0].options
+          .filter(op => this.productOptions.map(po => po.uuid).includes(op.uuid))
+
+          const accumulatedPrice = selectedOptions.reduce((total,option) => total + option.price,+this.viewProduct.displayPrice);
+          
+          this.finalPrice = (accumulatedPrice * this.quantity).toFixed(3);          
+          console.log({selectedOptions,accumulatedPrice});
          }
          ,
          checkOptions(option){
 
+         
           if(this.productOptions.length >= 5)return;
 
-          if(this.productOptions.includes(option)){
-            this.productOptions = this.productOptions.filter(opt => opt != option);
+          if(this.productOptions.map(op => op.uuid).includes(option.uuid)){
+            this.productOptions = this.productOptions.map(op => op.uuid).filter(opt => opt != option.uuid);
            
           }else          {
             this.productOptions.push(option)
@@ -100,6 +124,7 @@
          cities = data.countries[0].cities;
        });
          
+          $watch('viewProduct',(value) => totalPrice())
           $watch('productOptions',(value) => totalPrice())
           $watch('quantity',(value) => totalPrice())
          
@@ -166,7 +191,7 @@
                   class="accent-purple text-sm"
                   :name="option.uuid"
                   :id="option.uuid"
-                  @click="checkOptions(option.uuid)"
+                  @click="checkOptions(option)"
                   :disabled="!productOptions.includes(option.uuid) && productOptions.length >= 5"
                   :checked="productOptions.length > 0 && productOptions.includes(option.uuid)"
                 />
@@ -251,6 +276,119 @@
         </div>
       </div>
 
+      <!-- CART MODE -->
+
+      <section x-show="cartMode && cart.length > 0" x-cloak="">
+        <div class="flex sticky p-4 z-10 border-b border-[rgb(224, 224, 224)]">
+          <button @click="cartMode = false">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <g><path fill="rgba(0,119,189,0)" d="M0 0H24V24H0z"></path></g>
+              <path
+                fill="#212121"
+                d="M1598.321-2.738l-6.615-6.615a.843.843 0 0 1-.406-.721.84.84 0 0 1 .113-.422.847.847 0 0 1 .146-.2.859.859 0 0 1 .089-.078l6.672-6.672a.844.844 0 0 1 1.193 0 .844.844 0 0 1 0 1.193l-5.331 5.331h14.273a.844.844 0 0 1 .844.844.844.844 0 0 1-.844.843h-14.242l5.3 5.3a.843.843 0 0 1 0 1.192.842.842 0 0 1-.6.247.841.841 0 0 1-.592-.242z"
+                transform="translate(-1588.301 22.689)"
+              ></path>
+            </svg>
+          </button>
+
+          <p class="flex-1 text-center mr-6 font-semibold">Review Cart</p>
+        </div>
+
+        <div class="order-items border">
+          <h5 class="mt-6 mb-2 font-semibold px-4 text-dark">Order Items</h5>
+          <template x-for="item in cart">
+            <div
+              class="order-item border-b border-[rgb(224, 224, 224)] p-4 flex gap-9"
+            >
+              <div class="variant">variant</div>
+
+              <div class="flex flex-col w-full">
+                <div
+                  class="name-amount font-semibold text-base flex justify-between mb-1 text-black w-full"
+                >
+                  <p
+                    class="max-w-[65%]"
+                    x-text="item.product.titleEn+ ' - ' + item.product.variants[0].titleEn"
+                  >
+                    Kohi regular
+                  </p>
+                  <p class="w-max" x-text="'KWD ' + item.total">KWD 2600</p>
+                </div>
+
+                <div class="addons flex gap-2 flex-wrap">
+                  <template x-for="option in item.options">
+                    <div
+                      x-text="option.titleEn"
+                      class="addon px-2 bg-[rgb(245,245,245)] text-xs font-semibold rounded-full text-dark/75 py-1"
+                    >
+                      1xSoya
+                    </div>
+                  </template>
+                </div>
+
+                <div class="quatity w-full flex gap-3 mt-3 mb-1 items-center">
+                  <button
+                    @click="item.quantity === 1 ? removeItem(item.product.uuid) :item.quantity--"
+                    class="rounded-full aspect-square disabled:opacity-40 h-5 flex justify-center items-center border border-dark"
+                  >
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M1.71429 12C1.71429 6.3191 6.3191 1.71429 12 1.71429C17.6809 1.71429 22.2857 6.3191 22.2857 12C22.2857 17.6809 17.6809 22.2857 12 22.2857C6.3191 22.2857 1.71429 17.6809 1.71429 12ZM12 0C5.37233 0 0 5.37233 0 12C0 18.6277 5.37233 24 12 24C18.6277 24 24 18.6277 24 12C24 5.37233 18.6277 0 12 0ZM6 12.8571H18V11.1429H6V12.8571Z"
+                        fill="#1F1F1F"
+                      ></path>
+                    </svg>
+                  </button>
+                  <span x-text="item.quantity">1</span>
+                  <button
+                    @click="item.quantity++"
+                    class="rounded-full aspect-square h-5 flex justify-center items-center border border-dark"
+                  >
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M1.71429 12C1.71429 6.3191 6.3191 1.71429 12 1.71429C17.6809 1.71429 22.2857 6.3191 22.2857 12C22.2857 17.6809 17.6809 22.2857 12 22.2857C6.3191 22.2857 1.71429 17.6809 1.71429 12ZM12 0C5.37233 0 0 5.37233 0 12C0 18.6277 5.37233 24 12 24C18.6277 24 24 18.6277 24 12C24 5.37233 18.6277 0 12 0ZM11.1429 18V12.8571H6V11.1429H11.1429V6H12.8571V11.1429H18V12.8571H12.8571V18H11.1429Z"
+                        fill="#1F1F1F"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </template>
+
+          <div
+            class="sticky bottom-0 bg-white w-full border-t p-4 pb-8 border-[rgb(224,224,224)]"
+          >
+            <button
+              @click="cartMode = true"
+              class="flex justify-between items-center bg-[#191919] text-white py-2 px-4 rounded w-full mt-4 h-12 shadow text-sm font-medium"
+            >
+              Orderfast Checkout
+            </button>
+          </div>
+        </div>
+      </section>
+
       <!-- ORDER MODE -->
       <div
         x-show="orderMode && !viewProduct"
@@ -278,7 +416,7 @@
 
       <!-- ONE CLICK -->
       <div
-        x-show="!orderMode && !viewProduct"
+        x-show="!orderMode && !viewProduct && !cartMode"
         class="bg-lavendar mx-4 mt-4 flex justify-between items-center px-4 py-3 rounded-lg mb-4"
       >
         <p>
@@ -332,7 +470,7 @@
       <!-- TABS -->
 
       <nav
-        x-show="!viewProduct"
+        x-show="!viewProduct && !cartMode"
         x-cloak
         class="flex border-b border-gray-100 px-4"
       >
@@ -357,7 +495,7 @@
 
       <!-- PICKING AND DELIVERY -->
       <div
-        x-show="!orderMode && !viewProduct && (deliveringTo || pickingFrom)"
+        x-show="!cartMode && !orderMode && !viewProduct && (deliveringTo || pickingFrom)"
         x-cloak
         class="picking px-4"
       >
@@ -411,7 +549,7 @@
               ></p>
               <p
                 class="text-dark"
-                x-text="deliveringTo ? deliveringTo.titleEn : pickingFrom.branch.titleEn "
+                x-text="deliveringTo ? deliveringTo?.titleEn : pickingFrom?.branch?.titleEn "
               ></p>
             </div>
           </div>
@@ -518,7 +656,7 @@
       <!-- SLIDE MENU -->
 
       <div
-        x-show="!orderMode && !viewProduct"
+        x-show="!orderMode && !viewProduct && !cartMode"
         x-cloak
         class="top-slide bg-white z-10 top-20 lg:top-0 sticky min-h-[70px] [box-shadow:rgba(0,0,0,0.1)_0px_0.25em_0.25em] pt-5 pb-4 flex gap-1 px-4 overflow-x-scroll"
       >
@@ -536,7 +674,7 @@
       <!-- PRODUCTS -->
       <div
         x-cloak
-        x-show="!orderMode && !viewProduct"
+        x-show="!orderMode && !viewProduct && !cartMode"
         class="listings flex flex-col"
       >
         <!-- PRODUCT -->
@@ -589,10 +727,12 @@
 
         <!-- IF CART HAS PRODUCTS -->
         <div
+          x-show="cart.length > 0"
           class="sticky bottom-0 bg-white w-full border-t p-4 pb-8 border-[rgb(224,224,224)]"
         >
           <button
-            class="flex justify-between items-center bg-purple text-white py-2 px-4 rounded w-full mt-4 h-12 shadow text-sm font-medium"
+            @click="cartMode = true"
+            class="flex justify-between items-center bg-purple hover:bg-[#a218b4] text-white py-2 px-4 rounded w-full mt-4 h-12 shadow text-sm font-medium"
           >
             <p>
               <span
@@ -733,10 +873,10 @@
           class="mt-4 flex justify-between items-center cursor-pointer"
         >
           <div class="flex flex-col">
-            <p class="font-bold text-dark" x-text="store.branch.titleEn"></p>
+            <p class="font-bold text-dark" x-text="store?.branch?.titleEn"></p>
             <p
               class="mt-1 text-[rgb(97,97,97)]"
-              x-text="store.branch.addressEn"
+              x-text="store?.branch?.addressEn"
             ></p>
           </div>
 
