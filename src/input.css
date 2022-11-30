@@ -11,10 +11,6 @@
   scroll-behavior: smooth;
 }
 
-[x-cloak] {
-  display: none !important;
-}
-
 html {
   height: 100%;
 }
@@ -30,4 +26,27 @@ body {
 }
 .top-slide::-webkit-scrollbar {
   display: none;
+}
+a[data-active="true"] {
+  @apply bg-purple text-white;
+}
+a[data-active="false"] {
+  @apply text-[#212121] bg-[#f5f5f5];
+}
+
+[data-collapsed="false"] #CityArea {
+  @apply block;
+}
+[data-collapsed="true"] #CityArea {
+  @apply hidden;
+}
+[data-collapsed="false"] .CityBtn svg {
+  @apply rotate-180;
+}
+[data-tab="2"] .cities,
+[data-tab="2"] .search-group {
+  @apply hidden;
+}
+[data-tab="1"] .pick-up {
+  @apply hidden;
 }

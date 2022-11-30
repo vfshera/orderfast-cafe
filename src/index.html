@@ -3,10 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="/dist/output.css" rel="stylesheet" />
-    <script src="./index.js" defer></script>
+    <link rel="stylesheet" href="/dist/output.css" />
 
-    <!-- splide js -->
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.3/dist/js/splide.min.js"></script>
 
     <!-- splide url hash scroll -->
@@ -14,11 +12,9 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        new Splide("#slidingNav", { arrows: false }).mount(
+        new Splide("#slidingNav", { arrows: false, pagination: false }).mount(
           window.splide.Extensions
         );
-
-        console.log(window.splide);
       });
     </script>
 
@@ -33,138 +29,16 @@
   </head>
   <body class="flex flex-col-reverse lg:flex-row">
     <aside
+      data-mode="PRODUCTS"
       class="bg-white max-h-screen w-full lg:w-[450px] flex flex-col overflow-y-auto relative z-0"
-      x-data="{
-        categories: [],
-         cities:[], 
-         cart: localStorage.getItem('KohiCafe_Cart') ? JSON.parse(localStorage.getItem('KohiCafe_Cart')) :  [], 
-         deliveringTo: null,
-         pickingFrom: null,
-         tab:1, 
-         orderMode: false ,
-         cartMode: false ,
-         viewProduct: null,
-         productOptions: [], 
-         quantity: 1,
-         finalPrice: 0,
-         store:null,
-         showProduct(product){
-
-
-           if(!this.cartProducts.includes(product.uuid)){  
-           this.viewProduct = product;
-           return;
-          }
-
-
-          let [item] = this.cart.filter(item => item.product.uuid === product.uuid);
-
-          this.viewProduct = item.product;
-          this.productOptions = item.options;
-          this.quantity = item.quantity;
-          
-         },
-         isCurrent: '',
-         get cartProducts(){
-          return this.cart.map(i => i.product.uuid)
-         },
-         resetPurchase(){
-          this.viewProduct = null;
-         this.productOptions = [];
-         this.quantity = 1;
-         },
-         removeItem(id){       
-
-        this.cart = this.cart.filter(item => item.product.uuid !== id)
-
-        if(this.cart.length === 0){
-          this.cartMode = false;
-        }
-
-         localStorage.setItem('KohiCafe_Cart',JSON.stringify(this.cart))        
-         },
-         addToCart(){
-
-        this.cart.unshift({
-             product: this.viewProduct,
-             options: this.productOptions,
-             quantity:this.quantity,
-             total: this.finalPrice,
-            });
-
-
-         localStorage.setItem('KohiCafe_Cart',JSON.stringify(this.cart))
-
-         this.resetPurchase();
-
-         orderMode = false;
-         },
-         get cartTotal(){
-          return this.cart.reduce((total,cartItem) => total += +cartItem.total , 0)
-         }
-         ,
-         totalPrice(){
-
-
-         
-          if(this.viewProduct === null) return;
-          
-          
-          if(this.viewProduct.variants[0].optionGroups.length === 0){
-       
-
-            this.finalPrice = (+this.viewProduct.displayPrice *  this.quantity).toFixed(3);
-            return;
-          }
-
-          const selectedOptions =  this.viewProduct.variants[0].optionGroups[0].options
-          .filter(op => this.productOptions.map(po => po.uuid).includes(op.uuid))
-
-          const accumulatedPrice = selectedOptions.reduce((total,option) => total + option.price,+this.viewProduct.displayPrice);
-          
-          this.finalPrice = (accumulatedPrice * this.quantity).toFixed(3); 
-         }
-         ,
-         checkOptions(option){
-
-         
-          if(this.productOptions.length >= 5)return;
-
-          if(this.productOptions.map(op => op.uuid).includes(option.uuid)){
-            this.productOptions = this.productOptions.map(op => op.uuid).filter(opt => opt != option.uuid);
-           
-          }else          {
-            this.productOptions.push(option)
-          }
-
-      }}"
-      x-init="
-      fetch('data.json')
-      .then(response => response.json())
-      .then(data => {
-        categories = data.categories;
-        store = data.store;
-         cities = data.countries[0].cities;
-       });
-         
-          $watch('viewProduct',(value) => totalPrice())
-          $watch('productOptions',(value) => totalPrice())
-          $watch('quantity',(value) => totalPrice())
-          $watch('isCurrent',(value) => window.location.hash = `#${value}`)
-         
-         "
     >
       <!-- PRODUCT VIEW -->
-
-      <div class="product-view" x-cloak x-show="viewProduct">
+      <div class="product-view">
         <div
           class="item-img h-[450px] lg:aspect-square bg-cover bg-center"
           style="background-image: url('/public/images/productsFallback.svg')"
         >
           <button
-            @click="viewProduct = null; productOptions = [];
-          quantity = 1;
-          finalPrice = 0"
             class="bg-white flex justify-center items-center relative top-4 left-4 w-9 aspect-square rounded-full"
           >
             <svg
@@ -186,125 +60,108 @@
         <div class="title-price mx-4 py-4 border-b border-[rgb(224,224,224)]">
           <h4
             class="text-[32px] leading-7 mb-2 sticky top-0 md:static font-semibold text-dark"
-            x-text="viewProduct?.titleEn"
           ></h4>
-          <p
-            class="price text-sm"
-            x-text="'KWD ' + viewProduct?.variants[0].price"
-          >
-            KWD 2
-          </p>
+          Kohi Boba
         </div>
+        <p class="price text-sm">KWD 2</p>
+      </div>
 
-        <div
-          x-show="viewProduct?.variants[0]?.optionGroups?.[0].options.length > 0"
-          class="addons mx-4 py-4 border-b border-[rgb(224,224,224)]"
-        >
-          <p class="text-dark font-bold mb-1">Add ons</p>
-          <p class="text-[rgb(118,118,118)] mb-4 font-medium text-sm">
-            Select upto 5
-          </p>
+      <div class="addons mx-4 py-4 border-b border-[rgb(224,224,224)]">
+        <p class="text-dark font-bold mb-1">Add ons</p>
+        <p class="text-[rgb(118,118,118)] mb-4 font-medium text-sm">
+          Select upto 5
+        </p>
 
-          <div class="option-groups flex flex-col gap-2">
-            <template
-              x-for="option in viewProduct?.variants[0]?.optionGroups?.[0].options"
+        <div class="option-groups flex flex-col gap-2">
+          <div class="input-group flex items-center gap-3">
+            <input type="checkbox" class="accent-purple text-sm" />
+            <label
+              for="option.uuid"
+              class="text-dark flex justify-between items-center flex-1"
             >
-              <div class="input-group flex items-center gap-3">
-                <input
-                  type="checkbox"
-                  class="accent-purple text-sm"
-                  :name="option.uuid"
-                  :id="option.uuid"
-                  @click="checkOptions(option)"
-                  :disabled="!productOptions.includes(option.uuid) && productOptions.length >= 5"
-                  :checked="productOptions.length > 0 && productOptions.includes(option.uuid)"
-                />
-                <label
-                  :for="option.uuid"
-                  class="text-dark flex justify-between items-center flex-1"
-                >
-                  <span x-text="option.titleEn"></span>
-                  <span
-                    x-text=" option.price > 0 ? 'KWD '+ option.price.toFixed(3)  : ''"
-                  ></span>
-                </label>
-              </div>
-            </template>
+              <span>Tapioca Pearls</span>
+              <span>KWD 0.350</span>
+            </label>
           </div>
         </div>
-
-        <div class="mx-4 py-4 border-b border-[rgb(224,224,224)]">
-          <p class="text-dark font-bold mb-1">Special instructions</p>
-          <input
-            type="text"
-            placeholder="Add instructions"
-            class="h-10 outline-none text-sm w-full p-3 rounded bg-[rgb(245,245,245)]"
-          />
-        </div>
-
-        <div
-          class="sticky bottom-0 bg-white w-full border-t p-4 pb-8 border-[rgb(224,224,224)]"
-        >
-          <div class="quatity flex justify-center gap-3 items-center">
-            <button
-              :disabled="quantity === 1"
-              @click="quantity--"
-              class="rounded-full aspect-square disabled:opacity-40 h-5 flex justify-center items-center border border-dark"
+        <div class="option-groups flex flex-col gap-2">
+          <div class="input-group flex items-center gap-3">
+            <input type="checkbox" class="accent-purple text-sm" />
+            <label
+              for="option.uuid"
+              class="text-dark flex justify-between items-center flex-1"
             >
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M1.71429 12C1.71429 6.3191 6.3191 1.71429 12 1.71429C17.6809 1.71429 22.2857 6.3191 22.2857 12C22.2857 17.6809 17.6809 22.2857 12 22.2857C6.3191 22.2857 1.71429 17.6809 1.71429 12ZM12 0C5.37233 0 0 5.37233 0 12C0 18.6277 5.37233 24 12 24C18.6277 24 24 18.6277 24 12C24 5.37233 18.6277 0 12 0ZM6 12.8571H18V11.1429H6V12.8571Z"
-                  fill="#1F1F1F"
-                ></path>
-              </svg>
-            </button>
-            <span x-text="quantity">1</span>
-            <button
-              @click="quantity++"
-              class="rounded-full aspect-square h-5 flex justify-center items-center border border-dark"
-            >
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M1.71429 12C1.71429 6.3191 6.3191 1.71429 12 1.71429C17.6809 1.71429 22.2857 6.3191 22.2857 12C22.2857 17.6809 17.6809 22.2857 12 22.2857C6.3191 22.2857 1.71429 17.6809 1.71429 12ZM12 0C5.37233 0 0 5.37233 0 12C0 18.6277 5.37233 24 12 24C18.6277 24 24 18.6277 24 12C24 5.37233 18.6277 0 12 0ZM11.1429 18V12.8571H6V11.1429H11.1429V6H12.8571V11.1429H18V12.8571H12.8571V18H11.1429Z"
-                  fill="#1F1F1F"
-                ></path>
-              </svg>
-            </button>
+              <span>Syrup/Sauce</span>
+              <span>KWD 0.250</span>
+            </label>
           </div>
-
-          <button
-            @click="addToCart()"
-            class="flex justify-between items-center bg-purple text-white py-2 px-4 rounded w-full mt-4 h-12 shadow text-sm font-medium"
-          >
-            Add to Cart
-            <span
-              x-text=" finalPrice > 0 ? 'KWD ' + finalPrice : 'KWD ' + viewProduct?.displayPrice"
-            ></span>
-          </button>
         </div>
       </div>
 
-      <!-- CART MODE -->
+      <div class="mx-4 py-4 border-b border-[rgb(224,224,224)]">
+        <p class="text-dark font-bold mb-1">Special instructions</p>
+        <input
+          type="text"
+          placeholder="Add instructions"
+          class="h-10 outline-none text-sm w-full p-3 rounded bg-[rgb(245,245,245)]"
+        />
+      </div>
 
-      <section x-show="cartMode && cart.length > 0" x-cloak="">
+      <div
+        class="sticky bottom-0 bg-white w-full border-t p-4 pb-8 border-[rgb(224,224,224)]"
+      >
+        <div class="quatity flex justify-center gap-3 items-center">
+          <button
+            class="rounded-full aspect-square disabled:opacity-40 h-5 flex justify-center items-center border border-dark"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M1.71429 12C1.71429 6.3191 6.3191 1.71429 12 1.71429C17.6809 1.71429 22.2857 6.3191 22.2857 12C22.2857 17.6809 17.6809 22.2857 12 22.2857C6.3191 22.2857 1.71429 17.6809 1.71429 12ZM12 0C5.37233 0 0 5.37233 0 12C0 18.6277 5.37233 24 12 24C18.6277 24 24 18.6277 24 12C24 5.37233 18.6277 0 12 0ZM6 12.8571H18V11.1429H6V12.8571Z"
+                fill="#1F1F1F"
+              ></path>
+            </svg>
+          </button>
+          <span x-text="quantity">1</span>
+          <button
+            class="rounded-full aspect-square h-5 flex justify-center items-center border border-dark"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M1.71429 12C1.71429 6.3191 6.3191 1.71429 12 1.71429C17.6809 1.71429 22.2857 6.3191 22.2857 12C22.2857 17.6809 17.6809 22.2857 12 22.2857C6.3191 22.2857 1.71429 17.6809 1.71429 12ZM12 0C5.37233 0 0 5.37233 0 12C0 18.6277 5.37233 24 12 24C18.6277 24 24 18.6277 24 12C24 5.37233 18.6277 0 12 0ZM11.1429 18V12.8571H6V11.1429H11.1429V6H12.8571V11.1429H18V12.8571H12.8571V18H11.1429Z"
+                fill="#1F1F1F"
+              ></path>
+            </svg>
+          </button>
+        </div>
+
+        <button
+          class="flex justify-between items-center bg-purple text-white py-2 px-4 rounded w-full mt-4 h-12 shadow text-sm font-medium"
+        >
+          Add to Cart
+          <span>KWD 34.900</span>
+        </button>
+      </div>
+
+      <!-- CART MODE -->
+      <section class="">
         <div class="flex p-4 z-10 border-b border-[rgb(224, 224, 224)]">
-          <button @click="cartMode = false">
+          <button>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -325,86 +182,158 @@
 
         <div class="order-items border">
           <h5 class="mt-6 mb-2 font-semibold px-4 text-dark">Order Items</h5>
-          <template x-for="item in cart">
-            <div
-              class="order-item border-b border-[rgb(224, 224, 224)] p-4 flex gap-9"
-            >
-              <div class="variant">variant</div>
 
-              <div class="flex flex-col w-full">
+          <div
+            class="order-item border-b border-[rgb(224, 224, 224)] p-4 flex gap-9"
+          >
+            <div class="variant">variant</div>
+
+            <div class="flex flex-col w-full">
+              <div
+                class="name-amount font-semibold text-base flex justify-between mb-1 text-black w-full"
+              >
+                <p class="max-w-[65%]">Kohi regular</p>
+                <p class="w-max">KWD 2600</p>
+              </div>
+
+              <div class="addons flex gap-2 flex-wrap">
                 <div
-                  class="name-amount font-semibold text-base flex justify-between mb-1 text-black w-full"
+                  class="addon px-2 bg-[rgb(245,245,245)] text-xs font-semibold rounded-full text-dark/75 py-1"
                 >
-                  <p
-                    class="max-w-[65%]"
-                    x-text="item.product.titleEn+ ' - ' + item.product.variants[0].titleEn"
-                  >
-                    Kohi regular
-                  </p>
-                  <p class="w-max" x-text="'KWD ' + item.total">KWD 2600</p>
+                  1xSoya
                 </div>
-
-                <div class="addons flex gap-2 flex-wrap">
-                  <template x-for="option in item.options">
-                    <div
-                      x-text="option.titleEn"
-                      class="addon px-2 bg-[rgb(245,245,245)] text-xs font-semibold rounded-full text-dark/75 py-1"
-                    >
-                      1xSoya
-                    </div>
-                  </template>
+                <div
+                  class="addon px-2 bg-[rgb(245,245,245)] text-xs font-semibold rounded-full text-dark/75 py-1"
+                >
+                  1xSoya
                 </div>
-
-                <div class="quatity w-full flex gap-3 mt-3 mb-1 items-center">
-                  <button
-                    @click="item.quantity === 1 ? removeItem(item.product.uuid) :item.quantity--"
-                    class="rounded-full aspect-square disabled:opacity-40 h-5 flex justify-center items-center border border-dark"
-                  >
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
-                        d="M1.71429 12C1.71429 6.3191 6.3191 1.71429 12 1.71429C17.6809 1.71429 22.2857 6.3191 22.2857 12C22.2857 17.6809 17.6809 22.2857 12 22.2857C6.3191 22.2857 1.71429 17.6809 1.71429 12ZM12 0C5.37233 0 0 5.37233 0 12C0 18.6277 5.37233 24 12 24C18.6277 24 24 18.6277 24 12C24 5.37233 18.6277 0 12 0ZM6 12.8571H18V11.1429H6V12.8571Z"
-                        fill="#1F1F1F"
-                      ></path>
-                    </svg>
-                  </button>
-                  <span x-text="item.quantity">1</span>
-                  <button
-                    @click="item.quantity++"
-                    class="rounded-full aspect-square h-5 flex justify-center items-center border border-dark"
-                  >
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
-                        d="M1.71429 12C1.71429 6.3191 6.3191 1.71429 12 1.71429C17.6809 1.71429 22.2857 6.3191 22.2857 12C22.2857 17.6809 17.6809 22.2857 12 22.2857C6.3191 22.2857 1.71429 17.6809 1.71429 12ZM12 0C5.37233 0 0 5.37233 0 12C0 18.6277 5.37233 24 12 24C18.6277 24 24 18.6277 24 12C24 5.37233 18.6277 0 12 0ZM11.1429 18V12.8571H6V11.1429H11.1429V6H12.8571V11.1429H18V12.8571H12.8571V18H11.1429Z"
-                        fill="#1F1F1F"
-                      ></path>
-                    </svg>
-                  </button>
+                <div
+                  class="addon px-2 bg-[rgb(245,245,245)] text-xs font-semibold rounded-full text-dark/75 py-1"
+                >
+                  1xSoya
                 </div>
               </div>
+
+              <div class="quatity w-full flex gap-3 mt-3 mb-1 items-center">
+                <button
+                  class="rounded-full aspect-square disabled:opacity-40 h-5 flex justify-center items-center border border-dark"
+                >
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M1.71429 12C1.71429 6.3191 6.3191 1.71429 12 1.71429C17.6809 1.71429 22.2857 6.3191 22.2857 12C22.2857 17.6809 17.6809 22.2857 12 22.2857C6.3191 22.2857 1.71429 17.6809 1.71429 12ZM12 0C5.37233 0 0 5.37233 0 12C0 18.6277 5.37233 24 12 24C18.6277 24 24 18.6277 24 12C24 5.37233 18.6277 0 12 0ZM6 12.8571H18V11.1429H6V12.8571Z"
+                      fill="#1F1F1F"
+                    ></path>
+                  </svg>
+                </button>
+                <span>1</span>
+                <button
+                  class="rounded-full aspect-square h-5 flex justify-center items-center border border-dark"
+                >
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M1.71429 12C1.71429 6.3191 6.3191 1.71429 12 1.71429C17.6809 1.71429 22.2857 6.3191 22.2857 12C22.2857 17.6809 17.6809 22.2857 12 22.2857C6.3191 22.2857 1.71429 17.6809 1.71429 12ZM12 0C5.37233 0 0 5.37233 0 12C0 18.6277 5.37233 24 12 24C18.6277 24 24 18.6277 24 12C24 5.37233 18.6277 0 12 0ZM11.1429 18V12.8571H6V11.1429H11.1429V6H12.8571V11.1429H18V12.8571H12.8571V18H11.1429Z"
+                      fill="#1F1F1F"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
             </div>
-          </template>
+          </div>
+
+          <div
+            class="order-item border-b border-[rgb(224, 224, 224)] p-4 flex gap-9"
+          >
+            <div class="variant">variant</div>
+
+            <div class="flex flex-col w-full">
+              <div
+                class="name-amount font-semibold text-base flex justify-between mb-1 text-black w-full"
+              >
+                <p class="max-w-[65%]">Kohi regular</p>
+                <p class="w-max">KWD 2600</p>
+              </div>
+
+              <div class="addons flex gap-2 flex-wrap">
+                <div
+                  class="addon px-2 bg-[rgb(245,245,245)] text-xs font-semibold rounded-full text-dark/75 py-1"
+                >
+                  1xSoya
+                </div>
+                <div
+                  class="addon px-2 bg-[rgb(245,245,245)] text-xs font-semibold rounded-full text-dark/75 py-1"
+                >
+                  1xSoya
+                </div>
+                <div
+                  class="addon px-2 bg-[rgb(245,245,245)] text-xs font-semibold rounded-full text-dark/75 py-1"
+                >
+                  1xSoya
+                </div>
+              </div>
+
+              <div class="quatity w-full flex gap-3 mt-3 mb-1 items-center">
+                <button
+                  class="rounded-full aspect-square disabled:opacity-40 h-5 flex justify-center items-center border border-dark"
+                >
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M1.71429 12C1.71429 6.3191 6.3191 1.71429 12 1.71429C17.6809 1.71429 22.2857 6.3191 22.2857 12C22.2857 17.6809 17.6809 22.2857 12 22.2857C6.3191 22.2857 1.71429 17.6809 1.71429 12ZM12 0C5.37233 0 0 5.37233 0 12C0 18.6277 5.37233 24 12 24C18.6277 24 24 18.6277 24 12C24 5.37233 18.6277 0 12 0ZM6 12.8571H18V11.1429H6V12.8571Z"
+                      fill="#1F1F1F"
+                    ></path>
+                  </svg>
+                </button>
+                <span x-text="item.quantity">1</span>
+                <button
+                  class="rounded-full aspect-square h-5 flex justify-center items-center border border-dark"
+                >
+                  <!-- @click="item.quantity++" -->
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M1.71429 12C1.71429 6.3191 6.3191 1.71429 12 1.71429C17.6809 1.71429 22.2857 6.3191 22.2857 12C22.2857 17.6809 17.6809 22.2857 12 22.2857C6.3191 22.2857 1.71429 17.6809 1.71429 12ZM12 0C5.37233 0 0 5.37233 0 12C0 18.6277 5.37233 24 12 24C18.6277 24 24 18.6277 24 12C24 5.37233 18.6277 0 12 0ZM11.1429 18V12.8571H6V11.1429H11.1429V6H12.8571V11.1429H18V12.8571H12.8571V18H11.1429Z"
+                      fill="#1F1F1F"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
 
           <div
             class="sticky bottom-0 bg-white w-full border-t p-4 pb-8 border-[rgb(224,224,224)]"
           >
             <button
-              @click="cartMode = true"
               class="flex justify-center items-center bg-[#191919] text-white py-2 px-4 rounded w-full mt-4 h-12 shadow text-sm font-medium"
             >
               Orderfast Checkout
@@ -419,7 +348,8 @@
         x-cloak
         class="order-mode-header flex sticky p-4 z-10 border-b border-[rgb(224, 224, 224)]"
       >
-        <button @click="orderMode = false">
+        <button>
+          <!-- @click="orderMode = false" -->
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -439,13 +369,15 @@
       </div>
 
       <!-- ONE CLICK -->
+
       <div
         x-show="!orderMode && !viewProduct && !cartMode"
         x-cloak=""
         class="bg-lavendar mx-4 mt-4 flex justify-between items-center px-4 py-3 rounded-lg mb-4"
       >
         <p>
-          <strong>Orderfast</strong> <span class="text-sm">with one click</span>
+          <strong>Orderfast</strong>
+          <span class="text-sm">with one click</span>
         </p>
         <svg
           class="w-6 h-6"
@@ -494,36 +426,24 @@
 
       <!-- TABS -->
 
-      <nav
-        x-show="!viewProduct && !cartMode"
-        x-cloak
-        class="flex border-b border-gray-100 px-4"
-      >
+      <nav class="flex border-b border-gray-100 px-4">
         <a
           href="#"
-          @click="tab = 1; orderMode = true"
-          class="-mb-px border-b-[3px] p-4 flex-1 text-center"
-          :class=" tab == 1 ? 'border-purple text-black font-semibold' : 'border-transparent text-[#585858]'"
+          class="-mb-px border-b-[3px] p-4 flex-1 text-center border-purple text-black font-semibold"
         >
           Delivery
         </a>
 
         <a
           href="#"
-          @click="tab = 2; orderMode = true"
-          class="-mb-px border-b-[3px] p-4 flex-1 text-center"
-          :class=" tab == 2 ? 'border-purple text-black font-semibold' : 'border-transparent text-[#585858]'"
+          class="-mb-px border-b-[3px] p-4 flex-1 text-center border-transparent text-[#585858]"
         >
           Pickup
         </a>
       </nav>
 
       <!-- PICKING AND DELIVERY -->
-      <div
-        x-show="!cartMode && !orderMode && !viewProduct && (deliveringTo || pickingFrom)"
-        x-cloak
-        class="picking px-4"
-      >
+      <div class="picking px-4">
         <div
           class="flex justify-between items-center border-b border-[rgb(224, 224, 224)] py-4"
         >
@@ -568,14 +488,8 @@
             </svg>
 
             <div class="flex flex-col">
-              <p
-                class="text-sm text-[rgb(97,97,97)]"
-                x-text="deliveringTo ? 'Delivering to' : 'Picking from' "
-              ></p>
-              <p
-                class="text-dark"
-                x-text="deliveringTo ? deliveringTo?.titleEn : pickingFrom?.branch?.titleEn "
-              ></p>
+              <p class="text-sm text-[rgb(97,97,97)]">Delivering To</p>
+              <p class="text-dark">Egalia</p>
             </div>
           </div>
 
@@ -637,14 +551,8 @@
             </svg>
 
             <div class="flex flex-col">
-              <p
-                class="text-sm text-[rgb(97,97,97)]"
-                x-text="deliveringTo ? 'Arrives in' : 'Ready within' "
-              ></p>
-              <p
-                class="text-dark"
-                x-text="deliveringTo ? deliveringTo.deliveryZone.deliveryTime + ' minutes' : '15 minutes' "
-              ></p>
+              <p class="text-sm text-[rgb(97,97,97)]">Arrives in</p>
+              <p class="text-dark">15 minutes</p>
             </div>
           </div>
 
@@ -662,270 +570,4078 @@
                 clip-rule="evenodd"
                 d="M7.9415 4.55859L13.3834 10.0005L7.9415 15.4425L7.05762 14.5586L11.6157 10.0005L7.05762 5.44248L7.9415 4.55859Z"
                 fill-opacity="0.75"
-              ></path></svg
-            ><label
-              variant="smallText"
-              cursor="pointer"
-              mx="0"
-              class="style__StyledText-sc-nykyuh-0 bOKSJC"
-            ></label>
+              ></path>
+            </svg>
           </button>
         </div>
       </div>
 
       <!-- SLIDE MENU -->
-
       <div
-        x-show="!orderMode && !viewProduct && !cartMode"
-        x-cloak
-        class="top-slide bg-white z-50 lg:top-0 top-[70px] sticky min-h-[70px] [box-shadow:rgba(0,0,0,0.1)_0px_0.25em_0.25em] pt-5 pb-4 overflow-x-scroll"
+        class="top-slide bg-white z-50 lg:top-0 top-[70px] sticky min-h-[70px] [box-shadow:rgba(0,0,0,0.1)_0px_0.25em_0.25em] pt-5 pb-4 overflow-x-scroll astro-EX4K3VRN"
       >
-        <div id="slidingNav" class="splide">
-          <div class="splide__track">
-            <ul class="splide__list flex gap-1 px-4">
-              <template x-for="category in categories">
-                <li
-                  class="splide__slide min-w-max"
-                  :data-splide-hash="category.titleEn.replace(' ','')"
+        <div id="slidingNav" class="splide astro-EX4K3VRN">
+          <div class="splide__track astro-EX4K3VRN">
+            <ul class="splide__list flex gap-1 px-4 astro-EX4K3VRN">
+              <li class="splide__slide min-w-max astro-EX4K3VRN">
+                <a
+                  href="#BubbleTea"
+                  data-active="true"
+                  class="hash-slide-link px-3 py-2 min-w-max h-9 cursor-pointer rounded-full astro-EX4K3VRN"
                 >
-                  <a
-                    :data-id="category.uuid"
-                    class="px-3 py-2 min-w-max h-9 cursor-pointer rounded-full"
-                    x-bind:class=" isCurrent === category.titleEn.replace(' ','') ? 'bg-purple text-white' : 'text-[#212121] bg-[#f5f5f5]' "
-                    x-text="category.titleEn"
-                    @click="isCurrent = category.titleEn.replace(' ','')"
-                    :href="'#'+ category.titleEn.replace(' ','')"
-                  >
-                    Bubble Tea
-                  </a>
-                </li>
-              </template>
+                  Bubble Tea
+                </a>
+              </li>
+              <li class="splide__slide min-w-max astro-EX4K3VRN">
+                <a
+                  href="#Mojito"
+                  data-active="false"
+                  class="hash-slide-link px-3 py-2 min-w-max h-9 cursor-pointer rounded-full astro-EX4K3VRN"
+                >
+                  Mojito
+                </a>
+              </li>
+              <li class="splide__slide min-w-max astro-EX4K3VRN">
+                <a
+                  href="#Desserts"
+                  data-active="false"
+                  class="hash-slide-link px-3 py-2 min-w-max h-9 cursor-pointer rounded-full astro-EX4K3VRN"
+                >
+                  Desserts
+                </a>
+              </li>
+              <li class="splide__slide min-w-max astro-EX4K3VRN">
+                <a
+                  href="#HotDrinks"
+                  data-active="false"
+                  class="hash-slide-link px-3 py-2 min-w-max h-9 cursor-pointer rounded-full astro-EX4K3VRN"
+                >
+                  Hot Drinks
+                </a>
+              </li>
+              <li class="splide__slide min-w-max astro-EX4K3VRN">
+                <a
+                  href="#IcedTea"
+                  data-active="false"
+                  class="hash-slide-link px-3 py-2 min-w-max h-9 cursor-pointer rounded-full astro-EX4K3VRN"
+                >
+                  Iced Tea
+                </a>
+              </li>
+              <li class="splide__slide min-w-max astro-EX4K3VRN">
+                <a
+                  href="#BrewedDrinks"
+                  data-active="false"
+                  class="hash-slide-link px-3 py-2 min-w-max h-9 cursor-pointer rounded-full astro-EX4K3VRN"
+                >
+                  Brewed Drinks
+                </a>
+              </li>
+              <li class="splide__slide min-w-max astro-EX4K3VRN">
+                <a
+                  href="#ColdDrinks"
+                  data-active="false"
+                  class="hash-slide-link px-3 py-2 min-w-max h-9 cursor-pointer rounded-full astro-EX4K3VRN"
+                >
+                  Cold Drinks
+                </a>
+              </li>
+              <li class="splide__slide min-w-max astro-EX4K3VRN">
+                <a
+                  href="#Juice"
+                  data-active="false"
+                  class="hash-slide-link px-3 py-2 min-w-max h-9 cursor-pointer rounded-full astro-EX4K3VRN"
+                >
+                  Juice
+                </a>
+              </li>
+              <li class="splide__slide min-w-max astro-EX4K3VRN">
+                <a
+                  href="#Gathering"
+                  data-active="false"
+                  class="hash-slide-link px-3 py-2 min-w-max h-9 cursor-pointer rounded-full astro-EX4K3VRN"
+                >
+                  Gathering
+                </a>
+              </li>
+              <li class="splide__slide min-w-max astro-EX4K3VRN">
+                <a
+                  href="#Softserve"
+                  data-active="false"
+                  class="hash-slide-link px-3 py-2 min-w-max h-9 cursor-pointer rounded-full astro-EX4K3VRN"
+                >
+                  Soft serve
+                </a>
+              </li>
+              <li class="splide__slide min-w-max astro-EX4K3VRN">
+                <a
+                  href="#Water"
+                  data-active="false"
+                  class="hash-slide-link px-3 py-2 min-w-max h-9 cursor-pointer rounded-full astro-EX4K3VRN"
+                >
+                  Water
+                </a>
+              </li>
             </ul>
           </div>
         </div>
       </div>
 
       <!-- PRODUCTS -->
-      <div
-        x-cloak
-        x-show="!orderMode && !viewProduct && !cartMode"
-        class="listings flex flex-col"
-      >
-        <!-- PRODUCT -->
-        <template x-for="(category,index) in categories">
-          <div
-            class="listing flex flex-col"
-            :id="category.uuid"
-            x-intersect.half="isCurrent = category.titleEn.replace(' ','')"
+      <div class="listings flex flex-col">
+        <div class="listing flex flex-col">
+          <!-- PRODUCT -->
+
+          <h4
+            x-text="category.titleEn"
+            class="text-[32px] font-semibold text-dark mx-4 pt-4"
           >
-            <h4
-              x-text="category.titleEn"
-              class="text-[32px] font-semibold text-dark mx-4 pt-4"
-            >
-              Bubble Tea
-            </h4>
+            Bubble Tea
+          </h4>
 
-            <template x-for="product in category.products">
-              <div
-                :id="product.uuid"
-                data-in-cart="cartProducts.includes(product.uuid)"
-                class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
-                x-bind:class="cartProducts.includes(product.uuid) && 'border-l-4 border-l-purple' "
-                @click="showProduct(product)"
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
               >
-                <div class="description flex flex-col justify-between">
-                  <h6
-                    class="text-lg text-dark font-medium mb-3"
-                    x-text="product.titleEn"
-                  >
-                    KOHI Boba
-                  </h6>
-                  <button
-                    class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
-                    x-text="'KWD ' + product.variants[0].price"
-                  ></button>
+                KOHI Boba
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                2
+              </button>
 
-                  <p
-                    class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
-                  >
-                    May require extra time
-                  </p>
-                </div>
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
 
-                <div
-                  class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
-                  style="
-                    background-image: url('/public/images/productsFallback.svg');
-                  "
-                ></div>
-              </div>
-            </template>
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
           </div>
-        </template>
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Brown Sugar Boba
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                2
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Espresso Boba
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                2.25
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+        </div>
+        <div class="listing flex flex-col">
+          <!-- PRODUCT -->
+
+          <h4
+            x-text="category.titleEn"
+            class="text-[32px] font-semibold text-dark mx-4 pt-4"
+          >
+            Mojito
+          </h4>
+
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Mixed Berries Mojito
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                2
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Passion Fruit Mojito
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                1.75
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Lime Mojito
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                1.75
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                kohi lagoon Mojito
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                1.75
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Peach Mojito
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                1.75
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Strawberry Mojito
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                1.75
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+        </div>
+        <div class="listing flex flex-col">
+          <!-- PRODUCT -->
+
+          <h4
+            x-text="category.titleEn"
+            class="text-[32px] font-semibold text-dark mx-4 pt-4"
+          >
+            Desserts
+          </h4>
+
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Boba Japanese Pancake
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                2.5
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Pistachio Japanese pancake
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                2.5
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Chocolate Japanese Pancake
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                2.5
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Japanese Pancake
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                2.25
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Japanese Cheesecake
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                2
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Kinder cookies
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                1
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Brownie Soft Serve
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                1.5
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                San Sebastián
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                1.75
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Cookies Soft Serve
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                2
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Brownie
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                1
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+        </div>
+        <div class="listing flex flex-col">
+          <!-- PRODUCT -->
+
+          <h4
+            x-text="category.titleEn"
+            class="text-[32px] font-semibold text-dark mx-4 pt-4"
+          >
+            Hot Drinks
+          </h4>
+
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Espresso
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                1.25
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Cortado
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                1.5
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Macchiato
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                1.5
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Americano
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                1.5
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Flatwhite
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                1.75
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Spanish Latte
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                1.95
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Cappuccino
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                1.75
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Matcha Latte
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                1.95
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Latte
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                1.75
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                White Mocha
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                1.95
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Mocha
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                1.95
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Hot Chocolate
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                1.5
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+        </div>
+        <div class="listing flex flex-col">
+          <!-- PRODUCT -->
+
+          <h4
+            x-text="category.titleEn"
+            class="text-[32px] font-semibold text-dark mx-4 pt-4"
+          >
+            Iced Tea
+          </h4>
+
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Peach Iced Tea
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                1.75
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Mixed Berries Iced Tea
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                2
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Passion Fruit Iced Tea
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                1.75
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Strawberry Iced Tea
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                1.75
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+        </div>
+        <div class="listing flex flex-col">
+          <!-- PRODUCT -->
+
+          <h4
+            x-text="category.titleEn"
+            class="text-[32px] font-semibold text-dark mx-4 pt-4"
+          >
+            Brewed Drinks
+          </h4>
+
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Iced V60
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                2
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Cold Brew
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                2
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Chemex
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                2
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                V60
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                2
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+        </div>
+        <div class="listing flex flex-col">
+          <!-- PRODUCT -->
+
+          <h4
+            x-text="category.titleEn"
+            class="text-[32px] font-semibold text-dark mx-4 pt-4"
+          >
+            Cold Drinks
+          </h4>
+
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Iced Americano
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                1.5
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Iced Spanish Latte
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                2
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                KOHI Latte
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                2.5
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Iced Matcha Latte
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                2
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Caramel ice shaken
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                2
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Iced Pistachio Latte
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                2.25
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Iced Latte
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                2
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Iced Salted Caramel Latte
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                2
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Iced White Mocha
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                2
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Iced Mocha
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                2
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Vanilla Ice Shaken
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                2
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Iced chocolate
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                1.5
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+        </div>
+        <div class="listing flex flex-col">
+          <!-- PRODUCT -->
+
+          <h4
+            x-text="category.titleEn"
+            class="text-[32px] font-semibold text-dark mx-4 pt-4"
+          >
+            Juice
+          </h4>
+
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Fresh cocktail Juice
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                1.5
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Strawberry Juice
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                1.25
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Fresh Mango Juice
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                1.25
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Fresh Lime with Mint Juice
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                1.25
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Fresh Orange Juice
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                1.25
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+        </div>
+        <div class="listing flex flex-col">
+          <!-- PRODUCT -->
+
+          <h4
+            x-text="category.titleEn"
+            class="text-[32px] font-semibold text-dark mx-4 pt-4"
+          >
+            Gathering
+          </h4>
+
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Gathering Box 15 Pcs
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                17
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Gathering Box 12 Pcs
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                14
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Gathering Box 10 Pcs
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                12
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Gathering Box 8 Pcs
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                10
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+        </div>
+        <div class="listing flex flex-col">
+          <!-- PRODUCT -->
+
+          <h4
+            x-text="category.titleEn"
+            class="text-[32px] font-semibold text-dark mx-4 pt-4"
+          >
+            Soft serve
+          </h4>
+
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Mango Japanese Waffle soft Serve
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                2
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Vanilla Japanese waffle Soft Serve
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                2
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Mixed Flavor Cup
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                1.75
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Single Flavor Cup
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                1.5
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+        </div>
+        <div class="listing flex flex-col">
+          <!-- PRODUCT -->
+
+          <h4
+            x-text="category.titleEn"
+            class="text-[32px] font-semibold text-dark mx-4 pt-4"
+          >
+            Water
+          </h4>
+
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Mineral water 250 ml
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                0.45
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+          <div
+            class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
+          >
+            <div class="description flex flex-col justify-between">
+              <h6
+                class="text-lg text-dark font-medium mb-3"
+                x-text="product.titleEn"
+              >
+                Sparkling water 250 ml
+              </h6>
+              <button
+                onclick="setProductView()"
+                class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
+              >
+                0.6
+              </button>
+
+              <p
+                class="bg-[#fdf8e5] py-1 px-2 text-xs font-semibold w-max rounded-full text-[rgba(31,31,31,0.75)] mb-1 mt-4"
+              >
+                May require extra time
+              </p>
+            </div>
+
+            <div
+              class="item-img h-[100px] aspect-square rounded-lg bg-cover bg-center"
+              style="
+                background-image: url('/public/images/productsFallback.svg');
+              "
+            ></div>
+          </div>
+        </div>
 
         <!-- IF CART HAS PRODUCTS -->
         <div
-          x-show="cart.length > 0"
           class="sticky bottom-0 bg-white w-full border-t p-4 pb-8 border-[rgb(224,224,224)]"
         >
           <button
-            @click="cartMode = true"
+            onclick="setCartMode()"
             class="flex justify-between items-center bg-purple hover:bg-[#a218b4] text-white py-2 px-4 rounded w-full mt-4 h-12 shadow text-sm font-medium"
           >
             <p>
-              <span
-                class="bg-[#821390] p-1 px-2 leading-none rounded-full"
-                x-text="cart.length "
-              ></span>
+              <span class="bg-[#821390] p-1 px-2 leading-none rounded-full"
+                >2</span
+              >
               Review Order
             </p>
 
-            <p x-text="'KWD '+ cartTotal.toFixed(3)"></p>
+            <p>KWD 2.000</p>
           </button>
         </div>
       </div>
 
       <!-- ORDER MODE -->
       <div
-        x-show="orderMode"
-        x-cloak
-        class="flex flex-col px-4"
-        x-data="{
-          search: '',
-          get filteredCities() {
-           
-            if(this.search === ''){ 
-
-              console.log(this.cities)
-              return this.cities
-            };
-
-            return this.cities?.filter((city) => {
-                city.areas = city.areas.filter((area) =>
-                  area.titleEn.toLowerCase().startsWith(this.search.toLowerCase())
-                );
-                return city.areas.length > 0;
-              });
-           
-    }}"
+        id="OrderCard"
+        class="flex flex-col px-4 astro-KFBZNCLW"
+        data-tab="1"
       >
         <p
-          class="py-4 border-b border-[rgb(224, 224, 224)] text-lg font-medium text-dark"
-          x-text="tab==1 ? 'Select Area' : 'Select Branch' "
+          class="py-4 border-b border-[rgb(224, 224, 224)] text-lg font-medium text-dark astro-KFBZNCLW"
         >
           Select Area
         </p>
 
-        <div x-show="tab==1" class="border-b border-[rgb(224, 224, 224)] mt-4">
-          <div class="bg-[#f5f5f5] flex rounded mb-4 px-3 items-center">
+        <div
+          class="search-group border-b border-[rgb(224, 224, 224)] mt-4 astro-KFBZNCLW"
+        >
+          <div
+            class="bg-[#f5f5f5] flex rounded mb-4 px-3 items-center astro-KFBZNCLW"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
               height="24"
               viewBox="0 0 24 24"
+              class="astro-KFBZNCLW"
             >
-              <g><path fill="rgba(0,119,189,0)" d="M0 0H24V24H0z"></path></g>
+              <g class="astro-KFBZNCLW">
+                <path
+                  fill="rgba(0,119,189,0)"
+                  d="M0 0H24V24H0z"
+                  class="astro-KFBZNCLW"
+                ></path>
+              </g>
               <path
                 fill="#999"
                 d="M324.111 12.444a5.333 5.333 0 1 0-5.333-5.333 5.349 5.349 0 0 0 5.333 5.333zm5.6-.978l3.022 3.022a.88.88 0 0 1-1.244 1.244l-3.022-3.022a7.005 7.005 0 0 1-4.356 1.511 7.111 7.111 0 1 1 7.111-7.111 6.824 6.824 0 0 1-1.511 4.357z"
                 transform="translate(-313 4)"
+                class="astro-KFBZNCLW"
               ></path>
             </svg>
             <input
               type="text"
               placeholder="Search Cities and Areas"
-              class="outline-none bg-transparent p-3 h-[40px]"
-              x-model="search"
+              class="outline-none bg-transparent p-3 h-[40px] astro-KFBZNCLW"
+              id="SearchBox"
             />
           </div>
         </div>
 
         <!-- CITIES LIST -->
 
-        <div
-          x-show="tab==1"
-          class="cities"
-          x-data="{
-          openCity: 0,
-          toggleOpenCity(index){
-
-            if(this.openCity === index){
-              this.openCity = 0;
-
-              return;
-            }
-
-            this.openCity = index;
-
-        },
-        
-        }"
-        >
-          <template x-for="(city,i) in filteredCities">
-            <div class="city flex flex-col">
-              <div
-                class="flex py-4 border-b border-[rgb(224, 224, 224)] justify-between cursor-pointer"
-                @click="toggleOpenCity(i+1)"
+        <div class="cities astro-KFBZNCLW">
+          <div class="city flex flex-col astro-KFBZNCLW" data-collapsed="true">
+            <button
+              class="CityBtn flex py-4 border-b border-[rgb(224, 224, 224)] justify-between cursor-pointer astro-KFBZNCLW"
+            >
+              <span class="text-black font-semibold astro-KFBZNCLW"
+                >Kuwait City</span
               >
-                <span
-                  x-text="city.titleEn"
-                  class="text-black font-semibold"
-                ></span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-6 w-6 transition-transform"
-                  :class="openCity === i + 1 && 'rotate-180'"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </div>
-              <!-- CITY AREA -->
-              <div
-                class="city-areas"
-                x-show="openCity === i + 1 || search !== '' "
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 transition-transform astro-KFBZNCLW"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="2"
               >
-                <template x-for="area in city.areas">
-                  <div
-                    @click="deliveringTo = area;"
-                    class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
-                  >
-                    <span class="" x-text="area.titleEn">City</span>
-                  </div>
-                </template>
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M19 9l-7 7-7-7"
+                  class="astro-KFBZNCLW"
+                ></path>
+              </svg>
+            </button>
+
+            <div
+              class="city-areas astro-KFBZNCLW"
+              data-title="Ministries area "
+            >
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Ministries area </span>
               </div>
             </div>
-          </template>
+            <div class="city-areas astro-KFBZNCLW" data-title="Port of Shuaiba">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Port of Shuaiba</span>
+              </div>
+            </div>
+            <div
+              class="city-areas astro-KFBZNCLW"
+              data-title="Jaber Al-Ahmad Armed Forces Hospital"
+            >
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW"
+                  >Jaber Al-Ahmad Armed Forces Hospital</span
+                >
+              </div>
+            </div>
+            <div
+              class="city-areas astro-KFBZNCLW"
+              data-title="Sheikh Saad Airport"
+            >
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Sheikh Saad Airport</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="West Surra">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">West Surra</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Defense Camp">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Defense Camp</span>
+              </div>
+            </div>
+            <div
+              class="city-areas astro-KFBZNCLW"
+              data-title="Abdullah Al Salem"
+            >
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Abdullah Al Salem</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Adailiya">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Adailiya</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Bneid Al Qar">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Bneid Al Qar</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Daiya">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Daiya</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Dasma">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Dasma</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Dasman">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Dasman</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Faiha">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Faiha</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Ghornata">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Ghornata</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Kaifan">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Kaifan</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Khaldiya">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Khaldiya</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Kuwait City">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Kuwait City</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Mansouriya">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Mansouriya</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Mirqab">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Mirqab</span>
+              </div>
+            </div>
+            <div
+              class="city-areas astro-KFBZNCLW"
+              data-title="Mubarakiya Camps"
+            >
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Mubarakiya Camps</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Nuzha">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Nuzha</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Qadsiya">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Qadsiya</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Qibla">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Qibla</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Qortuba">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Qortuba</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Rawdah">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Rawdah</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Salhiya">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Salhiya</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Shamiya">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Shamiya</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Sharq">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Sharq</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Surra">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Surra</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Yarmouk">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Yarmouk</span>
+              </div>
+            </div>
+            <div
+              class="city-areas astro-KFBZNCLW"
+              data-title="Shuwaikh Administrative"
+            >
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Shuwaikh Administrative</span>
+              </div>
+            </div>
+            <div
+              class="city-areas astro-KFBZNCLW"
+              data-title="Shuwaikh Industrial"
+            >
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Shuwaikh Industrial</span>
+              </div>
+            </div>
+            <div
+              class="city-areas astro-KFBZNCLW"
+              data-title="Shuwaikh Residential"
+            >
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Shuwaikh Residential</span>
+              </div>
+            </div>
+            <div
+              class="city-areas astro-KFBZNCLW"
+              data-title="Shuwaikh Industrial 1"
+            >
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Shuwaikh Industrial 1</span>
+              </div>
+            </div>
+            <div
+              class="city-areas astro-KFBZNCLW"
+              data-title="Shuwaikh Industrial 2"
+            >
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Shuwaikh Industrial 2</span>
+              </div>
+            </div>
+            <div
+              class="city-areas astro-KFBZNCLW"
+              data-title="Shuwaikh Industrial 3"
+            >
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Shuwaikh Industrial 3</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Al Hamra Tower">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Al Hamra Tower</span>
+              </div>
+            </div>
+            <div
+              class="city-areas astro-KFBZNCLW"
+              data-title="Shuwaikh Medical"
+            >
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Shuwaikh Medical</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Health Region">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Health Region</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Soor Gardens">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Soor Gardens</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Crystal Tower">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Crystal Tower</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Mubarakiya">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Mubarakiya</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Shaab Al Bahri">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Shaab Al Bahri</span>
+              </div>
+            </div>
+            <div
+              class="city-areas astro-KFBZNCLW"
+              data-title="Al Sabah Hospital"
+            >
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Al Sabah Hospital</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Doha">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Doha</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Sulaibikhat">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Sulaibikhat</span>
+              </div>
+            </div>
+            <div
+              class="city-areas astro-KFBZNCLW"
+              data-title="Kuwait Free Trade Zone"
+            >
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Kuwait Free Trade Zone</span>
+              </div>
+            </div>
+            <div
+              class="city-areas astro-KFBZNCLW"
+              data-title="North West Sulaibikhat"
+            >
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">North West Sulaibikhat</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Qairawan">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Qairawan</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Jaber Al Ahmad">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Jaber Al Ahmad</span>
+              </div>
+            </div>
+          </div>
+          <div class="city flex flex-col astro-KFBZNCLW" data-collapsed="true">
+            <button
+              class="CityBtn flex py-4 border-b border-[rgb(224, 224, 224)] justify-between cursor-pointer astro-KFBZNCLW"
+            >
+              <span class="text-black font-semibold astro-KFBZNCLW"
+                >Hawally</span
+              >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 transition-transform astro-KFBZNCLW"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M19 9l-7 7-7-7"
+                  class="astro-KFBZNCLW"
+                ></path>
+              </svg>
+            </button>
+
+            <div class="city-areas astro-KFBZNCLW" data-title="Al Bidae">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Al Bidae</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Bayan">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Bayan</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Hitteen">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Hitteen</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Maidan Hawally">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Maidan Hawally</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Mishrif">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Mishrif</span>
+              </div>
+            </div>
+            <div
+              class="city-areas astro-KFBZNCLW"
+              data-title="Mubarak Al Abdullah - West Mishref"
+            >
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW"
+                  >Mubarak Al Abdullah - West Mishref</span
+                >
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Rumaithiya">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Rumaithiya</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Salam">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Salam</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Salwa">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Salwa</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Shuhada">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Shuhada</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Zahra">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Zahra</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Anjafa">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Anjafa</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Hawally">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Hawally</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Jabriya">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Jabriya</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Salmiya">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Salmiya</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Shaab">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Shaab</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Siddiq">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Siddiq</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Surra South">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Surra South</span>
+              </div>
+            </div>
+          </div>
+          <div class="city flex flex-col astro-KFBZNCLW" data-collapsed="true">
+            <button
+              class="CityBtn flex py-4 border-b border-[rgb(224, 224, 224)] justify-between cursor-pointer astro-KFBZNCLW"
+            >
+              <span class="text-black font-semibold astro-KFBZNCLW"
+                >Farwaniya</span
+              >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 transition-transform astro-KFBZNCLW"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M19 9l-7 7-7-7"
+                  class="astro-KFBZNCLW"
+                ></path>
+              </svg>
+            </button>
+
+            <div class="city-areas astro-KFBZNCLW" data-title="Al Dhajeej">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Al Dhajeej</span>
+              </div>
+            </div>
+            <div
+              class="city-areas astro-KFBZNCLW"
+              data-title=" Shaikh Saad Alabdullah Terminal"
+            >
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">
+                  Shaikh Saad Alabdullah Terminal</span
+                >
+              </div>
+            </div>
+            <div
+              class="city-areas astro-KFBZNCLW"
+              data-title="Kuwait International Airport"
+            >
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Kuwait International Airport</span>
+              </div>
+            </div>
+            <div
+              class="city-areas astro-KFBZNCLW"
+              data-title="Kuwait International Airport - Terminal 4"
+            >
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW"
+                  >Kuwait International Airport - Terminal 4</span
+                >
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Abbasiya">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Abbasiya</span>
+              </div>
+            </div>
+            <div
+              class="city-areas astro-KFBZNCLW"
+              data-title="Abdullah Al Mubarak - West Jileeb"
+            >
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW"
+                  >Abdullah Al Mubarak - West Jileeb</span
+                >
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Abraq Khaitan">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Abraq Khaitan</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Andalous">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Andalous</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Ardiya">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Ardiya</span>
+              </div>
+            </div>
+            <div
+              class="city-areas astro-KFBZNCLW"
+              data-title="Ardiya Small Industrial"
+            >
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Ardiya Small Industrial</span>
+              </div>
+            </div>
+            <div
+              class="city-areas astro-KFBZNCLW"
+              data-title="Ardiya Storage Zone"
+            >
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Ardiya Storage Zone</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Ishbiliya">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Ishbiliya</span>
+              </div>
+            </div>
+            <div
+              class="city-areas astro-KFBZNCLW"
+              data-title="South Khaitan - Exhibits"
+            >
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">South Khaitan - Exhibits</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Farwaniya">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Farwaniya</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Ferdous">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Ferdous</span>
+              </div>
+            </div>
+            <div
+              class="city-areas astro-KFBZNCLW"
+              data-title="Jeleeb Al Shoyoukh"
+            >
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Jeleeb Al Shoyoukh</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Khaitan">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Khaitan</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Omariya">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Omariya</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Rabiya">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Rabiya</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Rai">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Rai</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Reggai">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Reggai</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Rehab">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Rehab</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Sabah Al Nasser">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Sabah Al Nasser</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Al Shadadiya">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Al Shadadiya</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Ardiya (4)">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Ardiya (4)</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Ardiya (6)">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Ardiya (6)</span>
+              </div>
+            </div>
+            <div
+              class="city-areas astro-KFBZNCLW"
+              data-title="Abdullah Al-Mubarak Al Sabah"
+            >
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Abdullah Al-Mubarak Al Sabah</span>
+              </div>
+            </div>
+            <div
+              class="city-areas astro-KFBZNCLW"
+              data-title="Western Abdullah Al-Mubarak"
+            >
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Western Abdullah Al-Mubarak</span>
+              </div>
+            </div>
+            <div
+              class="city-areas astro-KFBZNCLW"
+              data-title="South Abdullah Al-Mubarak"
+            >
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">South Abdullah Al-Mubarak</span>
+              </div>
+            </div>
+            <div
+              class="city-areas astro-KFBZNCLW"
+              data-title="Sabah Al Salem University"
+            >
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Sabah Al Salem University</span>
+              </div>
+            </div>
+          </div>
+          <div class="city flex flex-col astro-KFBZNCLW" data-collapsed="true">
+            <button
+              class="CityBtn flex py-4 border-b border-[rgb(224, 224, 224)] justify-between cursor-pointer astro-KFBZNCLW"
+            >
+              <span class="text-black font-semibold astro-KFBZNCLW"
+                >Ahmadi</span
+              >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 transition-transform astro-KFBZNCLW"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M19 9l-7 7-7-7"
+                  class="astro-KFBZNCLW"
+                ></path>
+              </svg>
+            </button>
+
+            <div class="city-areas astro-KFBZNCLW" data-title="Abu Halifa">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Abu Halifa</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Al Ahmadi">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Al Ahmadi</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Dhaher">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Dhaher</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="East Al Ahmadi">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">East Al Ahmadi</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Egaila">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Egaila</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Fahad Al Ahmed">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Fahad Al Ahmed</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Fahaheel">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Fahaheel</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Fintas">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Fintas</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Hadiya">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Hadiya</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Jaber Al Ali">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Jaber Al Ali</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Magwa">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Magwa</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Mahboula">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Mahboula</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Mangaf">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Mangaf</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Mina Al Ahmadi">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Mina Al Ahmadi</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Riqqa">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Riqqa</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Al Sabahiya">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Al Sabahiya</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Shuaiba Block 1">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Shuaiba Block 1</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="West Ahmadi">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">West Ahmadi</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="North Ahmadi ">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">North Ahmadi </span>
+              </div>
+            </div>
+            <div
+              class="city-areas astro-KFBZNCLW"
+              data-title="Middle of Ahmadi"
+            >
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Middle of Ahmadi</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="South Al Ahmadi">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">South Al Ahmadi</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="South Sabahiya">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">South Sabahiya</span>
+              </div>
+            </div>
+            <div
+              class="city-areas astro-KFBZNCLW"
+              data-title="Ali Sabah Al-Salem - Umm Al Hayman"
+            >
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW"
+                  >Ali Sabah Al-Salem - Umm Al Hayman</span
+                >
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Mina Abdullah">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Mina Abdullah</span>
+              </div>
+            </div>
+            <div
+              class="city-areas astro-KFBZNCLW"
+              data-title="West Industrial Shuaiba"
+            >
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">West Industrial Shuaiba</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Ahmadi Stables ">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Ahmadi Stables </span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="East Al-Maqwa">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">East Al-Maqwa</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Al Duba'iya">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Al Duba&#39;iya</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Al Julai'a">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Al Julai&#39;a</span>
+              </div>
+            </div>
+            <div
+              class="city-areas astro-KFBZNCLW"
+              data-title="Sabah Al Ahmed Residential"
+            >
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Sabah Al Ahmed Residential</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Khairan">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Khairan</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Wafra Farms">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Wafra Farms</span>
+              </div>
+            </div>
+            <div
+              class="city-areas astro-KFBZNCLW"
+              data-title="Wafra Residential"
+            >
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Wafra Residential</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Bnaider">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Bnaider</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Al Zour">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Al Zour</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Wara">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Wara</span>
+              </div>
+            </div>
+            <div
+              class="city-areas astro-KFBZNCLW"
+              data-title="Khairan residential"
+            >
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Khairan residential</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Mina Alzour">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Mina Alzour</span>
+              </div>
+            </div>
+          </div>
+          <div class="city flex flex-col astro-KFBZNCLW" data-collapsed="true">
+            <button
+              class="CityBtn flex py-4 border-b border-[rgb(224, 224, 224)] justify-between cursor-pointer astro-KFBZNCLW"
+            >
+              <span class="text-black font-semibold astro-KFBZNCLW">Jahra</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 transition-transform astro-KFBZNCLW"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M19 9l-7 7-7-7"
+                  class="astro-KFBZNCLW"
+                ></path>
+              </svg>
+            </button>
+
+            <div
+              class="city-areas astro-KFBZNCLW"
+              data-title="Sulaibiya Industrial 2"
+            >
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Sulaibiya Industrial 2</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Nahda">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Nahda</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Qairawan ">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Qairawan </span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Sulaibiya">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Sulaibiya</span>
+              </div>
+            </div>
+            <div
+              class="city-areas astro-KFBZNCLW"
+              data-title="Sulaibiya Industrial 1"
+            >
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Sulaibiya Industrial 1</span>
+              </div>
+            </div>
+            <div
+              class="city-areas astro-KFBZNCLW"
+              data-title="Sulaibiya Residential"
+            >
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Sulaibiya Residential</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Al Naeem">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Al Naeem</span>
+              </div>
+            </div>
+            <div
+              class="city-areas astro-KFBZNCLW"
+              data-title="Amgarah Industrial"
+            >
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Amgarah Industrial</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Jahrah">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Jahrah</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Kabd">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Kabd</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Nasseem">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Nasseem</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Qasser">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Qasser</span>
+              </div>
+            </div>
+            <div
+              class="city-areas astro-KFBZNCLW"
+              data-title="Saad Al Abdullah"
+            >
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Saad Al Abdullah</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Taima">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Taima</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Old Jahra">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Old Jahra</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Sharq Taimaa">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Sharq Taimaa</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Oyoun">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Oyoun</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Waha">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Waha</span>
+              </div>
+            </div>
+            <div
+              class="city-areas astro-KFBZNCLW"
+              data-title="Al Jahra Industrial Area "
+            >
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Al Jahra Industrial Area </span>
+              </div>
+            </div>
+          </div>
+          <div class="city flex flex-col astro-KFBZNCLW" data-collapsed="true">
+            <button
+              class="CityBtn flex py-4 border-b border-[rgb(224, 224, 224)] justify-between cursor-pointer astro-KFBZNCLW"
+            >
+              <span class="text-black font-semibold astro-KFBZNCLW"
+                >Mubarak Al Kabir</span
+              >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 transition-transform astro-KFBZNCLW"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M19 9l-7 7-7-7"
+                  class="astro-KFBZNCLW"
+                ></path>
+              </svg>
+            </button>
+
+            <div class="city-areas astro-KFBZNCLW" data-title="Abu Fatira">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Abu Fatira</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Abu Al Hasaniya">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Abu Al Hasaniya</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Adan">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Adan</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Al Masayel">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Al Masayel</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Al Qurain">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Al Qurain</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Al Qusour">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Al Qusour</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Coast Strip B">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Coast Strip B</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="ِAl Funaitees">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">ِAl Funaitees</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Messila">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Messila</span>
+              </div>
+            </div>
+            <div
+              class="city-areas astro-KFBZNCLW"
+              data-title="Mubarak Al Kabeer"
+            >
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Mubarak Al Kabeer</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Sabah Al Salem">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Sabah Al Salem</span>
+              </div>
+            </div>
+            <div
+              class="city-areas astro-KFBZNCLW"
+              data-title="Sabhan Industrial"
+            >
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Sabhan Industrial</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="South Wista">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">South Wista</span>
+              </div>
+            </div>
+            <div
+              class="city-areas astro-KFBZNCLW"
+              data-title="West Abu Fatira Industrial"
+            >
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">West Abu Fatira Industrial</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Wista">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Wista</span>
+              </div>
+            </div>
+            <div class="city-areas astro-KFBZNCLW" data-title="Aswaq Al Qurain">
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Aswaq Al Qurain</span>
+              </div>
+            </div>
+          </div>
+          <div class="city flex flex-col astro-KFBZNCLW" data-collapsed="true">
+            <button
+              class="CityBtn flex py-4 border-b border-[rgb(224, 224, 224)] justify-between cursor-pointer astro-KFBZNCLW"
+            >
+              <span class="text-black font-semibold astro-KFBZNCLW"
+                >Mina Abd Allah</span
+              >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 transition-transform astro-KFBZNCLW"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M19 9l-7 7-7-7"
+                  class="astro-KFBZNCLW"
+                ></path>
+              </svg>
+            </button>
+
+            <div
+              class="city-areas astro-KFBZNCLW"
+              data-title="Mina Abdullah Refinery"
+            >
+              <div
+                id="CityArea"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+              >
+                <span class="astro-KFBZNCLW">Mina Abdullah Refinery</span>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- PICKUP -->
         <div
-          x-show="tab==2"
-          @click="pickingFrom = store;orderMode = false"
-          class="mt-4 flex justify-between items-center cursor-pointer"
+          class="pick-up mt-4 flex justify-between items-center cursor-pointer astro-KFBZNCLW"
         >
-          <div class="flex flex-col">
-            <p class="font-bold text-dark" x-text="store?.branch?.titleEn"></p>
-            <p
-              class="mt-1 text-[rgb(97,97,97)]"
-              x-text="store?.branch?.addressEn"
-            ></p>
+          <div class="flex flex-col astro-KFBZNCLW">
+            <p class="font-bold text-dark astro-KFBZNCLW">Egaila</p>
+            <p class="mt-1 text-[rgb(97,97,97)] astro-KFBZNCLW">
+              Aldurra Mall , uqaila
+            </p>
           </div>
 
-          <button>
+          <button class="astro-KFBZNCLW">
             <svg
               width="20"
               height="20"
               viewBox="0 0 20 20"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
+              class="astro-KFBZNCLW"
             >
               <path
                 fill-rule="evenodd"
@@ -933,6 +4649,7 @@
                 d="M7.9415 4.55859L13.3834 10.0005L7.9415 15.4425L7.05762 14.5586L11.6157 10.0005L7.05762 5.44248L7.9415 4.55859Z"
                 fill="#1F1F1F"
                 fill-opacity="0.75"
+                class="astro-KFBZNCLW"
               ></path>
             </svg>
           </button>
@@ -943,9 +4660,9 @@
     <!-- MAIN -->
     <main
       class="lg:min-h-full relative flex-1 flex flex-col justify-center items-center bg-cover bg-center"
-      x-bind:class="viewProduct != null && 'hidden' "
-      style="background-image: url('/public/images/productsFallback.svg')"
+      style="background-image: url('/images/productsFallback.svg')"
     >
+      <!-- x-bind:class="viewProduct != null && 'hidden' " -->
       <div
         class="menu bg-white lg:bg-transparent h-20 z-20 min-h-[76px] lg:h-max lg:min-h-max fixed top-0 lg:absolute lg:top-10 left-0 w-full flex gap-4 items-center justify-between px-4 lg:justify-end"
       >
