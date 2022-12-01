@@ -59,6 +59,7 @@ a[data-active="false"] {
 aside[data-mode="PRODUCTS"] .product-view,
 aside[data-mode="PRODUCTS"] .cart,
 aside[data-mode="PRODUCTS"] #OrderCard,
+aside[data-mode="PRODUCTS"] .picking,
 aside[data-mode="PRODUCTS"] .order-mode-header {
   @apply hidden;
 }

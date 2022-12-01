@@ -4,6 +4,30 @@ const citiesContainer = document.querySelectorAll(".city");
 const cityBtns = document.querySelectorAll(".CityBtn");
 const validCityAreas = document.querySelectorAll(".city-areas");
 
+// OBSERVER
+
+const observer = new IntersectionObserver(
+  (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        window.location.hash = entry.target.children[0].innerText
+          .split(" ")
+          .join("");
+      }
+    });
+  },
+  {
+    rootMargin: "200px",
+    threshold: 1.0,
+  }
+);
+
+document
+  .querySelectorAll(".listing")
+  .forEach((product) => observer.observe(product));
+
+// OBSERVER END
+
 //SITE MODES : ORDER ,CART ,PRODUCT,PRODUCTS
 const aside = document.querySelector("aside[data-mode]");
 
@@ -25,7 +49,7 @@ function setDeliveryView() {
   OrderCard?.setAttribute("data-tabs", "1");
 }
 
-//
+//HORIZONTAL NAVIGATION LINKS TOGGLE
 
 const links = document.querySelectorAll(".hash-slide-link");
 
@@ -41,9 +65,10 @@ links.forEach((link) => {
   });
 });
 
-//
+//SELECT AREA
 
 cityBtns.forEach((cb) => {
+  //TOGGLE EXPANDED
   cb.addEventListener("click", () => {
     const isActive = cb.parentElement.getAttribute("data-collapsed") === "true";
     let collapsed = isActive ? "false" : "true";
@@ -56,9 +81,13 @@ validCityAreas.forEach((area) => {
     OrderCard.setAttribute("data-tab", "2");
   });
 });
+
+//SEARCH INPUT FILTERING CITY NAMES
 search.oninput = (e) => {
   if (e.target.value !== "") {
+    //if search is not empty
     citiesContainer.forEach((cty) => {
+      //hide all cities first
       cty.classList.add("hidden");
 
       validCityAreas.forEach((cityArea) => cityArea.classList.add("hidden"));
@@ -66,6 +95,8 @@ search.oninput = (e) => {
 
     validCityAreas.forEach((area) => {
       if (area.getAttribute("data-title").startsWith(e.target.value)) {
+        //if there is a match between city and search string
+        //unhide the specific city matched
         area.classList.remove("hidden");
         area.parentElement.classList.remove("hidden");
         area.parentElement.setAttribute("data-collapsed", "false");
@@ -74,6 +105,8 @@ search.oninput = (e) => {
       }
     });
   } else {
+    //if search is empty
+    //unhide cities
     citiesContainer.forEach((cty) => {
       cty.classList.remove("hidden");
       validCityAreas.forEach((cityArea) => cityArea.classList.remove("hidden"));
