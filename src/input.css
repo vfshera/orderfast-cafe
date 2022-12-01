@@ -27,6 +27,7 @@ body {
 .top-slide::-webkit-scrollbar {
   display: none;
 }
+
 a[data-active="true"] {
   @apply bg-purple text-white;
 }
@@ -49,4 +50,61 @@ a[data-active="false"] {
 }
 [data-tab="1"] .pick-up {
   @apply hidden;
+}
+[data-tab="2"] .pick-up {
+  @apply flex;
+}
+
+/* ASIDE TOGGLES */
+aside[data-mode="PRODUCTS"] .product-view,
+aside[data-mode="PRODUCTS"] .cart,
+aside[data-mode="PRODUCTS"] #OrderCard,
+aside[data-mode="PRODUCTS"] .order-mode-header {
+  @apply hidden;
+}
+aside[data-mode="PRODUCT"] .cart,
+aside[data-mode="PRODUCT"] #OrderCard,
+aside[data-mode="PRODUCT"] .listings,
+aside[data-mode="PRODUCT"] .picking,
+aside[data-mode="PRODUCT"] .orderfast,
+aside[data-mode="PRODUCT"] .tabs,
+aside[data-mode="PRODUCT"] .top-slide,
+aside[data-mode="PRODUCT"] .order-mode-header {
+  @apply hidden;
+}
+aside[data-mode="PRODUCT"] .product-view {
+  @apply block;
+}
+aside[data-mode="CART"] .product-view,
+aside[data-mode="CART"] #OrderCard,
+aside[data-mode="CART"] .listings,
+aside[data-mode="CART"] .picking,
+aside[data-mode="CART"] .orderfast,
+aside[data-mode="CART"] .tabs,
+aside[data-mode="CART"] .top-slide,
+aside[data-mode="CART"] .order-mode-header {
+  @apply hidden;
+}
+aside[data-mode="CART"] .cart {
+  @apply block;
+}
+aside[data-mode="DELIVERY"] .product-view,
+aside[data-mode="DELIVERY"] .listings,
+aside[data-mode="DELIVERY"] .picking,
+aside[data-mode="DELIVERY"] .orderfast,
+aside[data-mode="DELIVERY"] .cart,
+aside[data-mode="DELIVERY"] .top-slide {
+  @apply hidden;
+}
+aside[data-mode="PICKUP"] .product-view,
+aside[data-mode="PICKUP"] .listings,
+aside[data-mode="PICKUP"] .orderfast,
+aside[data-mode="PICKUP"] .cart,
+aside[data-mode="PICKUP"] .picking,
+aside[data-mode="PICKUP"] .cities,
+aside[data-mode="PICKUP"] .top-slide {
+  @apply hidden;
+}
+aside[data-mode="PICKUP"] .pick-up {
+  @apply flex;
 }

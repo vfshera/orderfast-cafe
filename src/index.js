@@ -1,3 +1,32 @@
+const OrderCard = document.querySelector("#OrderCard");
+const search = document.querySelector("#SearchBox");
+const citiesContainer = document.querySelectorAll(".city");
+const cityBtns = document.querySelectorAll(".CityBtn");
+const validCityAreas = document.querySelectorAll(".city-areas");
+
+//SITE MODES : ORDER ,CART ,PRODUCT,PRODUCTS
+const aside = document.querySelector("aside[data-mode]");
+
+function setProductView() {
+  aside?.setAttribute("data-mode", "PRODUCT");
+}
+function setProductsView() {
+  aside?.setAttribute("data-mode", "PRODUCTS");
+}
+function setCartView() {
+  aside?.setAttribute("data-mode", "CART");
+}
+function setPickupView() {
+  aside?.setAttribute("data-mode", "PICKUP");
+  OrderCard?.setAttribute("data-tabs", "2");
+}
+function setDeliveryView() {
+  aside?.setAttribute("data-mode", "DELIVERY");
+  OrderCard?.setAttribute("data-tabs", "1");
+}
+
+//
+
 const links = document.querySelectorAll(".hash-slide-link");
 
 function resetLinks() {
@@ -13,12 +42,6 @@ links.forEach((link) => {
 });
 
 //
-
-const OrderCard = document.querySelector("#OrderCard");
-const search = document.querySelector("#SearchBox");
-const citiesContainer = document.querySelectorAll(".city");
-const cityBtns = document.querySelectorAll(".CityBtn");
-const validCityAreas = document.querySelectorAll(".city-areas");
 
 cityBtns.forEach((cb) => {
   cb.addEventListener("click", () => {

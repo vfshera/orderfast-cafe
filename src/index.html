@@ -26,6 +26,7 @@
       defer
       src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
     ></script>
+    <script src="./index.js" defer></script>
   </head>
   <body class="flex flex-col-reverse lg:flex-row">
     <aside
@@ -39,6 +40,7 @@
           style="background-image: url('/public/images/productsFallback.svg')"
         >
           <button
+            onclick="setProductsView()"
             class="bg-white flex justify-center items-center relative top-4 left-4 w-9 aspect-square rounded-full"
           >
             <svg
@@ -64,104 +66,103 @@
           Kohi Boba
         </div>
         <p class="price text-sm">KWD 2</p>
-      </div>
+        <div class="addons mx-4 py-4 border-b border-[rgb(224,224,224)]">
+          <p class="text-dark font-bold mb-1">Add ons</p>
+          <p class="text-[rgb(118,118,118)] mb-4 font-medium text-sm">
+            Select upto 5
+          </p>
 
-      <div class="addons mx-4 py-4 border-b border-[rgb(224,224,224)]">
-        <p class="text-dark font-bold mb-1">Add ons</p>
-        <p class="text-[rgb(118,118,118)] mb-4 font-medium text-sm">
-          Select upto 5
-        </p>
-
-        <div class="option-groups flex flex-col gap-2">
-          <div class="input-group flex items-center gap-3">
-            <input type="checkbox" class="accent-purple text-sm" />
-            <label
-              for="option.uuid"
-              class="text-dark flex justify-between items-center flex-1"
-            >
-              <span>Tapioca Pearls</span>
-              <span>KWD 0.350</span>
-            </label>
+          <div class="option-groups flex flex-col gap-2">
+            <div class="input-group flex items-center gap-3">
+              <input type="checkbox" class="accent-purple text-sm" />
+              <label
+                for="option.uuid"
+                class="text-dark flex justify-between items-center flex-1"
+              >
+                <span>Tapioca Pearls</span>
+                <span>KWD 0.350</span>
+              </label>
+            </div>
+          </div>
+          <div class="option-groups flex flex-col gap-2">
+            <div class="input-group flex items-center gap-3">
+              <input type="checkbox" class="accent-purple text-sm" />
+              <label
+                for="option.uuid"
+                class="text-dark flex justify-between items-center flex-1"
+              >
+                <span>Syrup/Sauce</span>
+                <span>KWD 0.250</span>
+              </label>
+            </div>
           </div>
         </div>
-        <div class="option-groups flex flex-col gap-2">
-          <div class="input-group flex items-center gap-3">
-            <input type="checkbox" class="accent-purple text-sm" />
-            <label
-              for="option.uuid"
-              class="text-dark flex justify-between items-center flex-1"
-            >
-              <span>Syrup/Sauce</span>
-              <span>KWD 0.250</span>
-            </label>
-          </div>
-        </div>
-      </div>
 
-      <div class="mx-4 py-4 border-b border-[rgb(224,224,224)]">
-        <p class="text-dark font-bold mb-1">Special instructions</p>
-        <input
-          type="text"
-          placeholder="Add instructions"
-          class="h-10 outline-none text-sm w-full p-3 rounded bg-[rgb(245,245,245)]"
-        />
-      </div>
-
-      <div
-        class="sticky bottom-0 bg-white w-full border-t p-4 pb-8 border-[rgb(224,224,224)]"
-      >
-        <div class="quatity flex justify-center gap-3 items-center">
-          <button
-            class="rounded-full aspect-square disabled:opacity-40 h-5 flex justify-center items-center border border-dark"
-          >
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M1.71429 12C1.71429 6.3191 6.3191 1.71429 12 1.71429C17.6809 1.71429 22.2857 6.3191 22.2857 12C22.2857 17.6809 17.6809 22.2857 12 22.2857C6.3191 22.2857 1.71429 17.6809 1.71429 12ZM12 0C5.37233 0 0 5.37233 0 12C0 18.6277 5.37233 24 12 24C18.6277 24 24 18.6277 24 12C24 5.37233 18.6277 0 12 0ZM6 12.8571H18V11.1429H6V12.8571Z"
-                fill="#1F1F1F"
-              ></path>
-            </svg>
-          </button>
-          <span x-text="quantity">1</span>
-          <button
-            class="rounded-full aspect-square h-5 flex justify-center items-center border border-dark"
-          >
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M1.71429 12C1.71429 6.3191 6.3191 1.71429 12 1.71429C17.6809 1.71429 22.2857 6.3191 22.2857 12C22.2857 17.6809 17.6809 22.2857 12 22.2857C6.3191 22.2857 1.71429 17.6809 1.71429 12ZM12 0C5.37233 0 0 5.37233 0 12C0 18.6277 5.37233 24 12 24C18.6277 24 24 18.6277 24 12C24 5.37233 18.6277 0 12 0ZM11.1429 18V12.8571H6V11.1429H11.1429V6H12.8571V11.1429H18V12.8571H12.8571V18H11.1429Z"
-                fill="#1F1F1F"
-              ></path>
-            </svg>
-          </button>
+        <div class="mx-4 py-4 border-b border-[rgb(224,224,224)]">
+          <p class="text-dark font-bold mb-1">Special instructions</p>
+          <input
+            type="text"
+            placeholder="Add instructions"
+            class="h-10 outline-none text-sm w-full p-3 rounded bg-[rgb(245,245,245)]"
+          />
         </div>
 
-        <button
-          class="flex justify-between items-center bg-purple text-white py-2 px-4 rounded w-full mt-4 h-12 shadow text-sm font-medium"
+        <div
+          class="sticky bottom-0 bg-white w-full border-t p-4 pb-8 border-[rgb(224,224,224)]"
         >
-          Add to Cart
-          <span>KWD 34.900</span>
-        </button>
+          <div class="quatity flex justify-center gap-3 items-center">
+            <button
+              class="rounded-full aspect-square disabled:opacity-40 h-5 flex justify-center items-center border border-dark"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M1.71429 12C1.71429 6.3191 6.3191 1.71429 12 1.71429C17.6809 1.71429 22.2857 6.3191 22.2857 12C22.2857 17.6809 17.6809 22.2857 12 22.2857C6.3191 22.2857 1.71429 17.6809 1.71429 12ZM12 0C5.37233 0 0 5.37233 0 12C0 18.6277 5.37233 24 12 24C18.6277 24 24 18.6277 24 12C24 5.37233 18.6277 0 12 0ZM6 12.8571H18V11.1429H6V12.8571Z"
+                  fill="#1F1F1F"
+                ></path>
+              </svg>
+            </button>
+            <span x-text="quantity">1</span>
+            <button
+              class="rounded-full aspect-square h-5 flex justify-center items-center border border-dark"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M1.71429 12C1.71429 6.3191 6.3191 1.71429 12 1.71429C17.6809 1.71429 22.2857 6.3191 22.2857 12C22.2857 17.6809 17.6809 22.2857 12 22.2857C6.3191 22.2857 1.71429 17.6809 1.71429 12ZM12 0C5.37233 0 0 5.37233 0 12C0 18.6277 5.37233 24 12 24C18.6277 24 24 18.6277 24 12C24 5.37233 18.6277 0 12 0ZM11.1429 18V12.8571H6V11.1429H11.1429V6H12.8571V11.1429H18V12.8571H12.8571V18H11.1429Z"
+                  fill="#1F1F1F"
+                ></path>
+              </svg>
+            </button>
+          </div>
+
+          <button
+            class="flex justify-between items-center bg-purple text-white py-2 px-4 rounded w-full mt-4 h-12 shadow text-sm font-medium"
+          >
+            Add to Cart
+            <span>KWD 34.900</span>
+          </button>
+        </div>
       </div>
 
       <!-- CART MODE -->
-      <section class="">
+      <section class="cart">
         <div class="flex p-4 z-10 border-b border-[rgb(224, 224, 224)]">
-          <button>
+          <button onclick="setProductsView()">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -306,11 +307,10 @@
                     ></path>
                   </svg>
                 </button>
-                <span x-text="item.quantity">1</span>
+                <span>1</span>
                 <button
                   class="rounded-full aspect-square h-5 flex justify-center items-center border border-dark"
                 >
-                  <!-- @click="item.quantity++" -->
                   <svg
                     width="24"
                     height="24"
@@ -344,12 +344,9 @@
 
       <!-- ORDER MODE -->
       <div
-        x-show="orderMode && !viewProduct"
-        x-cloak
         class="order-mode-header flex sticky p-4 z-10 border-b border-[rgb(224, 224, 224)]"
       >
-        <button>
-          <!-- @click="orderMode = false" -->
+        <button onclick="setProductsView()">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -371,9 +368,7 @@
       <!-- ONE CLICK -->
 
       <div
-        x-show="!orderMode && !viewProduct && !cartMode"
-        x-cloak=""
-        class="bg-lavendar mx-4 mt-4 flex justify-between items-center px-4 py-3 rounded-lg mb-4"
+        class="orderfast bg-lavendar mx-4 mt-4 flex justify-between items-center px-4 py-3 rounded-lg mb-4"
       >
         <p>
           <strong>Orderfast</strong>
@@ -426,20 +421,20 @@
 
       <!-- TABS -->
 
-      <nav class="flex border-b border-gray-100 px-4">
-        <a
-          href="#"
+      <nav class="tabs flex border-b border-gray-100 px-4">
+        <button
+          onclick="setDeliveryView()"
           class="-mb-px border-b-[3px] p-4 flex-1 text-center border-purple text-black font-semibold"
         >
           Delivery
-        </a>
+        </button>
 
-        <a
-          href="#"
+        <button
+          onclick="setPickupView()"
           class="-mb-px border-b-[3px] p-4 flex-1 text-center border-transparent text-[#585858]"
         >
           Pickup
-        </a>
+        </button>
       </nav>
 
       <!-- PICKING AND DELIVERY -->
@@ -692,10 +687,7 @@
         <div class="listing flex flex-col">
           <!-- PRODUCT -->
 
-          <h4
-            x-text="category.titleEn"
-            class="text-[32px] font-semibold text-dark mx-4 pt-4"
-          >
+          <h4 class="text-[32px] font-semibold text-dark mx-4 pt-4">
             Bubble Tea
           </h4>
 
@@ -703,12 +695,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
-                KOHI Boba
-              </h6>
+              <h6 class="text-lg text-dark font-medium mb-3">KOHI Boba</h6>
               <button
                 onclick="setProductView()"
                 class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
@@ -734,10 +721,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
+              <h6 class="text-lg text-dark font-medium mb-3">
                 Brown Sugar Boba
               </h6>
               <button
@@ -765,12 +749,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
-                Espresso Boba
-              </h6>
+              <h6 class="text-lg text-dark font-medium mb-3">Espresso Boba</h6>
               <button
                 onclick="setProductView()"
                 class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
@@ -796,21 +775,13 @@
         <div class="listing flex flex-col">
           <!-- PRODUCT -->
 
-          <h4
-            x-text="category.titleEn"
-            class="text-[32px] font-semibold text-dark mx-4 pt-4"
-          >
-            Mojito
-          </h4>
+          <h4 class="text-[32px] font-semibold text-dark mx-4 pt-4">Mojito</h4>
 
           <div
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
+              <h6 class="text-lg text-dark font-medium mb-3">
                 Mixed Berries Mojito
               </h6>
               <button
@@ -838,10 +809,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
+              <h6 class="text-lg text-dark font-medium mb-3">
                 Passion Fruit Mojito
               </h6>
               <button
@@ -869,12 +837,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
-                Lime Mojito
-              </h6>
+              <h6 class="text-lg text-dark font-medium mb-3">Lime Mojito</h6>
               <button
                 onclick="setProductView()"
                 class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
@@ -900,10 +863,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
+              <h6 class="text-lg text-dark font-medium mb-3">
                 kohi lagoon Mojito
               </h6>
               <button
@@ -931,12 +891,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
-                Peach Mojito
-              </h6>
+              <h6 class="text-lg text-dark font-medium mb-3">Peach Mojito</h6>
               <button
                 onclick="setProductView()"
                 class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
@@ -962,10 +917,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
+              <h6 class="text-lg text-dark font-medium mb-3">
                 Strawberry Mojito
               </h6>
               <button
@@ -993,10 +945,7 @@
         <div class="listing flex flex-col">
           <!-- PRODUCT -->
 
-          <h4
-            x-text="category.titleEn"
-            class="text-[32px] font-semibold text-dark mx-4 pt-4"
-          >
+          <h4 class="text-[32px] font-semibold text-dark mx-4 pt-4">
             Desserts
           </h4>
 
@@ -1004,10 +953,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
+              <h6 class="text-lg text-dark font-medium mb-3">
                 Boba Japanese Pancake
               </h6>
               <button
@@ -1035,10 +981,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
+              <h6 class="text-lg text-dark font-medium mb-3">
                 Pistachio Japanese pancake
               </h6>
               <button
@@ -1066,10 +1009,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
+              <h6 class="text-lg text-dark font-medium mb-3">
                 Chocolate Japanese Pancake
               </h6>
               <button
@@ -1097,10 +1037,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
+              <h6 class="text-lg text-dark font-medium mb-3">
                 Japanese Pancake
               </h6>
               <button
@@ -1128,10 +1065,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
+              <h6 class="text-lg text-dark font-medium mb-3">
                 Japanese Cheesecake
               </h6>
               <button
@@ -1159,12 +1093,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
-                Kinder cookies
-              </h6>
+              <h6 class="text-lg text-dark font-medium mb-3">Kinder cookies</h6>
               <button
                 onclick="setProductView()"
                 class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
@@ -1190,10 +1119,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
+              <h6 class="text-lg text-dark font-medium mb-3">
                 Brownie Soft Serve
               </h6>
               <button
@@ -1221,12 +1147,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
-                San Sebastián
-              </h6>
+              <h6 class="text-lg text-dark font-medium mb-3">San Sebastián</h6>
               <button
                 onclick="setProductView()"
                 class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
@@ -1252,10 +1173,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
+              <h6 class="text-lg text-dark font-medium mb-3">
                 Cookies Soft Serve
               </h6>
               <button
@@ -1283,12 +1201,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
-                Brownie
-              </h6>
+              <h6 class="text-lg text-dark font-medium mb-3">Brownie</h6>
               <button
                 onclick="setProductView()"
                 class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
@@ -1314,10 +1227,7 @@
         <div class="listing flex flex-col">
           <!-- PRODUCT -->
 
-          <h4
-            x-text="category.titleEn"
-            class="text-[32px] font-semibold text-dark mx-4 pt-4"
-          >
+          <h4 class="text-[32px] font-semibold text-dark mx-4 pt-4">
             Hot Drinks
           </h4>
 
@@ -1325,12 +1235,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
-                Espresso
-              </h6>
+              <h6 class="text-lg text-dark font-medium mb-3">Espresso</h6>
               <button
                 onclick="setProductView()"
                 class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
@@ -1356,12 +1261,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
-                Cortado
-              </h6>
+              <h6 class="text-lg text-dark font-medium mb-3">Cortado</h6>
               <button
                 onclick="setProductView()"
                 class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
@@ -1387,12 +1287,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
-                Macchiato
-              </h6>
+              <h6 class="text-lg text-dark font-medium mb-3">Macchiato</h6>
               <button
                 onclick="setProductView()"
                 class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
@@ -1418,12 +1313,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
-                Americano
-              </h6>
+              <h6 class="text-lg text-dark font-medium mb-3">Americano</h6>
               <button
                 onclick="setProductView()"
                 class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
@@ -1449,12 +1339,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
-                Flatwhite
-              </h6>
+              <h6 class="text-lg text-dark font-medium mb-3">Flatwhite</h6>
               <button
                 onclick="setProductView()"
                 class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
@@ -1480,12 +1365,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
-                Spanish Latte
-              </h6>
+              <h6 class="text-lg text-dark font-medium mb-3">Spanish Latte</h6>
               <button
                 onclick="setProductView()"
                 class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
@@ -1511,12 +1391,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
-                Cappuccino
-              </h6>
+              <h6 class="text-lg text-dark font-medium mb-3">Cappuccino</h6>
               <button
                 onclick="setProductView()"
                 class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
@@ -1542,12 +1417,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
-                Matcha Latte
-              </h6>
+              <h6 class="text-lg text-dark font-medium mb-3">Matcha Latte</h6>
               <button
                 onclick="setProductView()"
                 class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
@@ -1573,12 +1443,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
-                Latte
-              </h6>
+              <h6 class="text-lg text-dark font-medium mb-3">Latte</h6>
               <button
                 onclick="setProductView()"
                 class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
@@ -1604,12 +1469,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
-                White Mocha
-              </h6>
+              <h6 class="text-lg text-dark font-medium mb-3">White Mocha</h6>
               <button
                 onclick="setProductView()"
                 class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
@@ -1635,12 +1495,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
-                Mocha
-              </h6>
+              <h6 class="text-lg text-dark font-medium mb-3">Mocha</h6>
               <button
                 onclick="setProductView()"
                 class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
@@ -1666,12 +1521,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
-                Hot Chocolate
-              </h6>
+              <h6 class="text-lg text-dark font-medium mb-3">Hot Chocolate</h6>
               <button
                 onclick="setProductView()"
                 class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
@@ -1697,10 +1547,7 @@
         <div class="listing flex flex-col">
           <!-- PRODUCT -->
 
-          <h4
-            x-text="category.titleEn"
-            class="text-[32px] font-semibold text-dark mx-4 pt-4"
-          >
+          <h4 class="text-[32px] font-semibold text-dark mx-4 pt-4">
             Iced Tea
           </h4>
 
@@ -1708,12 +1555,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
-                Peach Iced Tea
-              </h6>
+              <h6 class="text-lg text-dark font-medium mb-3">Peach Iced Tea</h6>
               <button
                 onclick="setProductView()"
                 class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
@@ -1739,10 +1581,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
+              <h6 class="text-lg text-dark font-medium mb-3">
                 Mixed Berries Iced Tea
               </h6>
               <button
@@ -1770,10 +1609,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
+              <h6 class="text-lg text-dark font-medium mb-3">
                 Passion Fruit Iced Tea
               </h6>
               <button
@@ -1801,10 +1637,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
+              <h6 class="text-lg text-dark font-medium mb-3">
                 Strawberry Iced Tea
               </h6>
               <button
@@ -1832,10 +1665,7 @@
         <div class="listing flex flex-col">
           <!-- PRODUCT -->
 
-          <h4
-            x-text="category.titleEn"
-            class="text-[32px] font-semibold text-dark mx-4 pt-4"
-          >
+          <h4 class="text-[32px] font-semibold text-dark mx-4 pt-4">
             Brewed Drinks
           </h4>
 
@@ -1843,12 +1673,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
-                Iced V60
-              </h6>
+              <h6 class="text-lg text-dark font-medium mb-3">Iced V60</h6>
               <button
                 onclick="setProductView()"
                 class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
@@ -1874,12 +1699,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
-                Cold Brew
-              </h6>
+              <h6 class="text-lg text-dark font-medium mb-3">Cold Brew</h6>
               <button
                 onclick="setProductView()"
                 class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
@@ -1905,12 +1725,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
-                Chemex
-              </h6>
+              <h6 class="text-lg text-dark font-medium mb-3">Chemex</h6>
               <button
                 onclick="setProductView()"
                 class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
@@ -1936,12 +1751,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
-                V60
-              </h6>
+              <h6 class="text-lg text-dark font-medium mb-3">V60</h6>
               <button
                 onclick="setProductView()"
                 class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
@@ -1967,10 +1777,7 @@
         <div class="listing flex flex-col">
           <!-- PRODUCT -->
 
-          <h4
-            x-text="category.titleEn"
-            class="text-[32px] font-semibold text-dark mx-4 pt-4"
-          >
+          <h4 class="text-[32px] font-semibold text-dark mx-4 pt-4">
             Cold Drinks
           </h4>
 
@@ -1978,12 +1785,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
-                Iced Americano
-              </h6>
+              <h6 class="text-lg text-dark font-medium mb-3">Iced Americano</h6>
               <button
                 onclick="setProductView()"
                 class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
@@ -2009,10 +1811,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
+              <h6 class="text-lg text-dark font-medium mb-3">
                 Iced Spanish Latte
               </h6>
               <button
@@ -2040,12 +1839,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
-                KOHI Latte
-              </h6>
+              <h6 class="text-lg text-dark font-medium mb-3">KOHI Latte</h6>
               <button
                 onclick="setProductView()"
                 class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
@@ -2071,10 +1865,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
+              <h6 class="text-lg text-dark font-medium mb-3">
                 Iced Matcha Latte
               </h6>
               <button
@@ -2102,10 +1893,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
+              <h6 class="text-lg text-dark font-medium mb-3">
                 Caramel ice shaken
               </h6>
               <button
@@ -2133,10 +1921,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
+              <h6 class="text-lg text-dark font-medium mb-3">
                 Iced Pistachio Latte
               </h6>
               <button
@@ -2164,12 +1949,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
-                Iced Latte
-              </h6>
+              <h6 class="text-lg text-dark font-medium mb-3">Iced Latte</h6>
               <button
                 onclick="setProductView()"
                 class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
@@ -2195,10 +1975,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
+              <h6 class="text-lg text-dark font-medium mb-3">
                 Iced Salted Caramel Latte
               </h6>
               <button
@@ -2226,10 +2003,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
+              <h6 class="text-lg text-dark font-medium mb-3">
                 Iced White Mocha
               </h6>
               <button
@@ -2257,12 +2031,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
-                Iced Mocha
-              </h6>
+              <h6 class="text-lg text-dark font-medium mb-3">Iced Mocha</h6>
               <button
                 onclick="setProductView()"
                 class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
@@ -2288,10 +2057,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
+              <h6 class="text-lg text-dark font-medium mb-3">
                 Vanilla Ice Shaken
               </h6>
               <button
@@ -2319,12 +2085,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
-                Iced chocolate
-              </h6>
+              <h6 class="text-lg text-dark font-medium mb-3">Iced chocolate</h6>
               <button
                 onclick="setProductView()"
                 class="border text-dark px-3 min-w-[123px] h-9 max-w-max border-[rgb(224,224,224)] rounded"
@@ -2350,21 +2111,13 @@
         <div class="listing flex flex-col">
           <!-- PRODUCT -->
 
-          <h4
-            x-text="category.titleEn"
-            class="text-[32px] font-semibold text-dark mx-4 pt-4"
-          >
-            Juice
-          </h4>
+          <h4 class="text-[32px] font-semibold text-dark mx-4 pt-4">Juice</h4>
 
           <div
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
+              <h6 class="text-lg text-dark font-medium mb-3">
                 Fresh cocktail Juice
               </h6>
               <button
@@ -2392,10 +2145,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
+              <h6 class="text-lg text-dark font-medium mb-3">
                 Strawberry Juice
               </h6>
               <button
@@ -2423,10 +2173,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
+              <h6 class="text-lg text-dark font-medium mb-3">
                 Fresh Mango Juice
               </h6>
               <button
@@ -2454,10 +2201,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
+              <h6 class="text-lg text-dark font-medium mb-3">
                 Fresh Lime with Mint Juice
               </h6>
               <button
@@ -2485,10 +2229,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
+              <h6 class="text-lg text-dark font-medium mb-3">
                 Fresh Orange Juice
               </h6>
               <button
@@ -2516,10 +2257,7 @@
         <div class="listing flex flex-col">
           <!-- PRODUCT -->
 
-          <h4
-            x-text="category.titleEn"
-            class="text-[32px] font-semibold text-dark mx-4 pt-4"
-          >
+          <h4 class="text-[32px] font-semibold text-dark mx-4 pt-4">
             Gathering
           </h4>
 
@@ -2527,10 +2265,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
+              <h6 class="text-lg text-dark font-medium mb-3">
                 Gathering Box 15 Pcs
               </h6>
               <button
@@ -2558,10 +2293,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
+              <h6 class="text-lg text-dark font-medium mb-3">
                 Gathering Box 12 Pcs
               </h6>
               <button
@@ -2589,10 +2321,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
+              <h6 class="text-lg text-dark font-medium mb-3">
                 Gathering Box 10 Pcs
               </h6>
               <button
@@ -2620,10 +2349,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
+              <h6 class="text-lg text-dark font-medium mb-3">
                 Gathering Box 8 Pcs
               </h6>
               <button
@@ -2651,10 +2377,7 @@
         <div class="listing flex flex-col">
           <!-- PRODUCT -->
 
-          <h4
-            x-text="category.titleEn"
-            class="text-[32px] font-semibold text-dark mx-4 pt-4"
-          >
+          <h4 class="text-[32px] font-semibold text-dark mx-4 pt-4">
             Soft serve
           </h4>
 
@@ -2662,10 +2385,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
+              <h6 class="text-lg text-dark font-medium mb-3">
                 Mango Japanese Waffle soft Serve
               </h6>
               <button
@@ -2693,10 +2413,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
+              <h6 class="text-lg text-dark font-medium mb-3">
                 Vanilla Japanese waffle Soft Serve
               </h6>
               <button
@@ -2724,10 +2441,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
+              <h6 class="text-lg text-dark font-medium mb-3">
                 Mixed Flavor Cup
               </h6>
               <button
@@ -2755,10 +2469,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
+              <h6 class="text-lg text-dark font-medium mb-3">
                 Single Flavor Cup
               </h6>
               <button
@@ -2786,21 +2497,13 @@
         <div class="listing flex flex-col">
           <!-- PRODUCT -->
 
-          <h4
-            x-text="category.titleEn"
-            class="text-[32px] font-semibold text-dark mx-4 pt-4"
-          >
-            Water
-          </h4>
+          <h4 class="text-[32px] font-semibold text-dark mx-4 pt-4">Water</h4>
 
           <div
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
+              <h6 class="text-lg text-dark font-medium mb-3">
                 Mineral water 250 ml
               </h6>
               <button
@@ -2828,10 +2531,7 @@
             class="listing-item flex justify-between p-5 border-b border-[rgb(224,224,224)] cursor-pointer"
           >
             <div class="description flex flex-col justify-between">
-              <h6
-                class="text-lg text-dark font-medium mb-3"
-                x-text="product.titleEn"
-              >
+              <h6 class="text-lg text-dark font-medium mb-3">
                 Sparkling water 250 ml
               </h6>
               <button
@@ -2862,7 +2562,7 @@
           class="sticky bottom-0 bg-white w-full border-t p-4 pb-8 border-[rgb(224,224,224)]"
         >
           <button
-            onclick="setCartMode()"
+            onclick="setCartView()"
             class="flex justify-between items-center bg-purple hover:bg-[#a218b4] text-white py-2 px-4 rounded w-full mt-4 h-12 shadow text-sm font-medium"
           >
             <p>
@@ -2878,48 +2578,40 @@
       </div>
 
       <!-- ORDER MODE -->
-      <div
-        id="OrderCard"
-        class="flex flex-col px-4 astro-KFBZNCLW"
-        data-tab="1"
-      >
+      <div id="OrderCard" class="flex flex-col px-4" data-tab="1">
         <p
-          class="py-4 border-b border-[rgb(224, 224, 224)] text-lg font-medium text-dark astro-KFBZNCLW"
+          class="py-4 border-b border-[rgb(224, 224, 224)] text-lg font-medium text-dark"
         >
           Select Area
         </p>
 
-        <div
-          class="search-group border-b border-[rgb(224, 224, 224)] mt-4 astro-KFBZNCLW"
-        >
-          <div
-            class="bg-[#f5f5f5] flex rounded mb-4 px-3 items-center astro-KFBZNCLW"
-          >
+        <div class="search-group border-b border-[rgb(224, 224, 224)] mt-4">
+          <div class="bg-[#f5f5f5] flex rounded mb-4 px-3 items-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
               height="24"
               viewBox="0 0 24 24"
-              class="astro-KFBZNCLW"
+              class=""
             >
-              <g class="astro-KFBZNCLW">
+              <g class="">
                 <path
                   fill="rgba(0,119,189,0)"
                   d="M0 0H24V24H0z"
-                  class="astro-KFBZNCLW"
+                  class=""
                 ></path>
               </g>
               <path
                 fill="#999"
                 d="M324.111 12.444a5.333 5.333 0 1 0-5.333-5.333 5.349 5.349 0 0 0 5.333 5.333zm5.6-.978l3.022 3.022a.88.88 0 0 1-1.244 1.244l-3.022-3.022a7.005 7.005 0 0 1-4.356 1.511 7.111 7.111 0 1 1 7.111-7.111 6.824 6.824 0 0 1-1.511 4.357z"
                 transform="translate(-313 4)"
-                class="astro-KFBZNCLW"
+                class=""
               ></path>
             </svg>
             <input
               type="text"
               placeholder="Search Cities and Areas"
-              class="outline-none bg-transparent p-3 h-[40px] astro-KFBZNCLW"
+              class="outline-none bg-transparent p-3 h-[40px]"
               id="SearchBox"
             />
           </div>
@@ -2927,17 +2619,15 @@
 
         <!-- CITIES LIST -->
 
-        <div class="cities astro-KFBZNCLW">
-          <div class="city flex flex-col astro-KFBZNCLW" data-collapsed="true">
+        <div class="cities">
+          <div class="city flex flex-col" data-collapsed="true">
             <button
-              class="CityBtn flex py-4 border-b border-[rgb(224, 224, 224)] justify-between cursor-pointer astro-KFBZNCLW"
+              class="CityBtn flex py-4 border-b border-[rgb(224, 224, 224)] justify-between cursor-pointer"
             >
-              <span class="text-black font-semibold astro-KFBZNCLW"
-                >Kuwait City</span
-              >
+              <span class="text-black font-semibold">Kuwait City</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6 transition-transform astro-KFBZNCLW"
+                class="h-6 w-6 transition-transform"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -2947,469 +2637,423 @@
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   d="M19 9l-7 7-7-7"
-                  class="astro-KFBZNCLW"
+                  class=""
                 ></path>
               </svg>
             </button>
 
-            <div
-              class="city-areas astro-KFBZNCLW"
-              data-title="Ministries area "
-            >
+            <div class="city-areas" data-title="Ministries area ">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Ministries area </span>
+                <span class="">Ministries area </span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Port of Shuaiba">
+            <div class="city-areas" data-title="Port of Shuaiba">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Port of Shuaiba</span>
+                <span class="">Port of Shuaiba</span>
               </div>
             </div>
             <div
-              class="city-areas astro-KFBZNCLW"
+              class="city-areas"
               data-title="Jaber Al-Ahmad Armed Forces Hospital"
             >
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW"
-                  >Jaber Al-Ahmad Armed Forces Hospital</span
-                >
+                <span class="">Jaber Al-Ahmad Armed Forces Hospital</span>
               </div>
             </div>
-            <div
-              class="city-areas astro-KFBZNCLW"
-              data-title="Sheikh Saad Airport"
-            >
+            <div class="city-areas" data-title="Sheikh Saad Airport">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Sheikh Saad Airport</span>
+                <span class="">Sheikh Saad Airport</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="West Surra">
+            <div class="city-areas" data-title="West Surra">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">West Surra</span>
+                <span class="">West Surra</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Defense Camp">
+            <div class="city-areas" data-title="Defense Camp">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Defense Camp</span>
+                <span class="">Defense Camp</span>
               </div>
             </div>
-            <div
-              class="city-areas astro-KFBZNCLW"
-              data-title="Abdullah Al Salem"
-            >
+            <div class="city-areas" data-title="Abdullah Al Salem">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Abdullah Al Salem</span>
+                <span class="">Abdullah Al Salem</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Adailiya">
+            <div class="city-areas" data-title="Adailiya">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Adailiya</span>
+                <span class="">Adailiya</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Bneid Al Qar">
+            <div class="city-areas" data-title="Bneid Al Qar">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Bneid Al Qar</span>
+                <span class="">Bneid Al Qar</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Daiya">
+            <div class="city-areas" data-title="Daiya">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Daiya</span>
+                <span class="">Daiya</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Dasma">
+            <div class="city-areas" data-title="Dasma">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Dasma</span>
+                <span class="">Dasma</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Dasman">
+            <div class="city-areas" data-title="Dasman">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Dasman</span>
+                <span class="">Dasman</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Faiha">
+            <div class="city-areas" data-title="Faiha">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Faiha</span>
+                <span class="">Faiha</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Ghornata">
+            <div class="city-areas" data-title="Ghornata">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Ghornata</span>
+                <span class="">Ghornata</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Kaifan">
+            <div class="city-areas" data-title="Kaifan">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Kaifan</span>
+                <span class="">Kaifan</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Khaldiya">
+            <div class="city-areas" data-title="Khaldiya">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Khaldiya</span>
+                <span class="">Khaldiya</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Kuwait City">
+            <div class="city-areas" data-title="Kuwait City">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Kuwait City</span>
+                <span class="">Kuwait City</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Mansouriya">
+            <div class="city-areas" data-title="Mansouriya">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Mansouriya</span>
+                <span class="">Mansouriya</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Mirqab">
+            <div class="city-areas" data-title="Mirqab">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Mirqab</span>
+                <span class="">Mirqab</span>
               </div>
             </div>
-            <div
-              class="city-areas astro-KFBZNCLW"
-              data-title="Mubarakiya Camps"
-            >
+            <div class="city-areas" data-title="Mubarakiya Camps">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Mubarakiya Camps</span>
+                <span class="">Mubarakiya Camps</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Nuzha">
+            <div class="city-areas" data-title="Nuzha">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Nuzha</span>
+                <span class="">Nuzha</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Qadsiya">
+            <div class="city-areas" data-title="Qadsiya">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Qadsiya</span>
+                <span class="">Qadsiya</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Qibla">
+            <div class="city-areas" data-title="Qibla">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Qibla</span>
+                <span class="">Qibla</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Qortuba">
+            <div class="city-areas" data-title="Qortuba">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Qortuba</span>
+                <span class="">Qortuba</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Rawdah">
+            <div class="city-areas" data-title="Rawdah">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Rawdah</span>
+                <span class="">Rawdah</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Salhiya">
+            <div class="city-areas" data-title="Salhiya">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Salhiya</span>
+                <span class="">Salhiya</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Shamiya">
+            <div class="city-areas" data-title="Shamiya">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Shamiya</span>
+                <span class="">Shamiya</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Sharq">
+            <div class="city-areas" data-title="Sharq">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Sharq</span>
+                <span class="">Sharq</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Surra">
+            <div class="city-areas" data-title="Surra">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Surra</span>
+                <span class="">Surra</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Yarmouk">
+            <div class="city-areas" data-title="Yarmouk">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Yarmouk</span>
+                <span class="">Yarmouk</span>
               </div>
             </div>
-            <div
-              class="city-areas astro-KFBZNCLW"
-              data-title="Shuwaikh Administrative"
-            >
+            <div class="city-areas" data-title="Shuwaikh Administrative">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Shuwaikh Administrative</span>
+                <span class="">Shuwaikh Administrative</span>
               </div>
             </div>
-            <div
-              class="city-areas astro-KFBZNCLW"
-              data-title="Shuwaikh Industrial"
-            >
+            <div class="city-areas" data-title="Shuwaikh Industrial">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Shuwaikh Industrial</span>
+                <span class="">Shuwaikh Industrial</span>
               </div>
             </div>
-            <div
-              class="city-areas astro-KFBZNCLW"
-              data-title="Shuwaikh Residential"
-            >
+            <div class="city-areas" data-title="Shuwaikh Residential">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Shuwaikh Residential</span>
+                <span class="">Shuwaikh Residential</span>
               </div>
             </div>
-            <div
-              class="city-areas astro-KFBZNCLW"
-              data-title="Shuwaikh Industrial 1"
-            >
+            <div class="city-areas" data-title="Shuwaikh Industrial 1">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Shuwaikh Industrial 1</span>
+                <span class="">Shuwaikh Industrial 1</span>
               </div>
             </div>
-            <div
-              class="city-areas astro-KFBZNCLW"
-              data-title="Shuwaikh Industrial 2"
-            >
+            <div class="city-areas" data-title="Shuwaikh Industrial 2">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Shuwaikh Industrial 2</span>
+                <span class="">Shuwaikh Industrial 2</span>
               </div>
             </div>
-            <div
-              class="city-areas astro-KFBZNCLW"
-              data-title="Shuwaikh Industrial 3"
-            >
+            <div class="city-areas" data-title="Shuwaikh Industrial 3">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Shuwaikh Industrial 3</span>
+                <span class="">Shuwaikh Industrial 3</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Al Hamra Tower">
+            <div class="city-areas" data-title="Al Hamra Tower">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Al Hamra Tower</span>
+                <span class="">Al Hamra Tower</span>
               </div>
             </div>
-            <div
-              class="city-areas astro-KFBZNCLW"
-              data-title="Shuwaikh Medical"
-            >
+            <div class="city-areas" data-title="Shuwaikh Medical">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Shuwaikh Medical</span>
+                <span class="">Shuwaikh Medical</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Health Region">
+            <div class="city-areas" data-title="Health Region">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Health Region</span>
+                <span class="">Health Region</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Soor Gardens">
+            <div class="city-areas" data-title="Soor Gardens">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Soor Gardens</span>
+                <span class="">Soor Gardens</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Crystal Tower">
+            <div class="city-areas" data-title="Crystal Tower">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Crystal Tower</span>
+                <span class="">Crystal Tower</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Mubarakiya">
+            <div class="city-areas" data-title="Mubarakiya">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Mubarakiya</span>
+                <span class="">Mubarakiya</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Shaab Al Bahri">
+            <div class="city-areas" data-title="Shaab Al Bahri">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Shaab Al Bahri</span>
+                <span class="">Shaab Al Bahri</span>
               </div>
             </div>
-            <div
-              class="city-areas astro-KFBZNCLW"
-              data-title="Al Sabah Hospital"
-            >
+            <div class="city-areas" data-title="Al Sabah Hospital">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Al Sabah Hospital</span>
+                <span class="">Al Sabah Hospital</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Doha">
+            <div class="city-areas" data-title="Doha">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Doha</span>
+                <span class="">Doha</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Sulaibikhat">
+            <div class="city-areas" data-title="Sulaibikhat">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Sulaibikhat</span>
+                <span class="">Sulaibikhat</span>
               </div>
             </div>
-            <div
-              class="city-areas astro-KFBZNCLW"
-              data-title="Kuwait Free Trade Zone"
-            >
+            <div class="city-areas" data-title="Kuwait Free Trade Zone">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Kuwait Free Trade Zone</span>
+                <span class="">Kuwait Free Trade Zone</span>
               </div>
             </div>
-            <div
-              class="city-areas astro-KFBZNCLW"
-              data-title="North West Sulaibikhat"
-            >
+            <div class="city-areas" data-title="North West Sulaibikhat">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">North West Sulaibikhat</span>
+                <span class="">North West Sulaibikhat</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Qairawan">
+            <div class="city-areas" data-title="Qairawan">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Qairawan</span>
+                <span class="">Qairawan</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Jaber Al Ahmad">
+            <div class="city-areas" data-title="Jaber Al Ahmad">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Jaber Al Ahmad</span>
+                <span class="">Jaber Al Ahmad</span>
               </div>
             </div>
           </div>
-          <div class="city flex flex-col astro-KFBZNCLW" data-collapsed="true">
+          <div class="city flex flex-col" data-collapsed="true">
             <button
-              class="CityBtn flex py-4 border-b border-[rgb(224, 224, 224)] justify-between cursor-pointer astro-KFBZNCLW"
+              class="CityBtn flex py-4 border-b border-[rgb(224, 224, 224)] justify-between cursor-pointer"
             >
-              <span class="text-black font-semibold astro-KFBZNCLW"
-                >Hawally</span
-              >
+              <span class="text-black font-semibold">Hawally</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6 transition-transform astro-KFBZNCLW"
+                class="h-6 w-6 transition-transform"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -3419,171 +3063,167 @@
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   d="M19 9l-7 7-7-7"
-                  class="astro-KFBZNCLW"
+                  class=""
                 ></path>
               </svg>
             </button>
 
-            <div class="city-areas astro-KFBZNCLW" data-title="Al Bidae">
+            <div class="city-areas" data-title="Al Bidae">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Al Bidae</span>
+                <span class="">Al Bidae</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Bayan">
+            <div class="city-areas" data-title="Bayan">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Bayan</span>
+                <span class="">Bayan</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Hitteen">
+            <div class="city-areas" data-title="Hitteen">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Hitteen</span>
+                <span class="">Hitteen</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Maidan Hawally">
+            <div class="city-areas" data-title="Maidan Hawally">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Maidan Hawally</span>
+                <span class="">Maidan Hawally</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Mishrif">
+            <div class="city-areas" data-title="Mishrif">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Mishrif</span>
+                <span class="">Mishrif</span>
               </div>
             </div>
             <div
-              class="city-areas astro-KFBZNCLW"
+              class="city-areas"
               data-title="Mubarak Al Abdullah - West Mishref"
             >
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW"
-                  >Mubarak Al Abdullah - West Mishref</span
-                >
+                <span class="">Mubarak Al Abdullah - West Mishref</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Rumaithiya">
+            <div class="city-areas" data-title="Rumaithiya">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Rumaithiya</span>
+                <span class="">Rumaithiya</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Salam">
+            <div class="city-areas" data-title="Salam">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Salam</span>
+                <span class="">Salam</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Salwa">
+            <div class="city-areas" data-title="Salwa">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Salwa</span>
+                <span class="">Salwa</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Shuhada">
+            <div class="city-areas" data-title="Shuhada">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Shuhada</span>
+                <span class="">Shuhada</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Zahra">
+            <div class="city-areas" data-title="Zahra">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Zahra</span>
+                <span class="">Zahra</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Anjafa">
+            <div class="city-areas" data-title="Anjafa">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Anjafa</span>
+                <span class="">Anjafa</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Hawally">
+            <div class="city-areas" data-title="Hawally">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Hawally</span>
+                <span class="">Hawally</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Jabriya">
+            <div class="city-areas" data-title="Jabriya">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Jabriya</span>
+                <span class="">Jabriya</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Salmiya">
+            <div class="city-areas" data-title="Salmiya">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Salmiya</span>
+                <span class="">Salmiya</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Shaab">
+            <div class="city-areas" data-title="Shaab">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Shaab</span>
+                <span class="">Shaab</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Siddiq">
+            <div class="city-areas" data-title="Siddiq">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Siddiq</span>
+                <span class="">Siddiq</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Surra South">
+            <div class="city-areas" data-title="Surra South">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Surra South</span>
+                <span class="">Surra South</span>
               </div>
             </div>
           </div>
-          <div class="city flex flex-col astro-KFBZNCLW" data-collapsed="true">
+          <div class="city flex flex-col" data-collapsed="true">
             <button
-              class="CityBtn flex py-4 border-b border-[rgb(224, 224, 224)] justify-between cursor-pointer astro-KFBZNCLW"
+              class="CityBtn flex py-4 border-b border-[rgb(224, 224, 224)] justify-between cursor-pointer"
             >
-              <span class="text-black font-semibold astro-KFBZNCLW"
-                >Farwaniya</span
-              >
+              <span class="text-black font-semibold">Farwaniya</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6 transition-transform astro-KFBZNCLW"
+                class="h-6 w-6 transition-transform"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -3593,304 +3233,269 @@
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   d="M19 9l-7 7-7-7"
-                  class="astro-KFBZNCLW"
+                  class=""
                 ></path>
               </svg>
             </button>
 
-            <div class="city-areas astro-KFBZNCLW" data-title="Al Dhajeej">
+            <div class="city-areas" data-title="Al Dhajeej">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Al Dhajeej</span>
+                <span class="">Al Dhajeej</span>
               </div>
             </div>
             <div
-              class="city-areas astro-KFBZNCLW"
+              class="city-areas"
               data-title=" Shaikh Saad Alabdullah Terminal"
             >
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">
-                  Shaikh Saad Alabdullah Terminal</span
-                >
+                <span class=""> Shaikh Saad Alabdullah Terminal</span>
               </div>
             </div>
-            <div
-              class="city-areas astro-KFBZNCLW"
-              data-title="Kuwait International Airport"
-            >
+            <div class="city-areas" data-title="Kuwait International Airport">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Kuwait International Airport</span>
+                <span class="">Kuwait International Airport</span>
               </div>
             </div>
             <div
-              class="city-areas astro-KFBZNCLW"
+              class="city-areas"
               data-title="Kuwait International Airport - Terminal 4"
             >
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW"
-                  >Kuwait International Airport - Terminal 4</span
-                >
+                <span class="">Kuwait International Airport - Terminal 4</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Abbasiya">
+            <div class="city-areas" data-title="Abbasiya">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Abbasiya</span>
+                <span class="">Abbasiya</span>
               </div>
             </div>
             <div
-              class="city-areas astro-KFBZNCLW"
+              class="city-areas"
               data-title="Abdullah Al Mubarak - West Jileeb"
             >
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW"
-                  >Abdullah Al Mubarak - West Jileeb</span
-                >
+                <span class="">Abdullah Al Mubarak - West Jileeb</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Abraq Khaitan">
+            <div class="city-areas" data-title="Abraq Khaitan">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Abraq Khaitan</span>
+                <span class="">Abraq Khaitan</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Andalous">
+            <div class="city-areas" data-title="Andalous">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Andalous</span>
+                <span class="">Andalous</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Ardiya">
+            <div class="city-areas" data-title="Ardiya">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Ardiya</span>
+                <span class="">Ardiya</span>
               </div>
             </div>
-            <div
-              class="city-areas astro-KFBZNCLW"
-              data-title="Ardiya Small Industrial"
-            >
+            <div class="city-areas" data-title="Ardiya Small Industrial">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Ardiya Small Industrial</span>
+                <span class="">Ardiya Small Industrial</span>
               </div>
             </div>
-            <div
-              class="city-areas astro-KFBZNCLW"
-              data-title="Ardiya Storage Zone"
-            >
+            <div class="city-areas" data-title="Ardiya Storage Zone">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Ardiya Storage Zone</span>
+                <span class="">Ardiya Storage Zone</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Ishbiliya">
+            <div class="city-areas" data-title="Ishbiliya">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Ishbiliya</span>
+                <span class="">Ishbiliya</span>
               </div>
             </div>
-            <div
-              class="city-areas astro-KFBZNCLW"
-              data-title="South Khaitan - Exhibits"
-            >
+            <div class="city-areas" data-title="South Khaitan - Exhibits">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">South Khaitan - Exhibits</span>
+                <span class="">South Khaitan - Exhibits</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Farwaniya">
+            <div class="city-areas" data-title="Farwaniya">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Farwaniya</span>
+                <span class="">Farwaniya</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Ferdous">
+            <div class="city-areas" data-title="Ferdous">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Ferdous</span>
+                <span class="">Ferdous</span>
               </div>
             </div>
-            <div
-              class="city-areas astro-KFBZNCLW"
-              data-title="Jeleeb Al Shoyoukh"
-            >
+            <div class="city-areas" data-title="Jeleeb Al Shoyoukh">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Jeleeb Al Shoyoukh</span>
+                <span class="">Jeleeb Al Shoyoukh</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Khaitan">
+            <div class="city-areas" data-title="Khaitan">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Khaitan</span>
+                <span class="">Khaitan</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Omariya">
+            <div class="city-areas" data-title="Omariya">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Omariya</span>
+                <span class="">Omariya</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Rabiya">
+            <div class="city-areas" data-title="Rabiya">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Rabiya</span>
+                <span class="">Rabiya</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Rai">
+            <div class="city-areas" data-title="Rai">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Rai</span>
+                <span class="">Rai</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Reggai">
+            <div class="city-areas" data-title="Reggai">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Reggai</span>
+                <span class="">Reggai</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Rehab">
+            <div class="city-areas" data-title="Rehab">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Rehab</span>
+                <span class="">Rehab</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Sabah Al Nasser">
+            <div class="city-areas" data-title="Sabah Al Nasser">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Sabah Al Nasser</span>
+                <span class="">Sabah Al Nasser</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Al Shadadiya">
+            <div class="city-areas" data-title="Al Shadadiya">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Al Shadadiya</span>
+                <span class="">Al Shadadiya</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Ardiya (4)">
+            <div class="city-areas" data-title="Ardiya (4)">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Ardiya (4)</span>
+                <span class="">Ardiya (4)</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Ardiya (6)">
+            <div class="city-areas" data-title="Ardiya (6)">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Ardiya (6)</span>
+                <span class="">Ardiya (6)</span>
               </div>
             </div>
-            <div
-              class="city-areas astro-KFBZNCLW"
-              data-title="Abdullah Al-Mubarak Al Sabah"
-            >
+            <div class="city-areas" data-title="Abdullah Al-Mubarak Al Sabah">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Abdullah Al-Mubarak Al Sabah</span>
+                <span class="">Abdullah Al-Mubarak Al Sabah</span>
               </div>
             </div>
-            <div
-              class="city-areas astro-KFBZNCLW"
-              data-title="Western Abdullah Al-Mubarak"
-            >
+            <div class="city-areas" data-title="Western Abdullah Al-Mubarak">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Western Abdullah Al-Mubarak</span>
+                <span class="">Western Abdullah Al-Mubarak</span>
               </div>
             </div>
-            <div
-              class="city-areas astro-KFBZNCLW"
-              data-title="South Abdullah Al-Mubarak"
-            >
+            <div class="city-areas" data-title="South Abdullah Al-Mubarak">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">South Abdullah Al-Mubarak</span>
+                <span class="">South Abdullah Al-Mubarak</span>
               </div>
             </div>
-            <div
-              class="city-areas astro-KFBZNCLW"
-              data-title="Sabah Al Salem University"
-            >
+            <div class="city-areas" data-title="Sabah Al Salem University">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Sabah Al Salem University</span>
+                <span class="">Sabah Al Salem University</span>
               </div>
             </div>
           </div>
-          <div class="city flex flex-col astro-KFBZNCLW" data-collapsed="true">
+          <div class="city flex flex-col" data-collapsed="true">
             <button
-              class="CityBtn flex py-4 border-b border-[rgb(224, 224, 224)] justify-between cursor-pointer astro-KFBZNCLW"
+              class="CityBtn flex py-4 border-b border-[rgb(224, 224, 224)] justify-between cursor-pointer"
             >
-              <span class="text-black font-semibold astro-KFBZNCLW"
-                >Ahmadi</span
-              >
+              <span class="text-black font-semibold">Ahmadi</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6 transition-transform astro-KFBZNCLW"
+                class="h-6 w-6 transition-transform"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -3900,344 +3505,327 @@
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   d="M19 9l-7 7-7-7"
-                  class="astro-KFBZNCLW"
+                  class=""
                 ></path>
               </svg>
             </button>
 
-            <div class="city-areas astro-KFBZNCLW" data-title="Abu Halifa">
+            <div class="city-areas" data-title="Abu Halifa">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Abu Halifa</span>
+                <span class="">Abu Halifa</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Al Ahmadi">
+            <div class="city-areas" data-title="Al Ahmadi">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Al Ahmadi</span>
+                <span class="">Al Ahmadi</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Dhaher">
+            <div class="city-areas" data-title="Dhaher">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Dhaher</span>
+                <span class="">Dhaher</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="East Al Ahmadi">
+            <div class="city-areas" data-title="East Al Ahmadi">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">East Al Ahmadi</span>
+                <span class="">East Al Ahmadi</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Egaila">
+            <div class="city-areas" data-title="Egaila">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Egaila</span>
+                <span class="">Egaila</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Fahad Al Ahmed">
+            <div class="city-areas" data-title="Fahad Al Ahmed">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Fahad Al Ahmed</span>
+                <span class="">Fahad Al Ahmed</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Fahaheel">
+            <div class="city-areas" data-title="Fahaheel">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Fahaheel</span>
+                <span class="">Fahaheel</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Fintas">
+            <div class="city-areas" data-title="Fintas">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Fintas</span>
+                <span class="">Fintas</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Hadiya">
+            <div class="city-areas" data-title="Hadiya">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Hadiya</span>
+                <span class="">Hadiya</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Jaber Al Ali">
+            <div class="city-areas" data-title="Jaber Al Ali">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Jaber Al Ali</span>
+                <span class="">Jaber Al Ali</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Magwa">
+            <div class="city-areas" data-title="Magwa">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Magwa</span>
+                <span class="">Magwa</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Mahboula">
+            <div class="city-areas" data-title="Mahboula">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Mahboula</span>
+                <span class="">Mahboula</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Mangaf">
+            <div class="city-areas" data-title="Mangaf">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Mangaf</span>
+                <span class="">Mangaf</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Mina Al Ahmadi">
+            <div class="city-areas" data-title="Mina Al Ahmadi">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Mina Al Ahmadi</span>
+                <span class="">Mina Al Ahmadi</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Riqqa">
+            <div class="city-areas" data-title="Riqqa">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Riqqa</span>
+                <span class="">Riqqa</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Al Sabahiya">
+            <div class="city-areas" data-title="Al Sabahiya">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Al Sabahiya</span>
+                <span class="">Al Sabahiya</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Shuaiba Block 1">
+            <div class="city-areas" data-title="Shuaiba Block 1">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Shuaiba Block 1</span>
+                <span class="">Shuaiba Block 1</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="West Ahmadi">
+            <div class="city-areas" data-title="West Ahmadi">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">West Ahmadi</span>
+                <span class="">West Ahmadi</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="North Ahmadi ">
+            <div class="city-areas" data-title="North Ahmadi ">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">North Ahmadi </span>
+                <span class="">North Ahmadi </span>
               </div>
             </div>
-            <div
-              class="city-areas astro-KFBZNCLW"
-              data-title="Middle of Ahmadi"
-            >
+            <div class="city-areas" data-title="Middle of Ahmadi">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Middle of Ahmadi</span>
+                <span class="">Middle of Ahmadi</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="South Al Ahmadi">
+            <div class="city-areas" data-title="South Al Ahmadi">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">South Al Ahmadi</span>
+                <span class="">South Al Ahmadi</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="South Sabahiya">
+            <div class="city-areas" data-title="South Sabahiya">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">South Sabahiya</span>
+                <span class="">South Sabahiya</span>
               </div>
             </div>
             <div
-              class="city-areas astro-KFBZNCLW"
+              class="city-areas"
               data-title="Ali Sabah Al-Salem - Umm Al Hayman"
             >
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW"
-                  >Ali Sabah Al-Salem - Umm Al Hayman</span
-                >
+                <span class="">Ali Sabah Al-Salem - Umm Al Hayman</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Mina Abdullah">
+            <div class="city-areas" data-title="Mina Abdullah">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Mina Abdullah</span>
+                <span class="">Mina Abdullah</span>
               </div>
             </div>
-            <div
-              class="city-areas astro-KFBZNCLW"
-              data-title="West Industrial Shuaiba"
-            >
+            <div class="city-areas" data-title="West Industrial Shuaiba">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">West Industrial Shuaiba</span>
+                <span class="">West Industrial Shuaiba</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Ahmadi Stables ">
+            <div class="city-areas" data-title="Ahmadi Stables ">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Ahmadi Stables </span>
+                <span class="">Ahmadi Stables </span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="East Al-Maqwa">
+            <div class="city-areas" data-title="East Al-Maqwa">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">East Al-Maqwa</span>
+                <span class="">East Al-Maqwa</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Al Duba'iya">
+            <div class="city-areas" data-title="Al Duba'iya">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Al Duba&#39;iya</span>
+                <span class="">Al Duba&#39;iya</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Al Julai'a">
+            <div class="city-areas" data-title="Al Julai'a">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Al Julai&#39;a</span>
+                <span class="">Al Julai&#39;a</span>
               </div>
             </div>
-            <div
-              class="city-areas astro-KFBZNCLW"
-              data-title="Sabah Al Ahmed Residential"
-            >
+            <div class="city-areas" data-title="Sabah Al Ahmed Residential">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Sabah Al Ahmed Residential</span>
+                <span class="">Sabah Al Ahmed Residential</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Khairan">
+            <div class="city-areas" data-title="Khairan">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Khairan</span>
+                <span class="">Khairan</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Wafra Farms">
+            <div class="city-areas" data-title="Wafra Farms">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Wafra Farms</span>
+                <span class="">Wafra Farms</span>
               </div>
             </div>
-            <div
-              class="city-areas astro-KFBZNCLW"
-              data-title="Wafra Residential"
-            >
+            <div class="city-areas" data-title="Wafra Residential">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Wafra Residential</span>
+                <span class="">Wafra Residential</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Bnaider">
+            <div class="city-areas" data-title="Bnaider">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Bnaider</span>
+                <span class="">Bnaider</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Al Zour">
+            <div class="city-areas" data-title="Al Zour">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Al Zour</span>
+                <span class="">Al Zour</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Wara">
+            <div class="city-areas" data-title="Wara">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Wara</span>
+                <span class="">Wara</span>
               </div>
             </div>
-            <div
-              class="city-areas astro-KFBZNCLW"
-              data-title="Khairan residential"
-            >
+            <div class="city-areas" data-title="Khairan residential">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Khairan residential</span>
+                <span class="">Khairan residential</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Mina Alzour">
+            <div class="city-areas" data-title="Mina Alzour">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Mina Alzour</span>
+                <span class="">Mina Alzour</span>
               </div>
             </div>
           </div>
-          <div class="city flex flex-col astro-KFBZNCLW" data-collapsed="true">
+          <div class="city flex flex-col" data-collapsed="true">
             <button
-              class="CityBtn flex py-4 border-b border-[rgb(224, 224, 224)] justify-between cursor-pointer astro-KFBZNCLW"
+              class="CityBtn flex py-4 border-b border-[rgb(224, 224, 224)] justify-between cursor-pointer"
             >
-              <span class="text-black font-semibold astro-KFBZNCLW">Jahra</span>
+              <span class="text-black font-semibold">Jahra</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6 transition-transform astro-KFBZNCLW"
+                class="h-6 w-6 transition-transform"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -4247,192 +3835,172 @@
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   d="M19 9l-7 7-7-7"
-                  class="astro-KFBZNCLW"
+                  class=""
                 ></path>
               </svg>
             </button>
 
-            <div
-              class="city-areas astro-KFBZNCLW"
-              data-title="Sulaibiya Industrial 2"
-            >
+            <div class="city-areas" data-title="Sulaibiya Industrial 2">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Sulaibiya Industrial 2</span>
+                <span class="">Sulaibiya Industrial 2</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Nahda">
+            <div class="city-areas" data-title="Nahda">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Nahda</span>
+                <span class="">Nahda</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Qairawan ">
+            <div class="city-areas" data-title="Qairawan ">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Qairawan </span>
+                <span class="">Qairawan </span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Sulaibiya">
+            <div class="city-areas" data-title="Sulaibiya">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Sulaibiya</span>
+                <span class="">Sulaibiya</span>
               </div>
             </div>
-            <div
-              class="city-areas astro-KFBZNCLW"
-              data-title="Sulaibiya Industrial 1"
-            >
+            <div class="city-areas" data-title="Sulaibiya Industrial 1">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Sulaibiya Industrial 1</span>
+                <span class="">Sulaibiya Industrial 1</span>
               </div>
             </div>
-            <div
-              class="city-areas astro-KFBZNCLW"
-              data-title="Sulaibiya Residential"
-            >
+            <div class="city-areas" data-title="Sulaibiya Residential">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Sulaibiya Residential</span>
+                <span class="">Sulaibiya Residential</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Al Naeem">
+            <div class="city-areas" data-title="Al Naeem">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Al Naeem</span>
+                <span class="">Al Naeem</span>
               </div>
             </div>
-            <div
-              class="city-areas astro-KFBZNCLW"
-              data-title="Amgarah Industrial"
-            >
+            <div class="city-areas" data-title="Amgarah Industrial">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Amgarah Industrial</span>
+                <span class="">Amgarah Industrial</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Jahrah">
+            <div class="city-areas" data-title="Jahrah">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Jahrah</span>
+                <span class="">Jahrah</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Kabd">
+            <div class="city-areas" data-title="Kabd">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Kabd</span>
+                <span class="">Kabd</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Nasseem">
+            <div class="city-areas" data-title="Nasseem">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Nasseem</span>
+                <span class="">Nasseem</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Qasser">
+            <div class="city-areas" data-title="Qasser">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Qasser</span>
+                <span class="">Qasser</span>
               </div>
             </div>
-            <div
-              class="city-areas astro-KFBZNCLW"
-              data-title="Saad Al Abdullah"
-            >
+            <div class="city-areas" data-title="Saad Al Abdullah">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Saad Al Abdullah</span>
+                <span class="">Saad Al Abdullah</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Taima">
+            <div class="city-areas" data-title="Taima">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Taima</span>
+                <span class="">Taima</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Old Jahra">
+            <div class="city-areas" data-title="Old Jahra">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Old Jahra</span>
+                <span class="">Old Jahra</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Sharq Taimaa">
+            <div class="city-areas" data-title="Sharq Taimaa">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Sharq Taimaa</span>
+                <span class="">Sharq Taimaa</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Oyoun">
+            <div class="city-areas" data-title="Oyoun">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Oyoun</span>
+                <span class="">Oyoun</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Waha">
+            <div class="city-areas" data-title="Waha">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Waha</span>
+                <span class="">Waha</span>
               </div>
             </div>
-            <div
-              class="city-areas astro-KFBZNCLW"
-              data-title="Al Jahra Industrial Area "
-            >
+            <div class="city-areas" data-title="Al Jahra Industrial Area ">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Al Jahra Industrial Area </span>
+                <span class="">Al Jahra Industrial Area </span>
               </div>
             </div>
           </div>
-          <div class="city flex flex-col astro-KFBZNCLW" data-collapsed="true">
+          <div class="city flex flex-col" data-collapsed="true">
             <button
-              class="CityBtn flex py-4 border-b border-[rgb(224, 224, 224)] justify-between cursor-pointer astro-KFBZNCLW"
+              class="CityBtn flex py-4 border-b border-[rgb(224, 224, 224)] justify-between cursor-pointer"
             >
-              <span class="text-black font-semibold astro-KFBZNCLW"
-                >Mubarak Al Kabir</span
-              >
+              <span class="text-black font-semibold">Mubarak Al Kabir</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6 transition-transform astro-KFBZNCLW"
+                class="h-6 w-6 transition-transform"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -4442,159 +4010,148 @@
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   d="M19 9l-7 7-7-7"
-                  class="astro-KFBZNCLW"
+                  class=""
                 ></path>
               </svg>
             </button>
 
-            <div class="city-areas astro-KFBZNCLW" data-title="Abu Fatira">
+            <div class="city-areas" data-title="Abu Fatira">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Abu Fatira</span>
+                <span class="">Abu Fatira</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Abu Al Hasaniya">
+            <div class="city-areas" data-title="Abu Al Hasaniya">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Abu Al Hasaniya</span>
+                <span class="">Abu Al Hasaniya</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Adan">
+            <div class="city-areas" data-title="Adan">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Adan</span>
+                <span class="">Adan</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Al Masayel">
+            <div class="city-areas" data-title="Al Masayel">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Al Masayel</span>
+                <span class="">Al Masayel</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Al Qurain">
+            <div class="city-areas" data-title="Al Qurain">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Al Qurain</span>
+                <span class="">Al Qurain</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Al Qusour">
+            <div class="city-areas" data-title="Al Qusour">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Al Qusour</span>
+                <span class="">Al Qusour</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Coast Strip B">
+            <div class="city-areas" data-title="Coast Strip B">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Coast Strip B</span>
+                <span class="">Coast Strip B</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="ِAl Funaitees">
+            <div class="city-areas" data-title="ِAl Funaitees">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">ِAl Funaitees</span>
+                <span class="">ِAl Funaitees</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Messila">
+            <div class="city-areas" data-title="Messila">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Messila</span>
+                <span class="">Messila</span>
               </div>
             </div>
-            <div
-              class="city-areas astro-KFBZNCLW"
-              data-title="Mubarak Al Kabeer"
-            >
+            <div class="city-areas" data-title="Mubarak Al Kabeer">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Mubarak Al Kabeer</span>
+                <span class="">Mubarak Al Kabeer</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Sabah Al Salem">
+            <div class="city-areas" data-title="Sabah Al Salem">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Sabah Al Salem</span>
+                <span class="">Sabah Al Salem</span>
               </div>
             </div>
-            <div
-              class="city-areas astro-KFBZNCLW"
-              data-title="Sabhan Industrial"
-            >
+            <div class="city-areas" data-title="Sabhan Industrial">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Sabhan Industrial</span>
+                <span class="">Sabhan Industrial</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="South Wista">
+            <div class="city-areas" data-title="South Wista">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">South Wista</span>
+                <span class="">South Wista</span>
               </div>
             </div>
-            <div
-              class="city-areas astro-KFBZNCLW"
-              data-title="West Abu Fatira Industrial"
-            >
+            <div class="city-areas" data-title="West Abu Fatira Industrial">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">West Abu Fatira Industrial</span>
+                <span class="">West Abu Fatira Industrial</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Wista">
+            <div class="city-areas" data-title="Wista">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Wista</span>
+                <span class="">Wista</span>
               </div>
             </div>
-            <div class="city-areas astro-KFBZNCLW" data-title="Aswaq Al Qurain">
+            <div class="city-areas" data-title="Aswaq Al Qurain">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Aswaq Al Qurain</span>
+                <span class="">Aswaq Al Qurain</span>
               </div>
             </div>
           </div>
-          <div class="city flex flex-col astro-KFBZNCLW" data-collapsed="true">
+          <div class="city flex flex-col" data-collapsed="true">
             <button
-              class="CityBtn flex py-4 border-b border-[rgb(224, 224, 224)] justify-between cursor-pointer astro-KFBZNCLW"
+              class="CityBtn flex py-4 border-b border-[rgb(224, 224, 224)] justify-between cursor-pointer"
             >
-              <span class="text-black font-semibold astro-KFBZNCLW"
-                >Mina Abd Allah</span
-              >
+              <span class="text-black font-semibold">Mina Abd Allah</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6 transition-transform astro-KFBZNCLW"
+                class="h-6 w-6 transition-transform"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -4604,20 +4161,17 @@
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   d="M19 9l-7 7-7-7"
-                  class="astro-KFBZNCLW"
+                  class=""
                 ></path>
               </svg>
             </button>
 
-            <div
-              class="city-areas astro-KFBZNCLW"
-              data-title="Mina Abdullah Refinery"
-            >
+            <div class="city-areas" data-title="Mina Abdullah Refinery">
               <div
                 id="CityArea"
-                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark astro-KFBZNCLW"
+                class="city-area cursor-pointer py-4 border-b border-[rgb(224, 224, 224)] text-dark"
               >
-                <span class="astro-KFBZNCLW">Mina Abdullah Refinery</span>
+                <span class="">Mina Abdullah Refinery</span>
               </div>
             </div>
           </div>
@@ -4625,23 +4179,21 @@
 
         <!-- PICKUP -->
         <div
-          class="pick-up mt-4 flex justify-between items-center cursor-pointer astro-KFBZNCLW"
+          class="pick-up mt-4 flex justify-between items-center cursor-pointer"
         >
-          <div class="flex flex-col astro-KFBZNCLW">
-            <p class="font-bold text-dark astro-KFBZNCLW">Egaila</p>
-            <p class="mt-1 text-[rgb(97,97,97)] astro-KFBZNCLW">
-              Aldurra Mall , uqaila
-            </p>
+          <div class="flex flex-col">
+            <p class="font-bold text-dark">Egaila</p>
+            <p class="mt-1 text-[rgb(97,97,97)]">Aldurra Mall , uqaila</p>
           </div>
 
-          <button class="astro-KFBZNCLW">
+          <button class="">
             <svg
               width="20"
               height="20"
               viewBox="0 0 20 20"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              class="astro-KFBZNCLW"
+              class=""
             >
               <path
                 fill-rule="evenodd"
@@ -4649,7 +4201,7 @@
                 d="M7.9415 4.55859L13.3834 10.0005L7.9415 15.4425L7.05762 14.5586L11.6157 10.0005L7.05762 5.44248L7.9415 4.55859Z"
                 fill="#1F1F1F"
                 fill-opacity="0.75"
-                class="astro-KFBZNCLW"
+                class=""
               ></path>
             </svg>
           </button>
@@ -4660,7 +4212,7 @@
     <!-- MAIN -->
     <main
       class="lg:min-h-full relative flex-1 flex flex-col justify-center items-center bg-cover bg-center"
-      style="background-image: url('/images/productsFallback.svg')"
+      style="background-image: url('/public/images/productsFallback.svg')"
     >
       <!-- x-bind:class="viewProduct != null && 'hidden' " -->
       <div
