@@ -4,15 +4,44 @@ const citiesContainer = document.querySelectorAll(".city");
 const cityBtns = document.querySelectorAll(".CityBtn");
 const validCityAreas = document.querySelectorAll(".city-areas");
 
+//HORIZONTAL NAVIGATION LINKS TOGGLE
+
+const links = document.querySelectorAll(".hash-slide-link");
+
+function resetLinks() {
+  links.forEach((link) => link.setAttribute("data-active", "false"));
+}
+
+links.forEach((link) => {
+  link.addEventListener("click", () => {
+    resetLinks();
+    const isActive = link.getAttribute("data-active") === "true";
+    link.setAttribute("data-active", isActive ? "false" : "true");
+  });
+});
+
 // OBSERVER
 
 const observer = new IntersectionObserver(
   (entries, observer) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        window.location.hash = entry.target.children[0].innerText
+        //if isIntersecting
+        //get hash
+        const curentHash = entry.target.children[0].innerText
           .split(" ")
           .join("");
+
+        //set hash
+        window.location.hash = curentHash;
+
+        //reset active links
+        resetLinks();
+
+        //set to current
+        document
+          .querySelector(`a[href='#${curentHash}']`)
+          .setAttribute("data-active", "true");
       }
     });
   },
@@ -48,22 +77,6 @@ function setDeliveryView() {
   aside?.setAttribute("data-mode", "DELIVERY");
   OrderCard?.setAttribute("data-tabs", "1");
 }
-
-//HORIZONTAL NAVIGATION LINKS TOGGLE
-
-const links = document.querySelectorAll(".hash-slide-link");
-
-function resetLinks() {
-  links.forEach((link) => link.setAttribute("data-active", "false"));
-}
-
-links.forEach((link) => {
-  link.addEventListener("click", () => {
-    resetLinks();
-    const isActive = link.getAttribute("data-active") === "true";
-    link.setAttribute("data-active", isActive ? "false" : "true");
-  });
-});
 
 //SELECT AREA
 
