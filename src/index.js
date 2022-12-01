@@ -51,9 +51,9 @@ const observer = new IntersectionObserver(
   }
 );
 
-document
-  .querySelectorAll(".listing")
-  .forEach((product) => observer.observe(product));
+document.querySelectorAll(".listing").forEach((product) => {
+  observer.observe(product);
+});
 
 // OBSERVER END
 
